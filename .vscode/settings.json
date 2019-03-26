@@ -1,0 +1,14 @@
+{
+    "eslint.enable": true,
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "indentRainbow.indentSetter": {
+        "javascript": {
+            "tabSize": 4,
+            "insertSpaces": true
+        }
+    },
+    "javascript.autoClosingTags": true,
+    "javascript.format.enable": true
+}

@@ -1,0 +1,45 @@
+.App-logo {
+    /* animation: App-logo-spin infinite 20s linear; */
+    height: 25px;
+    padding-left: 5px;
+    pointer-events: none;
+}
+
+.App-header {
+    background-color: #282c34;
+    color: white;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: inline;
+    text-align: start;
+}
+.navBarTitle {
+    padding: 0 20px 0 20px; 
+}
+
+.navBarLinks {
+    float: right;
+    padding: 0 20px 0 20px;
+}
+.navBarLinkList{
+    list-style: none;
+    display: inline-flex;
+}
+#homeLink, #loginLink, #detailsLink{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
