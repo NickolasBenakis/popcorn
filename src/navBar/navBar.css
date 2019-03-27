@@ -1,7 +1,7 @@
 .App-logo {
     /* animation: App-logo-spin infinite 20s linear; */
     height: 25px;
-    padding-left: 5px;
+    padding-left: 20px;
     pointer-events: none;
 }
 
@@ -43,3 +43,11 @@
         transform: rotate(360deg);
     }
 }
+
+/* @media (max-width 600px) {
+    .App-logo {
+        height: 25px;
+        padding-left: 5px;
+        pointer-events: none;
+    }
+} */
