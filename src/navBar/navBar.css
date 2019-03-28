@@ -16,17 +16,20 @@
     display: inline;
     text-align: start;
 }
-.navBarTitle {
-    padding: 0 20px 0 20px; 
+#navBarTitle {
+    padding: 0 20px 0 0;
+    font-size: larger;
+    display: inline-flex;
 }
 
 .navBarLinks {
     float: right;
-    padding: 0 20px 0 20px;
+    padding-right: 20px;
 }
 .navBarLinkList{
     list-style: none;
     display: inline-flex;
+    font-size: larger;
 }
 #homeLink, #loginLink, #detailsLink{
     margin-right: 5px;

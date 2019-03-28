@@ -8,8 +8,7 @@ export default class navBar extends Component {
         return (
             <header className="App-header">
                 <img src={popCornLogo} className="App-logo" alt="logo" />
-                <span><p style={{ display: "inline-flex" }}>popcorn</p></span>
-
+                <span><p id="navBarTitle">popcorn</p></span>
                 <div className="navBarLinks">
                     <ul className="navBarLinkList">
                         <li id="homeLink">Home</li>
