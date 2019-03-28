@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import popCornLogo from '../logos/popCorn.png';
-import './navBar.css';
+import './navBar.scss';
 
 export default class navBar extends Component {
     render() {
@@ -19,4 +19,4 @@ export default class navBar extends Component {
             </header>
         )
     }
-}
+}   

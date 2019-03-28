@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import NavBar from './navBar/navBar';
 import logo from './logo.svg';
 export default class App extends Component {
