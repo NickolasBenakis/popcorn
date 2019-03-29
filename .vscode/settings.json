@@ -9,6 +9,6 @@
             "insertSpaces": true
         }
     },
-    "javascript.autoClosingTags": true,
+    "javascript.autoClosingTags": false,
     "javascript.format.enable": true
 }

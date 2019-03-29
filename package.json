@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "react": "^16.8.5",
+    "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.5",
     "react-scripts": "2.1.8"
   },
@@ -23,6 +25,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.11.0"
+    "jquery": "^3.3.1",
+    "node-sass": "^4.11.0",
+    "popper.js": "^1.14.7",
+    "typescript": "^3.3.4000"
   }
 }
