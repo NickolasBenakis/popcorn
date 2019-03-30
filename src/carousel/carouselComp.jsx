@@ -11,7 +11,7 @@ export default class CarouselComp extends PureComponent {
     render() {
         return (
             <div>
-                <Carousel className="mainCarousel">
+                <Carousel className="mainCarousel" interval="3000">
                     <Carousel.Item>
                         <img
                             className="d-block w-100 responsive"
@@ -20,8 +20,8 @@ export default class CarouselComp extends PureComponent {
 
                         />
                         <Carousel.Caption>
-                            <h3>Captain Marvel</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            {/* <h3>Captain Marvel</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -29,10 +29,11 @@ export default class CarouselComp extends PureComponent {
                             className="d-block w-100 responsive"
                             src="https://hdqwalls.com/download/toothless-how-to-train-your-dragon-n8-1920x1080.jpg"
                             alt="Third slide"
+
                         />
                         <Carousel.Caption>
-                            <h3>How to train your Dragon</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            {/* <h3>How to train your Dragon</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -40,10 +41,11 @@ export default class CarouselComp extends PureComponent {
                             className="d-block w-100 responsive"
                             src="https://i1.imgiz.com/rshots/9469/panic-at-the-disco-bohemian-rhapsody_9469069-60110_1920x1080.jpg"
                             alt="Third slide"
+
                         />
                         <Carousel.Caption>
-                            <h3>Bohemian Rhapsody</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            {/* <h3>Bohemian Rhapsody</h3>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
