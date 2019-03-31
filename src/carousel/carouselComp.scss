@@ -1,11 +1,15 @@
 .mainCarousel{
     margin-top: 62px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 20px;
 }
 
 
 .responsive {
     width: 100%;
     height: auto;
+    max-height: 650px;
     }
 
     @media screen 
@@ -21,5 +25,7 @@
     and (max-device-width: 1600px) 
     and (-webkit-min-device-pixel-ratio: 2)
     and (min-resolution: 192dpi) { 
+
+
 
 }
