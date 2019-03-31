@@ -51,10 +51,25 @@
     }
 }
 
-/* @media (max-width 600px) {
+
+@media (max-width: 600px) {
+
+    .navBarLinkList{
+        list-style: none;
+        display: inline-flex;
+        font-size: larger;
+        padding-right: 20px;
+    }
+
     .App-logo {
         height: 25px;
-        padding-left: 5px;
+        padding-left: 20px;
         pointer-events: none;
     }
-} */
+
+    
+    
+
+
+} 
+

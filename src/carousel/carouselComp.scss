@@ -26,6 +26,18 @@
     and (-webkit-min-device-pixel-ratio: 2)
     and (min-resolution: 192dpi) { 
 
-
-
 }
+
+@media (max-width: 600px) {
+
+    .responsive {
+        max-height: none;
+        }
+    
+    .mainCarousel{
+        margin-left: 0;
+        margin-right: 0;
+        }
+        
+
+} 
