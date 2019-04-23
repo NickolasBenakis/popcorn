@@ -7,7 +7,7 @@ export default class MoviesCard extends Component {
     render() {
         return (
             <div style={{ padding: "20px" }}>
-                <Card className="test" style={{ width: '18rem', margin: "20px" }}>
+                <Card className="test">
                     <Card.Img className="card-img" variant="top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/CaptainMarvel18.jpg/175px-CaptainMarvel18.jpg" />
                     <Card.Body>
                         <Card.Title>Card Title</Card.Title>

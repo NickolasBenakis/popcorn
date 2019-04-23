@@ -1,7 +1,10 @@
+.test {
+    width: '18rem';
+    margin: "20px";
 
-
-.test:hover{
-    opacity: 0.9;
-    transform: scale(1.1);
-    cursor: pointer;
+    :hover {
+        opacity: 0.9;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
 }
