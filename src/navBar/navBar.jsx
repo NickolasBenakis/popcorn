@@ -3,43 +3,46 @@ import React, { Component } from 'react'
 import popCornLogo from '../logos/popCorn.png';
 import './navBar.scss';
 import LoginModal from '../loginModal/loginModal';
-import { Modal } from 'antd';
+import { Modal, Button } from 'react-bootstrap';
 
 
 export default class navBar extends Component {
 
-    state = { visible: false }
+    constructor(props, context) {
+        super(props, context);
 
-    showModal = () => {
-        this.setState({
-            visible: true,
-        });
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+
+        this.state = {
+            show: false,
+        };
     }
 
-    handleOk = (e) => {
-        console.log(e);
-        this.setState({
-            visible: false,
-        });
+    handleClose() {
+        this.setState({ show: false });
     }
 
-    handleCancel = (e) => {
-        console.log(e);
-        this.setState({
-            visible: false,
-        });
+    handleShow() {
+        this.setState({ show: true });
     }
 
     render() {
         return (
             <div>
-                <Modal
-                    title="Basic Modal"
-                    visible={this.state.visible}
-                    onOk={this.handleOk}
-                    onCancel={this.handleCancel}
-                >
-                    <LoginModal />
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Sign in</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body><LoginModal /></Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={this.handleClose}>
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
                 </Modal>
                 <header className="App-header">
                     <img src={popCornLogo} className="App-logo" alt="logo" />
@@ -47,7 +50,7 @@ export default class navBar extends Component {
                     <div className="navBarLinks">
                         <ul className="navBarLinkList">
                             <li id="homeLink">Home</li>
-                            <li id="loginLink" onClick={this.showModal}>Login</li>
+                            <li id="loginLink" onClick={this.handleShow}>Login</li>
                             <li id="detailsLink">Details</li>
                         </ul>
                     </div>
