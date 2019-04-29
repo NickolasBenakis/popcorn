@@ -2,10 +2,6 @@ import React, { PureComponent } from 'react';
 import './carouselComp.scss';
 import Carousel from 'react-bootstrap/Carousel'
 
-// const propTypes = {
-//     name: "stream Playing now movies"
-// };
-
 
 export default class CarouselComp extends PureComponent {
     render() {

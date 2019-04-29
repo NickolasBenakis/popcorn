@@ -18,24 +18,41 @@
     padding-top: 20px;
     opacity: 0.85;
 }
+
 #navBarTitle {
     padding: 0 20px 0 0;
     font-size: larger;
     font-weight: 600;
     display: inline-flex;
+
 }
 
 .navBarLinks {
     float: right;
 }
-.navBarLinkList{
+
+.navBarLinkList {
     list-style: none;
     display: inline-flex;
     font-size: larger;
     padding-right: 40px;
 
+    #homeLink:hover {
+        border-bottom: solid;
+    }
+
+    #loginLink:hover {
+        border-bottom: solid;
+    }
+
+    #detailsLink:hover {
+        border-bottom: solid;
+    }
 }
-#homeLink, #loginLink, #detailsLink{
+
+#homeLink,
+#loginLink,
+#detailsLink {
     margin-right: 5px;
     cursor: pointer;
 }
@@ -54,7 +71,7 @@
 
 @media (max-width: 600px) {
 
-    .navBarLinkList{
+    .navBarLinkList {
         list-style: none;
         display: inline-flex;
         font-size: larger;
@@ -67,9 +84,8 @@
         pointer-events: none;
     }
 
-    
-    
 
 
-} 
 
+
+}
