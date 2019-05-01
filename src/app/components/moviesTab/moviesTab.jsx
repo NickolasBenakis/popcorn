@@ -1,25 +1,16 @@
 import React, { Component } from 'react'
 import Nav from 'react-bootstrap/Nav';
 import MoviesCard from '../moviesCard/moviesCard';
-
+import loadAllMovies from '../../services/loadAllMovies';
+import MoviesList from '../moviesCard/moviesList';
+import { mockMovies } from '../../../api/mockMovies';
 export default class MoviesTab extends Component {
+
+
+
     render() {
         return (
             <div>
-                {/* <Nav justify variant="tabs" activeKey="nowPlaying">
-                    <Nav.Item>
-                        <Nav.Link eventKey="nowPlaying">Now Playing</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link eventKey="link-1">Coming Soon</Nav.Link>
-                        <MoviesCard />
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link eventKey="disabled" disabled>
-                            Early Bird Discounts
-                            </Nav.Link>
-                    </Nav.Item>
-                </Nav> */}
                 <div id="MovieTab">
                     <div id="chooseTypeOfMovie">
                         <ul style={{ listStyle: "none", padding: "0", margin: "auto" }}>
@@ -28,7 +19,7 @@ export default class MoviesTab extends Component {
                         </ul>
                     </div>
                     <div id="MovieCards">
-
+                        <MoviesList mockMovies={mockMovies} />
                     </div>
                 </div>
             </div>
