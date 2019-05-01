@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import popCornLogo from '../logos/popCorn.png';
+import popCornLogo from '../../../assets/logos/popCorn.png';
 import './navBar.scss';
 import LoginModal from '../loginModal/loginModal';
 import { Modal, Button } from 'react-bootstrap';
