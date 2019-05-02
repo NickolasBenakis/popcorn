@@ -1,6 +1,6 @@
 import React from 'react';
-
 import MoviesCard from './moviesCard';
+
 export default function MoviesList({ mockMovies }) {
 
     return (
