@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import Nav from 'react-bootstrap/Nav';
-import MoviesCard from '../moviesCard/moviesCard';
-import loadAllMovies from '../../services/loadAllMovies';
 import MoviesList from '../moviesCard/moviesList';
 import { mockMovies } from '../../../api/mockMovies';
 export default class MoviesTab extends Component {
