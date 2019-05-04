@@ -35,14 +35,6 @@ export default class navBar extends Component {
                         <Modal.Title>Sign in</Modal.Title>
                     </Modal.Header>
                     <Modal.Body><LoginModal /></Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={this.handleClose}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
                 </Modal>
                 <header className="App-header">
                     <img src={popCornLogo} className="App-logo" alt="logo" />

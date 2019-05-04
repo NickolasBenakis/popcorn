@@ -1,0 +1,20 @@
+.socialMediaSignIn {
+    display: flex;
+    flex-flow: column wrap;
+
+    button {
+        margin: 10px 0 10px 0;
+    }
+
+    #fbLogo & #googleLogo {
+        //background: url('../../../assets/logos/fb.svg');
+        margin-right: 10px;
+    }
+}
+
+#submitBtn {
+    //display: flex;
+    margin: auto;
+    width: 100%;
+
+}
