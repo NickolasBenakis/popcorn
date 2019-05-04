@@ -1,6 +1,12 @@
-.test {
-    width: '18rem';
-    margin: "20px";
+.CardContainer {
+
+    width: 200px;
+    align-items: center;
+    margin: 20px 40px 20px 40px;
+
+    @media (max-width: 600px) {
+        width: 250px;
+    }
 
     :hover {
         opacity: 0.9;
@@ -12,4 +18,17 @@
 .card-img {
     height: 150px;
     width: 150px;
+}
+
+.moviesList {
+    display: flex;
+    flex-flow: row wrap;
+    background: whitesmoke;
+    justify-content: flex-start;
+    margin: auto;
+    padding: 20px;
+
+    @media (max-width: 600px) {
+        justify-content: center;
+    }
 }
