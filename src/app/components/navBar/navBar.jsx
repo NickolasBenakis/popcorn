@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import popCornLogo from '../../../assets/logos/popCorn.png';
 import './navBar.scss';
 import LoginModal from '../loginModal/loginModal';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 
 export default class navBar extends Component {
@@ -32,7 +32,7 @@ export default class navBar extends Component {
             <div>
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Sign in</Modal.Title>
+                        <Modal.Title>Είσοδος</Modal.Title>
                     </Modal.Header>
                     <Modal.Body><LoginModal /></Modal.Body>
                 </Modal>
@@ -41,7 +41,7 @@ export default class navBar extends Component {
                     <span><p id="navBarTitle">popcorn</p></span>
                     <div className="navBarLinks">
                         <ul className="navBarLinkList">
-                            <li id="homeLink">Home</li>
+                            <li id="homeLink"><a href="#MovieTab">Movies</a></li>
                             <li id="loginLink" onClick={this.handleShow}>Login</li>
                             <li id="detailsLink">Details</li>
                         </ul>

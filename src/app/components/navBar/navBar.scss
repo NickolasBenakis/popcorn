@@ -17,6 +17,10 @@
     text-align: start;
     padding-top: 20px;
     opacity: 0.85;
+
+    @media (max-width: 600px) {
+        display: inline-flex;
+    }
 }
 
 #navBarTitle {
@@ -36,17 +40,29 @@
     display: inline-flex;
     font-size: larger;
     padding-right: 40px;
+    color: #282c34;
 
-    #homeLink:hover {
-        border-bottom: solid;
+    a {
+        color: #282c34;
+        text-decoration: none;
+
+    }
+
+    #homeLink a:hover {
+        // border-bottom: solid;
+        color: royalblue;
     }
 
     #loginLink:hover {
-        border-bottom: solid;
+        //border-bottom: solid;
+        color: royalblue;
+
     }
 
     #detailsLink:hover {
-        border-bottom: solid;
+        // border-bottom: solid;
+        color: royalblue;
+
     }
 }
 
