@@ -6,7 +6,6 @@ import './moviesCard.scss';
 export default class MoviesCard extends Component {
     render() {
         return (
-            // <div style={{ padding: "20px" }}>
             <Card className="CardContainer">
                 <Card.Img className="card-img" variant="top" src={`https://robohash.org/${this.props.id}?200x200`} alt='movie' />
                 <Card.Body>
@@ -17,7 +16,6 @@ export default class MoviesCard extends Component {
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
-            // </div>
         )
     }
 }

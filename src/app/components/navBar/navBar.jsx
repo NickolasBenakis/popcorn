@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import popCornLogo from '../../../assets/logos/popCorn.png';
 import './navBar.scss';
 import LoginModal from '../loginModal/loginModal';
@@ -7,30 +7,22 @@ import { Modal } from 'react-bootstrap';
 
 
 export default class navBar extends Component {
-
-    constructor(props, context) {
-        super(props, context);
-
-        this.handleShow = this.handleShow.bind(this);
-        this.handleClose = this.handleClose.bind(this);
-
-        this.state = {
-            show: false,
-        };
-    }
-
-    handleClose() {
+    state = {
+        show: false,
+    };
+    handleClose = () => {
         this.setState({ show: false });
     }
 
-    handleShow() {
+    handleShow = () => {
         this.setState({ show: true });
     }
 
     render() {
+        const { show } = this.state;
         return (
-            <div>
-                <Modal show={this.state.show} onHide={this.handleClose}>
+            <Fragment>
+                <Modal show={show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Είσοδος</Modal.Title>
                     </Modal.Header>
@@ -47,7 +39,7 @@ export default class navBar extends Component {
                         </ul>
                     </div>
                 </header>
-            </div>
+            </Fragment>
         )
     }
 }   
