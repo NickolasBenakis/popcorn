@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import './carouselComp.scss';
 import Carousel from 'react-bootstrap/Carousel'
 
@@ -6,7 +6,7 @@ import Carousel from 'react-bootstrap/Carousel'
 export default class CarouselComp extends PureComponent {
     render() {
         return (
-            <div>
+            <Fragment>
                 <Carousel className="mainCarousel" interval="3000">
                     <Carousel.Item>
                         <img
@@ -45,7 +45,7 @@ export default class CarouselComp extends PureComponent {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-            </div>
+            </Fragment>
         )
     }
 }
