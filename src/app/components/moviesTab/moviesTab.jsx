@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MoviesList from '../moviesCard/moviesList';
 import { mockMovies } from '../../../api/mockMovies';
 import FilterMovies from '../filter/filterMovies';
-export default class MoviesTab extends Component {
+class MoviesTab extends Component {
 
 
 
@@ -25,3 +25,5 @@ export default class MoviesTab extends Component {
         )
     }
 }
+
+export default MoviesTab;

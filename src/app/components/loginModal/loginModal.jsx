@@ -1,7 +1,9 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './loginModal.scss';
-export default class LoginModal extends React.Component {
+
+
+class LoginModal extends React.Component {
 
   constructor() {
     super()
@@ -66,3 +68,6 @@ export default class LoginModal extends React.Component {
     );
   }
 }
+
+
+export default LoginModal;

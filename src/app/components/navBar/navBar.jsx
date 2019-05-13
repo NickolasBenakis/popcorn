@@ -6,7 +6,7 @@ import LoginModal from '../loginModal/loginModal';
 import { Modal } from 'react-bootstrap';
 
 
-export default class navBar extends Component {
+class navBar extends Component {
     state = {
         show: false,
     };
@@ -42,4 +42,7 @@ export default class navBar extends Component {
             </Fragment>
         )
     }
-}   
+}
+
+
+export default navBar;

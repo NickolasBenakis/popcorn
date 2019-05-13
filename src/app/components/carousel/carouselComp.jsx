@@ -2,8 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import './carouselComp.scss';
 import Carousel from 'react-bootstrap/Carousel'
 
-
-export default class CarouselComp extends PureComponent {
+class CarouselComp extends PureComponent {
     render() {
         return (
             <Fragment>
@@ -13,7 +12,6 @@ export default class CarouselComp extends PureComponent {
                             className="d-block w-100 responsive"
                             src="https://hdqwalls.com/download/captain-marvel-5k-poster-oy-1920x1080.jpg"
                             alt="First slide"
-
                         />
                         <Carousel.Caption>
                             {/* <h3>Captain Marvel</h3>
@@ -25,7 +23,6 @@ export default class CarouselComp extends PureComponent {
                             className="d-block w-100 responsive"
                             src="https://hdqwalls.com/download/toothless-how-to-train-your-dragon-n8-1920x1080.jpg"
                             alt="Third slide"
-
                         />
                         <Carousel.Caption>
                             {/* <h3>How to train your Dragon</h3>
@@ -37,7 +34,6 @@ export default class CarouselComp extends PureComponent {
                             className="d-block w-100 responsive"
                             src="https://i1.imgiz.com/rshots/9469/panic-at-the-disco-bohemian-rhapsody_9469069-60110_1920x1080.jpg"
                             alt="Third slide"
-
                         />
                         <Carousel.Caption>
                             {/* <h3>Bohemian Rhapsody</h3>
@@ -50,7 +46,7 @@ export default class CarouselComp extends PureComponent {
     }
 }
 
-
+export default CarouselComp;
 //Carousel.propTypes = propTypes;
 
 

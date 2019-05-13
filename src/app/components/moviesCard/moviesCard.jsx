@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './moviesCard.scss';
 
-export default class MoviesCard extends Component {
+class MoviesCard extends Component {
     render() {
         return (
             <Card className="CardContainer">
@@ -19,3 +19,4 @@ export default class MoviesCard extends Component {
         )
     }
 }
+export default MoviesCard;
