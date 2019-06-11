@@ -29,6 +29,18 @@
     "jquery": "^3.3.1",
     "node-sass": "^4.11.0",
     "popper.js": "^1.14.7",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.3.4000",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
+    "fetch-mock": "^7.3.3",
+    "gh-pages": "^2.0.1",
+    "nock": "^10.0.6",
+    "react-redux": "^7.0.3",
+    "react-test-renderer": "^16.8.6",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.3",
+    "redux-thunk": "^2.3.0",
+    "tachyons": "^4.11.1"
   }
 }
