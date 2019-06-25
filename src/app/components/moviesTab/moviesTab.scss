@@ -6,3 +6,21 @@
     margin-bottom: 20px;
 
 }
+
+#chooseTypeOfMovie {
+    ul {
+        list-style: "none";
+        padding: "0";
+        margin: "auto";
+        background: "whitesmoke";
+
+        li {
+            display: "inline-block";
+            margin: "10px";
+
+            a {
+                text-decoration: "none";
+            }
+        }
+    }
+}

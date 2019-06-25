@@ -13,9 +13,9 @@ class MoviesTab extends Component {
                 <hr />
                 <FilterMovies />
                 <div id="chooseTypeOfMovie">
-                    <ul style={{ listStyle: "none", padding: "0", margin: "auto" }}>
-                        <li style={{ display: "inline-block", margin: "10px" }}><a href="1" style={{ textDecoration: "none" }}>Playing Now</a></li>
-                        <li style={{ display: "inline-block", margin: "10px" }}><a href="2" style={{ textDecoration: "none" }}>Coming Soon</a> </li>
+                    <ul>
+                        <li><a href="1">Playing Now</a></li>
+                        <li><a href="2">Coming Soon</a> </li>
                     </ul>
                 </div>
                 <div id="MovieCards">
