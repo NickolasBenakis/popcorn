@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MoviesList from '../moviesCard/moviesList';
 import { mockMovies } from '../../../api/mockMovies';
 import FilterMovies from '../filter/filterMovies';
+import './moviesTab.scss';
 class MoviesTab extends Component {
 
 
