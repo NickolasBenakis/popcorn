@@ -3,3 +3,5 @@ export default () => Promise.resolve({
     name: null,
     totalSeats: 0
 });
+
+

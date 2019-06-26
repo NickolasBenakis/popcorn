@@ -6,9 +6,10 @@
         margin: 10px 0 10px 0;
     }
 
-    #fbLogo & #googleLogo {
-        //background: url('../../../assets/logos/fb.svg');
-        margin-right: 10px;
+    .social-logo {
+        height: 17px;
+        vertical-align: text-bottom;
+        margin-right: 5px;
     }
 }
 
