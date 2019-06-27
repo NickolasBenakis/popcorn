@@ -1,22 +1,33 @@
 import React, { Component } from 'react'
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import './moviesCard.scss';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import './moviesCard.scss'
 
 class MoviesCard extends Component {
     render() {
         return (
             <Card className="CardContainer">
-                <Card.Img className="card-img" variant="top" src={`https://robohash.org/${this.props.id}?200x200`} alt='movie' />
+                <Card.Img
+                    className="card-img"
+                    variant="top"
+                    src={`https://robohash.org/${this.props.id}?200x200`}
+                    alt="movie"
+                />
                 <Card.Body>
-                    <Card.Title style={{ padding: "10px", fontSize: "11px" }}>{this.props.title}</Card.Title>
+                    <Card.Title style={{ padding: '10px', fontSize: '11px' }}>
+                        {this.props.title}
+                    </Card.Title>
                     <Card.Text>
+                        <ion-icon
+                            name="star"
+                            style={{ marginBottom: '-2px' }}
+                        ></ion-icon>
                         {this.props.vote_average}
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button variant="primary">Book me</Button>
                 </Card.Body>
             </Card>
         )
     }
 }
-export default MoviesCard;
+export default MoviesCard

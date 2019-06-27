@@ -1,5 +1,5 @@
-import React, { PureComponent, Fragment } from 'react';
-import './carouselComp.scss';
+import React, { PureComponent, Fragment } from 'react'
+import './carouselComp.scss'
 import Carousel from 'react-bootstrap/Carousel'
 
 class CarouselComp extends PureComponent {
@@ -46,8 +46,5 @@ class CarouselComp extends PureComponent {
     }
 }
 
-export default CarouselComp;
+export default CarouselComp
 //Carousel.propTypes = propTypes;
-
-
-
