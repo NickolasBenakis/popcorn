@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import './loginModal.scss'
-import { Link } from 'react-router-dom'
-class LoginModal extends Component {
+import './registerModal'
+
+class RegisterModal extends Component {
     constructor() {
         super()
         this.state = {
@@ -11,6 +11,13 @@ class LoginModal extends Component {
             password: '',
             validPassword: false,
         }
+    }
+
+    componentDidMount() {
+        console.log('Register')
+    }
+    componentWillMount() {
+        console.log('Will register')
     }
 
     validateEmail = event => {
@@ -31,26 +38,6 @@ class LoginModal extends Component {
     render() {
         return (
             <Form>
-                <Form.Group
-                    className="socialMediaSignIn"
-                    controlId="SocialMediaSignIn"
-                >
-                    <Button variant="primary" type="submit">
-                        <ion-icon
-                            class="social-logo"
-                            name="logo-facebook"
-                        ></ion-icon>
-                        Login with Facebook
-                    </Button>
-                    <Button variant="outline-success" type="submit">
-                        <ion-icon
-                            class="social-logo"
-                            name="logo-google"
-                        ></ion-icon>
-                        Login with Google
-                    </Button>
-                </Form.Group>
-                <hr />
                 <Form.Group controlId="formBasicEmail">
                     <Form.Control
                         type="email"
@@ -60,39 +47,38 @@ class LoginModal extends Component {
                         isValid={this.state.validEmail}
                     />
                 </Form.Group>
+                <Form.Group controlId="formName">
+                    <Form.Control
+                        type="text"
+                        placeholder="Enter Name"
+                        autoComplete="true"
+                    />
+                </Form.Group>
+                <Form.Group controlId="formSurname">
+                    <Form.Control
+                        type="text"
+                        placeholder="Enter Surname"
+                        autoComplete="true"
+                    />
+                </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                     <Form.Control
                         type="password"
-                        placeholder="Password"
+                        placeholder="Enter Password"
                         autoComplete="true"
                         onBlur={this.validatePassword}
                         isValid={this.state.validPassword}
                     />
                 </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Remember me" />
-                </Form.Group>
+                <hr />
                 <div style={{ textAlign: 'center' }}>
                     <Button variant="primary" type="submit" id="submitBtn">
-                        Login
-                    </Button>
-                    <Form.Text className="text-muted">
-                        <a href="2">Forgot your password?</a>
-                    </Form.Text>
-                </div>
-                <hr />
-                <Form.Text className="text-muted">
-                    Do you have an account?{' '}
-                    <button
-                        className="a-mime"
-                        onClick={() => this.props.childShowRegister()}
-                    >
                         Register
-                    </button>
-                </Form.Text>
+                    </Button>
+                </div>
             </Form>
         )
     }
 }
 
-export default LoginModal
+export default RegisterModal

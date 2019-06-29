@@ -7,8 +7,13 @@
         "javascript": {
             "tabSize": 4,
             "insertSpaces": true
+        },
+        "json": {
+            "tabSize": 4,
+            "insertSpaces": true
         }
     },
     "javascript.autoClosingTags": false,
-    "javascript.format.enable": true
+    "javascript.format.enable": true,
+    "json.format.enable": true
 }

@@ -1,7 +1,5 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import './filterMovies.scss';
-
+import React from 'react'
+import './filterMovies.scss'
 
 export default function FilterMovies() {
     return (
@@ -9,10 +7,5 @@ export default function FilterMovies() {
             <ion-icon name="search"></ion-icon>
             <input id="filter" type="text" />
         </div>
-    );
-
+    )
 }
-
-
-
-

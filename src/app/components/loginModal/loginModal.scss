@@ -19,3 +19,18 @@
     width: 100%;
 
 }
+
+.a-mime {
+    background: none;
+    color: #007bff;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    /*border is optional*/
+    cursor: pointer;
+
+    &:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+}
