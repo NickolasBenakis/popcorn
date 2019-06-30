@@ -25,7 +25,7 @@
 
 #navBarTitle {
     padding: 0 20px 0 0;
-    font-size: larger;
+    font-size: 16px;
     font-weight: 600;
     display: inline-flex;
 
@@ -38,7 +38,7 @@
 .navBarLinkList {
     list-style: none;
     display: inline-flex;
-    font-size: larger;
+    font-size: 14px;
     padding-right: 40px;
     color: #282c34;
 
@@ -48,29 +48,18 @@
 
     }
 
-    #homeLink a:hover {
-        // border-bottom: solid;
-        color: royalblue;
-    }
+    .link-item {
+        cursor: pointer;
 
-    #loginLink:hover {
-        //border-bottom: solid;
-        color: royalblue;
-
-    }
-
-    #detailsLink:hover {
-        // border-bottom: solid;
-        color: royalblue;
-
+        a:hover,
+        &:hover {
+            color: royalblue;
+        }
     }
 }
 
-#homeLink,
-#loginLink,
-#detailsLink {
+.m-r-5 {
     margin-right: 5px;
-    cursor: pointer;
 }
 
 
@@ -87,10 +76,10 @@
 
 @media (max-width: 600px) {
 
-    .navBarLinkList {
+    .link-item {
         list-style: none;
         display: inline-flex;
-        font-size: larger;
+        font-size: 14px;
         padding-right: 20px;
     }
 

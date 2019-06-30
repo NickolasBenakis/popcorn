@@ -1,32 +1,32 @@
-import React, { Component } from 'react'
-import { Form, Button } from 'react-bootstrap'
-import './loginModal.scss'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import './loginModal.scss';
+import { Link } from 'react-router-dom';
 class LoginModal extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
             email: '',
             validEmail: false,
             password: '',
             validPassword: false,
-        }
+        };
     }
 
     validateEmail = event => {
         // eslint-disable-next-line
-        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         emailRegex.test(String(event.target.value).toLowerCase())
             ? this.setState({ validEmail: true })
-            : this.setState({ validEmail: false })
-    }
+            : this.setState({ validEmail: false });
+    };
 
     validatePassword = event => {
-        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
         passRegex.test(String(event.target.value).toLowerCase())
             ? this.setState({ validPassword: true })
-            : this.setState({ validPassword: false })
-    }
+            : this.setState({ validPassword: false });
+    };
 
     render() {
         return (
@@ -91,8 +91,8 @@ class LoginModal extends Component {
                     </button>
                 </Form.Text>
             </Form>
-        )
+        );
     }
 }
 
-export default LoginModal
+export default LoginModal;

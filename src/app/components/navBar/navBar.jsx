@@ -1,35 +1,50 @@
-import React, { Component, Fragment } from 'react'
-import popCornLogo from '../../../assets/logos/popCorn.png'
-import './navBar.scss'
-import LoginModal from '../loginModal/loginModal'
-import { Modal } from 'react-bootstrap'
-import RegisterModal from '../registerModal/registerModal'
+import React, { Component, Fragment } from 'react';
+import popCornLogo from '../../../assets/logos/popCorn.png';
+import './navBar.scss';
+import LoginModal from '../loginModal/loginModal';
+import { Modal } from 'react-bootstrap';
+import RegisterModal from '../registerModal/registerModal';
+import NavbarLink from './navBarLink/navBarLink';
 class navBar extends Component {
     state = {
         show: false,
         showRegister: false,
-    }
+        isLoggedIn: false,
+        openBadge: false,
+    };
     handleClose = () => {
-        this.setState({ show: false })
-        this.setState({ showRegister: false })
-    }
+        this.setState({ show: false });
+        this.setState({ showRegister: false });
+    };
 
     handleShow = () => {
-        this.setState({ show: true })
-    }
+        this.setState({ show: true });
+    };
 
     showRegister = () => {
-        this.setState({ showRegister: true })
-    }
+        this.setState({ showRegister: true });
+    };
+
+    logIn = () => {
+        this.setState({ isLoggedIn: true });
+        this.handleClose();
+    };
+    handleBadge = () => {
+        this.setState(prevState => ({
+            openBadge: !prevState.openBadge,
+        }));
+    };
 
     render() {
-        const { show } = this.state
+        const { show } = this.state;
+        const { openBadge } = this.state;
+        const { isLoggedIn } = this.state;
         const title = () => {
             if (!this.state.showRegister) {
-                return 'Login'
+                return 'Login';
             }
-            return 'Register'
-        }
+            return 'Register';
+        };
         return (
             <Fragment>
                 <Modal show={show} onHide={this.handleClose}>
@@ -38,7 +53,10 @@ class navBar extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         {this.state.showRegister ? (
-                            <RegisterModal />
+                            <RegisterModal
+                                childLogIn={this.logIn}
+                                childHandleClose={this.handleClose}
+                            />
                         ) : (
                             <LoginModal childShowRegister={this.showRegister} />
                         )}
@@ -49,21 +67,16 @@ class navBar extends Component {
                     <span>
                         <p id="navBarTitle">popcorn</p>
                     </span>
-                    <div className="navBarLinks">
-                        <ul className="navBarLinkList">
-                            <li id="homeLink">
-                                <a href="#MovieTab">Movies</a>
-                            </li>
-                            <li id="loginLink" onClick={this.handleShow}>
-                                Login
-                            </li>
-                            <li id="detailsLink">Details</li>
-                        </ul>
-                    </div>
+                    <NavbarLink
+                        isLoggedIn={isLoggedIn}
+                        handleShow={this.handleShow}
+                        handleBadge={this.handleBadge}
+                        openBadge={openBadge}
+                    />
                 </header>
             </Fragment>
-        )
+        );
     }
 }
 
-export default navBar
+export default navBar;

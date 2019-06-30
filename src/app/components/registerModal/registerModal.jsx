@@ -1,43 +1,47 @@
-import React, { Component } from 'react'
-import { Form, Button } from 'react-bootstrap'
-import './registerModal'
+import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import './registerModal';
+import registerUser from '../../services/registerUser';
 
 class RegisterModal extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
             email: '',
             validEmail: false,
             password: '',
             validPassword: false,
-        }
+        };
     }
 
     componentDidMount() {
-        console.log('Register')
+        console.log('Register');
     }
     componentWillMount() {
-        console.log('Will register')
+        console.log('Will register');
     }
+    // componentWillUnmount() {
+    //     this.props.childLogIn();
+    // }
 
     validateEmail = event => {
         // eslint-disable-next-line
-        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         emailRegex.test(String(event.target.value).toLowerCase())
             ? this.setState({ validEmail: true })
-            : this.setState({ validEmail: false })
-    }
+            : this.setState({ validEmail: false });
+    };
 
     validatePassword = event => {
-        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
         passRegex.test(String(event.target.value).toLowerCase())
             ? this.setState({ validPassword: true })
-            : this.setState({ validPassword: false })
-    }
+            : this.setState({ validPassword: false });
+    };
 
     render() {
         return (
-            <Form>
+            <Form method="POST" name="registerForm">
                 <Form.Group controlId="formBasicEmail">
                     <Form.Control
                         type="email"
@@ -72,13 +76,17 @@ class RegisterModal extends Component {
                 </Form.Group>
                 <hr />
                 <div style={{ textAlign: 'center' }}>
-                    <Button variant="primary" type="submit" id="submitBtn">
+                    <Button
+                        variant="primary"
+                        id="submitBtn"
+                        onClick={() => this.props.childLogIn()}
+                    >
                         Register
                     </Button>
                 </div>
             </Form>
-        )
+        );
     }
 }
 
-export default RegisterModal
+export default RegisterModal;
