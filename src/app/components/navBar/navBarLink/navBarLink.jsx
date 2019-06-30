@@ -8,15 +8,18 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
                 <li className="link-item m-r-5">
                     <a href="#MovieTab">Movies</a>
                 </li>
-                <li className="link-item last-link-item">
+                <li className={openBadge ? null : 'link-item'}>
                     Welcome, Nick
                     <button onClick={handleBadge}></button>
                     <Collapse in={openBadge}>
-                        <div id="example-collapse-text">
-                            Anim pariatur cliche reprehenderit, enim eiusmod
-                            high life accusamus terry richardson ad squid. Nihil
-                            anim keffiyeh helvetica, craft beer labore wes
-                            anderson cred nesciunt sapiente ea proident.
+                        <div
+                            id="example-collapse-text"
+                            className="collapse-options"
+                        >
+                            <ul className="menu-list">
+                                <li className="link-item">option1</li>
+                                <li className="link-item">option2</li>
+                            </ul>
                         </div>
                     </Collapse>
                 </li>
@@ -28,7 +31,7 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
                 <li className="link-item m-r-5">
                     <a href="#MovieTab">Movies</a>
                 </li>
-                <li className="link-item last-link-item" onClick={handleShow}>
+                <li className="link-item" onClick={handleShow}>
                     Login
                 </li>
             </ul>

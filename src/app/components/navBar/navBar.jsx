@@ -12,6 +12,7 @@ class navBar extends Component {
         isLoggedIn: false,
         openBadge: false,
     };
+
     handleClose = () => {
         this.setState({ show: false });
         this.setState({ showRegister: false });

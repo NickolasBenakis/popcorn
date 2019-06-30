@@ -1,43 +1,36 @@
-.mainCarousel{
+.mainCarousel {
     margin-top: 62px;
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 20px;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 0 !important;
+}
 
 .responsive {
     width: 100%;
     height: auto;
     max-height: 650px;
-    }
-
-    @media screen 
-    and (min-device-width: 1200px) 
-    and (max-device-width: 1600px) 
-    and (-webkit-min-device-pixel-ratio: 1) { 
-
 }
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {}
 
 /* ----------- Retina Screens ----------- */
-@media screen 
-    and (min-device-width: 1200px) 
-    and (max-device-width: 1600px) 
-    and (-webkit-min-device-pixel-ratio: 2)
-    and (min-resolution: 192dpi) { 
-
-}
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {}
 
 @media (max-width: 600px) {
 
     .responsive {
         max-height: none;
-        }
-    
-    .mainCarousel{
+    }
+
+    .mainCarousel {
         margin-left: 0;
         margin-right: 0;
-        }
-        
+    }
 
-} 
+
+}
