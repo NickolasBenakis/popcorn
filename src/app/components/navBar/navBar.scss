@@ -62,10 +62,30 @@
     margin-right: 5px;
 }
 
+.avatar-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar {
+    background-image: url("../../../assets/avatar.svg");
+    width: 25px;
+    height: 22px;
+    border-radius: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 5px;
+    display: block;
+    cursor: pointer;
+}
+
 .collapse-options {
     position: absolute;
     background: whitesmoke;
     padding: 15px;
+    min-width: 150px;
+    max-width: 50%;
+    margin-top: 35px;
 }
 
 .menu-list {

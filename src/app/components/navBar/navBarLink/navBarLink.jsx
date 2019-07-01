@@ -8,9 +8,15 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
                 <li className="link-item m-r-5">
                     <a href="#MovieTab">Movies</a>
                 </li>
-                <li className={openBadge ? null : 'link-item'}>
-                    Welcome, Nick
-                    <button onClick={handleBadge}></button>
+                <li
+                    className={
+                        openBadge
+                            ? 'avatar-container'
+                            : 'link-item avatar-container'
+                    }
+                >
+                    <span>Welcome, Nick</span>
+                    <span className="avatar" onClick={handleBadge}></span>
                     <Collapse in={openBadge}>
                         <div
                             id="example-collapse-text"
