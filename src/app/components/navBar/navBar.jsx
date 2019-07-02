@@ -5,6 +5,7 @@ import LoginModal from '../loginModal/loginModal';
 import { Modal } from 'react-bootstrap';
 import RegisterModal from '../registerModal/registerModal';
 import NavbarLink from './navBarLink/navBarLink';
+import { Link } from 'react-router-dom';
 class navBar extends Component {
     state = {
         show: false,
@@ -64,7 +65,13 @@ class navBar extends Component {
                     </Modal.Body>
                 </Modal>
                 <header className="App-header">
-                    <img src={popCornLogo} className="App-logo" alt="logo" />
+                    <Link to="/">
+                        <img
+                            src={popCornLogo}
+                            className="App-logo"
+                            alt="logo"
+                        />
+                    </Link>
                     <span>
                         <p id="navBarTitle">popcorn</p>
                     </span>

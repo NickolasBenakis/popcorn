@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './loginModal.scss';
-import { Link } from 'react-router-dom';
 class LoginModal extends Component {
     constructor() {
         super();

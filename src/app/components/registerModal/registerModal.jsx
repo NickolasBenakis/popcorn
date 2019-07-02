@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './registerModal';
-import registerUser from '../../services/registerUser';
 
 class RegisterModal extends Component {
     constructor() {
@@ -20,9 +19,6 @@ class RegisterModal extends Component {
     componentWillMount() {
         console.log('Will register');
     }
-    // componentWillUnmount() {
-    //     this.props.childLogIn();
-    // }
 
     validateEmail = event => {
         // eslint-disable-next-line

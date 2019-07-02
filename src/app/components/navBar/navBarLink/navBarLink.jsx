@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
     return isLoggedIn ? (
@@ -15,7 +16,6 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
                             : 'link-item avatar-container'
                     }
                 >
-                    <span>Welcome, Nick</span>
                     <span className="avatar" onClick={handleBadge}></span>
                     <Collapse in={openBadge}>
                         <div
@@ -23,8 +23,16 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
                             className="collapse-options"
                         >
                             <ul className="menu-list">
-                                <li className="link-item">option1</li>
-                                <li className="link-item">option2</li>
+                                <Link to="/myProfile">
+                                    <li className="link-item option">
+                                        my profile
+                                    </li>
+                                </Link>
+                                <Link to="/">
+                                    <li className="link-item option">
+                                        Sign out
+                                    </li>
+                                </Link>
                             </ul>
                         </div>
                     </Collapse>

@@ -86,10 +86,21 @@
     min-width: 150px;
     max-width: 50%;
     margin-top: 35px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px !important;
+    right: 40px;
 }
 
 .menu-list {
     list-style: none;
+}
+
+.option {
+    border-bottom: 1px solid rgb(242, 242, 242) !important;
+
+    &:hover {
+        border-bottom: 1px solid rgb(118, 118, 118) !important;
+
+    }
 }
 
 @keyframes App-logo-spin {
