@@ -1,11 +1,11 @@
-import React from 'react'
-import './filterMovies.scss'
+import React from 'react';
+import './filterMovies.scss';
 
-export default function FilterMovies() {
+export default function FilterMovies({ mockMovies, searchChange }) {
     return (
         <div id="filterContainer">
             <ion-icon name="search"></ion-icon>
-            <input id="filter" type="text" />
+            <input id="filter" type="search" onChange={searchChange} />
         </div>
-    )
+    );
 }
