@@ -20,9 +20,8 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route path="/myProfile" exact render={() => (
-                    <div></div>
-                    )} />
+                    <Route path="/myProfile" exact render={() => <div></div>} />
+                    <Route path="/theaters" exact render={() => <div></div>} />
                 </Router>
             </div>
         );

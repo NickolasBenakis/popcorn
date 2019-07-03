@@ -6,7 +6,10 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
     return isLoggedIn ? (
         <div className="navBarLinks">
             <ul className="navBarLinkList">
-                <li className="link-item m-r-5">
+                <Link to="/theaters">
+                    <li className="link-item m-r-10">Theaters</li>
+                </Link>
+                <li className="link-item m-r-10">
                     <a href="#MovieTab">Movies</a>
                 </li>
                 <li
@@ -42,7 +45,10 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
     ) : (
         <div className="navBarLinks">
             <ul className="navBarLinkList">
-                <li className="link-item m-r-5">
+                <Link to="/theaters">
+                    <li className="link-item m-r-10">Theaters</li>
+                </Link>
+                <li className="link-item m-r-10 ">
                     <a href="#MovieTab">Movies</a>
                 </li>
                 <li className="link-item" onClick={handleShow}>

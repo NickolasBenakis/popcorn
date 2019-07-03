@@ -1,6 +1,8 @@
-import React, { PureComponent, Fragment } from 'react'
-import './carouselComp.scss'
-import Carousel from 'react-bootstrap/Carousel'
+import React, { PureComponent, Fragment } from 'react';
+import './carouselComp.scss';
+import Carousel from 'react-bootstrap/Carousel';
+
+import defaultImg from '../../../assets/defaultMarvel.jpg';
 
 class CarouselComp extends PureComponent {
     render() {
@@ -11,7 +13,7 @@ class CarouselComp extends PureComponent {
                         <img
                             className="d-block w-100 responsive"
                             src="https://hdqwalls.com/download/captain-marvel-5k-poster-oy-1920x1080.jpg"
-                            alt="First slide"
+                            alt={defaultImg}
                         />
                         <Carousel.Caption>
                             {/* <h3>Captain Marvel</h3>
@@ -22,7 +24,7 @@ class CarouselComp extends PureComponent {
                         <img
                             className="d-block w-100 responsive"
                             src="https://hdqwalls.com/download/toothless-how-to-train-your-dragon-n8-1920x1080.jpg"
-                            alt="Third slide"
+                            alt={defaultImg}
                         />
                         <Carousel.Caption>
                             {/* <h3>How to train your Dragon</h3>
@@ -33,7 +35,7 @@ class CarouselComp extends PureComponent {
                         <img
                             className="d-block w-100 responsive"
                             src="https://i1.imgiz.com/rshots/9469/panic-at-the-disco-bohemian-rhapsody_9469069-60110_1920x1080.jpg"
-                            alt="Third slide"
+                            alt={defaultImg}
                         />
                         <Carousel.Caption>
                             {/* <h3>Bohemian Rhapsody</h3>
@@ -42,9 +44,9 @@ class CarouselComp extends PureComponent {
                     </Carousel.Item>
                 </Carousel>
             </Fragment>
-        )
+        );
     }
 }
 
-export default CarouselComp
+export default CarouselComp;
 //Carousel.propTypes = propTypes;
