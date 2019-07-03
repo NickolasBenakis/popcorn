@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import './moviesCard.scss'
+import React, { Component } from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import './moviesCard.scss';
+import { Link } from 'react-router-dom';
 
 class MoviesCard extends Component {
     render() {
@@ -24,10 +25,12 @@ class MoviesCard extends Component {
                         ></ion-icon>
                         {this.props.vote_average}
                     </Card.Text>
-                    <Button variant="primary">Book me</Button>
+                    <Link to="/movie">
+                        <Button variant="primary">Book me</Button>
+                    </Link>
                 </Card.Body>
             </Card>
-        )
+        );
     }
 }
-export default MoviesCard
+export default MoviesCard;

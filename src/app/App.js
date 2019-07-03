@@ -22,6 +22,7 @@ export default class App extends Component {
                     />
                     <Route path="/myProfile" exact render={() => <div></div>} />
                     <Route path="/theaters" exact render={() => <div></div>} />
+                    <Route path="/movie" exact render={() => <div></div>} />
                 </Router>
             </div>
         );
