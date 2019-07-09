@@ -1,0 +1,25 @@
+.form-container {
+    display: block;
+    width: 60%;
+    white-space: nowrap;
+
+
+
+    .fields {
+        display: inherit;
+        flex-direction: column;
+    }
+}
+
+.space-down {
+    margin-bottom: 24px;
+}
+
+.profile-container {
+    margin: 100px 20px 0 20px;
+}
+
+.labels {
+    vertical-align: -webkit-baseline-middle;
+    
+}
