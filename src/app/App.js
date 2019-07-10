@@ -5,6 +5,7 @@ import CarouselComp from './components/carousel/carouselComp';
 import MoviesTab from './components/moviesTab/moviesTab';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MyProfile from './components/myProfile/myProfile';
+import TheatersTab from './components/theaters/theatersTab';
 export default class App extends Component {
     render() {
         return (
@@ -25,12 +26,20 @@ export default class App extends Component {
                         path="/myProfile"
                         exact
                         render={() => (
-                            <div>
+                            <div className="content-m-top">
                                 <MyProfile />
                             </div>
                         )}
                     />
-                    <Route path="/theaters" exact render={() => <div></div>} />
+                    <Route
+                        path="/theaters"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <TheatersTab />
+                            </div>
+                        )}
+                    />
                     <Route path="/movie" exact render={() => <div></div>} />
                 </Router>
             </div>

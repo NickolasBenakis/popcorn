@@ -23,11 +23,22 @@
     }
 }
 
+a.non-link {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
 #navBarTitle {
     padding: 0 20px 0 0;
     font-size: 16px;
     font-weight: 600;
     display: inline-flex;
+
 
 }
 

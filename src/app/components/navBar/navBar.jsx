@@ -65,16 +65,16 @@ class navBar extends Component {
                     </Modal.Body>
                 </Modal>
                 <header className="App-header">
-                    <Link to="/">
+                    <Link to="/" className="non-link">
                         <img
                             src={popCornLogo}
                             className="App-logo"
                             alt="logo"
                         />
+                        <span>
+                            <p id="navBarTitle">popcorn</p>
+                        </span>
                     </Link>
-                    <span>
-                        <p id="navBarTitle">popcorn</p>
-                    </span>
                     <NavbarLink
                         isLoggedIn={isLoggedIn}
                         handleShow={this.handleShow}
