@@ -6,7 +6,7 @@ class MyProfile extends Component {
     render() {
         return (
             <div className="profile-container">
-                this is my Profile !!
+                Edit your profile
                 <Basic />
             </div>
         );

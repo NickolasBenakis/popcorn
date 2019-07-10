@@ -42,53 +42,57 @@ const Basic = () => (
                             </Field>
                         </div> */}
                         <div className="row space-down">
-                            <span className="col-sm-3">
+                            <div className="col-label">
                                 <label htmlFor="firstName" className="labels">
                                     First Name
                                 </label>
-                            </span>
-                            <span className="col-sm-9">
+                            </div>
+                            <div className="col-input">
                                 <Field name="firstName" placeholder="Jane" />
-                            </span>
+                            </div>
                         </div>
                         <div className="row space-down">
-                            <span className="col-sm-3">
+                            <div className="col-label">
                                 <label htmlFor="lastName" className="labels">
                                     Last Name
                                 </label>
-                            </span>
-                            <span className="col-sm-9">
+                            </div>
+                            <div className="col-input">
                                 <Field name="lastName" placeholder="Doe" />
-                            </span>
+                            </div>
                         </div>
                         <div className="row space-down">
-                            <span className="col-sm-3">
+                            <div className="col-label">
                                 <label htmlFor="email">Email</label>
-                            </span>
-                            <span className="col-sm-9">
+                            </div>
+                            <div className="col-input">
                                 <Field
                                     name="email"
                                     placeholder="...@..."
                                     type="email"
                                 />
-                            </span>
+                            </div>
                         </div>
                         <div className="row space-down">
-                            <span className="col-sm-3">
+                            <div className="col-label">
                                 <label htmlFor="gender">Gender</label>
-                            </span>
-                            <Field
-                                name="gender"
-                                component="select"
-                                placeholder="Gender"
-                            >
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </Field>
+                            </div>
+                            <div className="col-input">
+                                <Field
+                                    name="gender"
+                                    component="select"
+                                    placeholder="Gender"
+                                >
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </Field>
+                            </div>
                         </div>
+                        <button className="btn btn-secondary" type="submit">
+                            Save
+                        </button>
                     </div>
-                    <button type="submit">Submit</button>
                 </Form>
             )}
         />
