@@ -40,3 +40,11 @@
         justify-content: center;
     }
 }
+
+.display-fill {
+
+    .modal-content {
+        height: -webkit-fill-available;
+
+    }
+}

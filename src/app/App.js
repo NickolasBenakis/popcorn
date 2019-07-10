@@ -6,6 +6,7 @@ import MoviesTab from './components/moviesTab/moviesTab';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MyProfile from './components/myProfile/myProfile';
 import TheatersTab from './components/theaters/theatersTab';
+
 export default class App extends Component {
     render() {
         return (
@@ -40,7 +41,6 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route path="/movie" exact render={() => <div></div>} />
                 </Router>
             </div>
         );

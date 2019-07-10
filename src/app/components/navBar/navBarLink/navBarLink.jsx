@@ -48,7 +48,6 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
                 <Link to="/theaters">
                     <li className="link-item m-r-10">Theaters</li>
                 </Link>
-                {console.log(window.location.pathname)}
                 {window.location.pathname === '/' ? (
                     <li className="link-item m-r-10 ">
                         <a href="#MovieTab">Movies</a>
