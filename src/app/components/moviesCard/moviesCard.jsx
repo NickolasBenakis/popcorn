@@ -48,7 +48,11 @@ class MoviesCard extends Component {
                         </Button>
                     </Card.Body>
                 </Card>
-                <MovieModal show={show} onHide={this.handleClose} />
+                <MovieModal
+                    show={show}
+                    onHide={this.handleClose}
+                    title={this.props.title}
+                />
             </Fragment>
         );
     }

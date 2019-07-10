@@ -47,4 +47,8 @@
         height: -webkit-fill-available;
 
     }
+
+    &.fade {
+        transition: opacity 0.25s ease-in-out;
+    }
 }
