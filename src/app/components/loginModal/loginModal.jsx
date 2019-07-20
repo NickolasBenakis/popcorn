@@ -71,7 +71,7 @@ class LoginModal extends Component {
                 </div>
                 <hr />
                 <Form.Text className="text-muted">
-                    Do you have an account?{' '}
+                    Do you have an account?
                     <button
                         className="a-mime"
                         onClick={() => this.props.childShowRegister()}
