@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import GoogleLoginComponent from './googleLogin/googleLogin';
+import FacebookLoginComponent from './facebookLogin/facebookLogin';
 import './loginModal.scss';
 class LoginModal extends Component {
     constructor() {
@@ -34,20 +36,8 @@ class LoginModal extends Component {
                     className="socialMediaSignIn"
                     controlId="SocialMediaSignIn"
                 >
-                    <Button variant="primary" type="submit">
-                        <ion-icon
-                            class="social-logo"
-                            name="logo-facebook"
-                        ></ion-icon>
-                        Login with Facebook
-                    </Button>
-                    <Button variant="outline-success" type="submit">
-                        <ion-icon
-                            class="social-logo"
-                            name="logo-google"
-                        ></ion-icon>
-                        Login with Google
-                    </Button>
+                    <GoogleLoginComponent />
+                    {/* <FacebookLoginComponent /> */}
                 </Form.Group>
                 <hr />
                 <Form.Group controlId="formBasicEmail">
