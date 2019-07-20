@@ -6,7 +6,7 @@ import MoviesTab from './components/moviesTab/moviesTab';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MyProfile from './components/myProfile/myProfile';
 import TheatersTab from './components/theaters/theatersTab';
-
+import MovieDetailsTab from './components/movieDetails/movieDetailsTab';
 export default class App extends Component {
     render() {
         return (
@@ -38,6 +38,15 @@ export default class App extends Component {
                         render={() => (
                             <div className="content-m-top">
                                 <TheatersTab />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/movieDetails"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <MovieDetailsTab />
                             </div>
                         )}
                     />
