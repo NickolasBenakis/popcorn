@@ -5,6 +5,7 @@ import FacebookLogin from 'react-facebook-login';
 
 import { facebookApiID } from '../../../enviromental/api_key';
 import { googleClientID } from '../../../enviromental/api_key';
+
 import './loginModal.scss';
 class LoginModal extends Component {
     constructor() {
@@ -49,6 +50,7 @@ class LoginModal extends Component {
                         cookiePolicy={'single_host_origin'}
                     />
                     <FacebookLogin
+                        cssClass="fb-button"
                         appId={facebookApiID}
                         fields="name,email,picture"
                         onClick={res => this.props.getFbResponse(res)}
