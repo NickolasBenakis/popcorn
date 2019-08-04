@@ -10,14 +10,14 @@ import MovieDetailsTab from './components/movieDetails/movieDetailsTab';
 export default class App extends Component {
     render() {
         return (
-            <div className="Main">
+            <div id="Main-content" className="Main">
                 <Router>
                     <Route path="/" component={NavBar} />
                     <Route
                         path="/"
                         exact
                         render={() => (
-                            <div>
+                            <div className="content-m-top">
                                 <CarouselComp />
                                 <MoviesTab />
                             </div>

@@ -11,7 +11,7 @@ class CarouselComp extends PureComponent {
                 <Carousel className="mainCarousel" interval="3000">
                     <Carousel.Item>
                         <img
-                            className="d-block w-100 responsive"
+                            className="d-block responsive"
                             src="https://hdqwalls.com/download/captain-marvel-5k-poster-oy-1920x1080.jpg"
                             alt={defaultImg}
                         />
@@ -22,7 +22,7 @@ class CarouselComp extends PureComponent {
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
-                            className="d-block w-100 responsive"
+                            className="d-block responsive"
                             src="https://hdqwalls.com/download/toothless-how-to-train-your-dragon-n8-1920x1080.jpg"
                             alt={defaultImg}
                         />
@@ -33,7 +33,7 @@ class CarouselComp extends PureComponent {
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
-                            className="d-block w-100 responsive"
+                            className="d-block responsive"
                             src="https://i1.imgiz.com/rshots/9469/panic-at-the-disco-bohemian-rhapsody_9469069-60110_1920x1080.jpg"
                             alt={defaultImg}
                         />

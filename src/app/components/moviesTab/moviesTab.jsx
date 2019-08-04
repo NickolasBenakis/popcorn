@@ -37,7 +37,7 @@ class MoviesTab extends Component {
                         </li>
                     </ul>
                 </div>
-                <div id="MovieCards">
+                <div id="MovieCards" className="movie-tab-wrapper">
                     <MoviesList mockMovies={filteredMovies} />
                 </div>
             </div>

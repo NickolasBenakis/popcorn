@@ -49,6 +49,9 @@ class navBar extends Component {
             this.googleLogIn();
         }
     };
+    fbResponse = res => {
+        console.log(res);
+    };
 
     render() {
         const { show } = this.state;
@@ -75,7 +78,10 @@ class navBar extends Component {
                             />
                         ) : (
                             <LoginModal
-                                getResponse={res => this.googleResponse(res)}
+                                getGoogleResponse={res =>
+                                    this.googleResponse(res)
+                                }
+                                getFbResponse={res => this.fbResponse(res)}
                                 childShowRegister={this.showRegister}
                             />
                         )}

@@ -33,19 +33,19 @@
     flex-flow: row wrap;
     background: whitesmoke;
     justify-content: flex-start;
-    margin: auto;
+    margin: 0 100px;
     padding: 20px;
 
     @media (max-width: 600px) {
         justify-content: center;
+        margin: auto;
     }
 }
 
 .display-fill {
 
     .modal-content {
-        height: -webkit-fill-available;
-
+        height: 100vh;
     }
 
     &.fade {

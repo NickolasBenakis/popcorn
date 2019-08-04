@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+
+import { facebookApiID } from '../../../enviromental/api_key';
 import { googleClientID } from '../../../enviromental/api_key';
 import './loginModal.scss';
 class LoginModal extends Component {
@@ -12,6 +15,7 @@ class LoginModal extends Component {
             password: '',
             validPassword: false,
             responseGoogle: {},
+            responseFb: {},
         };
     }
 
@@ -40,11 +44,16 @@ class LoginModal extends Component {
                     <GoogleLogin
                         clientId={googleClientID}
                         buttonText="Login with Google"
-                        onSuccess={res => this.props.getResponse(res)}
-                        onFailure={res => this.props.getResponse(res)}
+                        onSuccess={res => this.props.getGoogleResponse(res)}
+                        onFailure={res => this.props.getGoogleResponse(res)}
                         cookiePolicy={'single_host_origin'}
                     />
-                    {/* <FacebookLoginComponent /> */}
+                    <FacebookLogin
+                        appId={facebookApiID}
+                        fields="name,email,picture"
+                        onClick={res => this.props.getFbResponse(res)}
+                        callback={res => this.props.getFbResponse(res)}
+                    />
                 </Form.Group>
                 <hr />
                 <Form.Group controlId="formBasicEmail">
