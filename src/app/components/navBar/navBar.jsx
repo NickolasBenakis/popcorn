@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import popCornLogo from '../../../assets/logos/popCorn.png';
 import './navBar.scss';
 import LoginModal from '../loginModal/loginModal';
+
 import { Modal } from 'react-bootstrap';
 import RegisterModal from '../registerModal/registerModal';
 import NavbarLink from './navBarLink/navBarLink';
@@ -11,6 +12,7 @@ class navBar extends Component {
         show: false,
         showRegister: false,
         isLoggedIn: false,
+        isGoogleLoggedIn: false,
         openBadge: false,
     };
 
@@ -26,6 +28,10 @@ class navBar extends Component {
     showRegister = () => {
         this.setState({ showRegister: true });
     };
+    googleLogIn = () => {
+        this.setState({ isGoogleLoggedIn: true });
+        this.handleClose();
+    };
 
     logIn = () => {
         this.setState({ isLoggedIn: true });
@@ -37,10 +43,18 @@ class navBar extends Component {
         }));
     };
 
+    googleResponse = res => {
+        console.log(res);
+        if (res && !res.error) {
+            this.googleLogIn();
+        }
+    };
+
     render() {
         const { show } = this.state;
         const { openBadge } = this.state;
         const { isLoggedIn } = this.state;
+        const { isGoogleLoggedIn } = this.state;
         const title = () => {
             if (!this.state.showRegister) {
                 return 'Login';
@@ -60,7 +74,10 @@ class navBar extends Component {
                                 childHandleClose={this.handleClose}
                             />
                         ) : (
-                            <LoginModal childShowRegister={this.showRegister} />
+                            <LoginModal
+                                getResponse={res => this.googleResponse(res)}
+                                childShowRegister={this.showRegister}
+                            />
                         )}
                     </Modal.Body>
                 </Modal>
@@ -76,6 +93,7 @@ class navBar extends Component {
                         </span>
                     </Link>
                     <NavbarLink
+                        isGoogleLoggedIn={isGoogleLoggedIn}
                         isLoggedIn={isLoggedIn}
                         handleShow={this.handleShow}
                         handleBadge={this.handleBadge}

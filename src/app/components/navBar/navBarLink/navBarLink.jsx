@@ -2,16 +2,28 @@ import React from 'react';
 import { Collapse } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
-    return isLoggedIn ? (
+function NavBarLink({
+    isLoggedIn,
+    isGoogleLoggedIn,
+    handleShow,
+    handleBadge,
+    openBadge,
+}) {
+    return isLoggedIn || isGoogleLoggedIn ? (
         <div className="navBarLinks">
             <ul className="navBarLinkList">
                 <Link to="/theaters">
                     <li className="link-item m-r-10">Theaters</li>
                 </Link>
-                <li className="link-item m-r-10">
-                    <a href="#MovieTab">Movies</a>
-                </li>
+                {window.location.pathname === '/' ? (
+                    <li className="link-item m-r-10 ">
+                        <a href="#MovieTab">Movies</a>
+                    </li>
+                ) : (
+                    <li className="link-item m-r-10 ">
+                        <Link to="/">Movies</Link>
+                    </li>
+                )}
                 <li
                     className={
                         openBadge
@@ -31,11 +43,19 @@ function NavBarLink({ isLoggedIn, handleShow, handleBadge, openBadge }) {
                                         my profile
                                     </li>
                                 </Link>
-                                <Link to="/">
-                                    <li className="link-item option">
-                                        Sign out
-                                    </li>
-                                </Link>
+                                {isGoogleLoggedIn ? (
+                                    <Link to="/">
+                                        <li className="link-item option">
+                                            Sign out
+                                        </li>
+                                    </Link>
+                                ) : (
+                                    <Link to="/">
+                                        <li className="link-item option">
+                                            Sign out
+                                        </li>
+                                    </Link>
+                                )}
                             </ul>
                         </div>
                     </Collapse>

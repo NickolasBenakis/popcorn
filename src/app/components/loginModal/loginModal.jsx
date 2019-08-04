@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import GoogleLoginComponent from './googleLogin/googleLogin';
-import FacebookLoginComponent from './facebookLogin/facebookLogin';
+import GoogleLogin from 'react-google-login';
+import { googleClientID } from '../../../enviromental/api_key';
 import './loginModal.scss';
 class LoginModal extends Component {
     constructor() {
@@ -11,6 +11,7 @@ class LoginModal extends Component {
             validEmail: false,
             password: '',
             validPassword: false,
+            responseGoogle: {},
         };
     }
 
@@ -36,7 +37,13 @@ class LoginModal extends Component {
                     className="socialMediaSignIn"
                     controlId="SocialMediaSignIn"
                 >
-                    <GoogleLoginComponent />
+                    <GoogleLogin
+                        clientId={googleClientID}
+                        buttonText="Login with Google"
+                        onSuccess={res => this.props.getResponse(res)}
+                        onFailure={res => this.props.getResponse(res)}
+                        cookiePolicy={'single_host_origin'}
+                    />
                     {/* <FacebookLoginComponent /> */}
                 </Form.Group>
                 <hr />
