@@ -15,7 +15,7 @@
 	"scripts": {
 		"docker:build": "docker build -t popcorn:dev .",
 		"docker:run": "docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm popcorn:dev",
-		"start": "HTTPS=true react-scripts start",
+		"start": "HTTPS=false react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"

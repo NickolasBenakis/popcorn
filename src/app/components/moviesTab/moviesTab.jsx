@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MoviesList from '../moviesCard/moviesList';
 import { mockMovies } from '../../../api/mockMovies';
+import fetchMovies from '../../../api/fetchMovies';
 import FilterMovies from '../filter/filterMovies';
 import './moviesTab.scss';
 class MoviesTab extends Component {
@@ -8,16 +9,24 @@ class MoviesTab extends Component {
         super();
         this.state = {
             mockMovies: mockMovies,
+            movies: [],
             searchField: '',
         };
     }
 
+    componentWillMount() {
+        this.movies();
+    }
     onSearchChange = event => {
         this.setState({ searchField: event.target.value });
     };
 
+    movies = async () => {
+        const res = await fetchMovies();
+        this.setState({ movies: res });
+    };
     render() {
-        const filteredMovies = this.state.mockMovies.filter(movie =>
+        const filteredMovies = this.state.movies.filter(movie =>
             movie.title
                 .toLowerCase()
                 .includes(this.state.searchField.toLowerCase())

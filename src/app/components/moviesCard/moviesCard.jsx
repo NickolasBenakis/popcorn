@@ -41,7 +41,7 @@ class MoviesCard extends Component {
                                 name="star"
                                 style={{ marginBottom: '-2px' }}
                             ></ion-icon>
-                            {this.props.vote_average}
+                            {this.props.premiereDate}
                         </Card.Text>
                         <Button variant="primary" onClick={this.handleShow}>
                             Book me
