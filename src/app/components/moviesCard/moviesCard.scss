@@ -24,8 +24,7 @@
 }
 
 .card-img {
-    height: 150px;
-    width: 150px;
+    height: 300px;
 }
 
 .moviesList {
@@ -50,5 +49,23 @@
 
     &.fade {
         transition: opacity 0.25s ease-in-out;
+    }
+}
+
+.description {
+    margin-top: 15px;
+    font-style: italic;
+    font-size: medium;
+}
+
+.side-list {
+    list-style: none;
+    padding-left: 0 !important;
+
+    .ribbon {
+        background: greenyellow;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 15px auto;
     }
 }

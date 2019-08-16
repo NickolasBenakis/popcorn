@@ -27,7 +27,7 @@ class MoviesCard extends Component {
                     <Card.Img
                         className="card-img"
                         variant="top"
-                        src={`https://robohash.org/${this.props.id}?200x200`}
+                        src={this.props.moviePoster}
                         alt="movie"
                     />
                     <Card.Body>
@@ -36,15 +36,16 @@ class MoviesCard extends Component {
                         >
                             {this.props.title}
                         </Card.Title>
+                        <strong>In Theaters from:</strong>
                         <Card.Text>
                             <ion-icon
-                                name="star"
+                                name="calendar"
                                 style={{ marginBottom: '-2px' }}
                             ></ion-icon>
                             {this.props.premiereDate}
                         </Card.Text>
                         <Button variant="primary" onClick={this.handleShow}>
-                            Book me
+                            More info
                         </Button>
                     </Card.Body>
                 </Card>
@@ -52,6 +53,11 @@ class MoviesCard extends Component {
                     show={show}
                     onHide={this.handleClose}
                     title={this.props.title}
+                    description={this.props.description}
+                    poster={this.props.moviePoster}
+                    cast={this.props.cast}
+                    durationMin={this.props.durationMin}
+                    director={this.props.director}
                 />
             </Fragment>
         );

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MoviesList from '../moviesCard/moviesList';
-import { mockMovies } from '../../../api/mockMovies';
 import fetchMovies from '../../../api/fetchMovies';
 import FilterMovies from '../filter/filterMovies';
 import './moviesTab.scss';
@@ -8,7 +7,6 @@ class MoviesTab extends Component {
     constructor() {
         super();
         this.state = {
-            mockMovies: mockMovies,
             movies: [],
             searchField: '',
         };
@@ -47,7 +45,7 @@ class MoviesTab extends Component {
                     </ul>
                 </div>
                 <div id="MovieCards" className="movie-tab-wrapper">
-                    <MoviesList mockMovies={filteredMovies} />
+                    <MoviesList movies={filteredMovies} />
                 </div>
             </div>
         );
