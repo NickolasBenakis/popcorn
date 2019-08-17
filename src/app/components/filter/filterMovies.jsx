@@ -1,7 +1,7 @@
 import React from 'react';
 import './filterMovies.scss';
 
-export default function FilterMovies({ mockMovies, searchChange }) {
+function FilterMovies({ mockMovies, searchChange }) {
     return (
         <div id="filterContainer">
             <ion-icon name="search"></ion-icon>
@@ -9,3 +9,4 @@ export default function FilterMovies({ mockMovies, searchChange }) {
         </div>
     );
 }
+export default FilterMovies;

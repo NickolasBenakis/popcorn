@@ -10,7 +10,8 @@ class TheatersTab extends Component {
             auditoriums: [],
         };
     }
-    componentWillMount() {
+    componentWillMount() {}
+    componentDidMount() {
         this.getAuditoriums();
     }
     getAuditoriums = async () => {
@@ -21,7 +22,11 @@ class TheatersTab extends Component {
         return (
             <Fragment>
                 <div id="MovieCards">
-                    <TheatersList auditoriums={this.state.auditoriums} />
+                    {this.state.auditoriums.length ? (
+                        <TheatersList auditoriums={this.state.auditoriums} />
+                    ) : (
+                        <div className="loading-bar"></div>
+                    )}
                 </div>
             </Fragment>
         );

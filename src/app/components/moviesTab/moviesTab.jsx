@@ -12,14 +12,15 @@ class MoviesTab extends Component {
         };
     }
 
-    componentWillMount() {
-        this.movies();
+    componentWillMount() {}
+    componentDidMount() {
+        this.getMovies();
     }
     onSearchChange = event => {
         this.setState({ searchField: event.target.value });
     };
 
-    movies = async () => {
+    getMovies = async () => {
         const res = await fetchMovies();
         this.setState({ movies: res });
     };
@@ -45,7 +46,11 @@ class MoviesTab extends Component {
                     </ul>
                 </div>
                 <div id="MovieCards" className="movie-tab-wrapper">
-                    <MoviesList movies={filteredMovies} />
+                    {this.state.movies.length ? (
+                        <MoviesList movies={filteredMovies} />
+                    ) : (
+                        <div className="loading-bar"></div>
+                    )}
                 </div>
             </div>
         );
