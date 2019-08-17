@@ -17,7 +17,7 @@ class TheaterCard extends Component {
                 />
                 <Card.Body>
                     <Card.Title style={{ padding: '10px', fontSize: '11px' }}>
-                        {this.props.title}
+                        {this.props.name}
                     </Card.Title>
                     <Link to="/movie">
                         <Button variant="primary">

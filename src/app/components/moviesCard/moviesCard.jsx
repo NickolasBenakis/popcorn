@@ -32,7 +32,11 @@ class MoviesCard extends Component {
                     />
                     <Card.Body>
                         <Card.Title
-                            style={{ padding: '10px', fontSize: '11px' }}
+                            style={{
+                                padding: '10px',
+                                fontSize: 'medium',
+                                height: '80px',
+                            }}
                         >
                             {this.props.title}
                         </Card.Title>

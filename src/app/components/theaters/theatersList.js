@@ -1,15 +1,19 @@
 import React from 'react';
 import TheaterCard from './theaterCard.jsx';
 
-export default function TheatersList({ mockTheaters }) {
+export default function TheatersList({ auditoriums }) {
     return (
         <div className="moviesList">
-            {mockTheaters.map(theater => {
+            {auditoriums.map(auditorium => {
                 return (
                     <TheaterCard
-                        key={theater.id}
-                        id={theater.id}
-                        title={theater.title}
+                        key={auditorium.auditoriumId}
+                        id={auditorium.auditoriumId}
+                        name={auditorium.name}
+                        description={auditorium.description}
+                        totalSeats={auditorium.totalSeats}
+                        seats={auditorium.seats}
+                        movieShowing={auditorium.movieShowing}
                     />
                 );
             })}
