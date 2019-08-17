@@ -53,39 +53,41 @@ class navBar extends Component {
         console.log(res);
     };
 
+    title = () => {
+        if (!this.state.showRegister) {
+            return 'Login';
+        }
+        return 'Register';
+    };
+
+    renderBodyContent() {
+        return this.state.showRegister ? (
+            <RegisterModal
+                childLogIn={this.logIn}
+                childHandleClose={this.handleClose}
+            />
+        ) : (
+            <LoginModal
+                getGoogleResponse={res => this.googleResponse(res)}
+                getFbResponse={res => this.fbResponse(res)}
+                childShowRegister={this.showRegister}
+            />
+        );
+    }
+
     render() {
         const { show } = this.state;
         const { openBadge } = this.state;
         const { isLoggedIn } = this.state;
         const { isGoogleLoggedIn } = this.state;
-        const title = () => {
-            if (!this.state.showRegister) {
-                return 'Login';
-            }
-            return 'Register';
-        };
+
         return (
             <Fragment>
                 <Modal show={show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>{title()}</Modal.Title>
+                        <Modal.Title>{this.title()}</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
-                        {this.state.showRegister ? (
-                            <RegisterModal
-                                childLogIn={this.logIn}
-                                childHandleClose={this.handleClose}
-                            />
-                        ) : (
-                            <LoginModal
-                                getGoogleResponse={res =>
-                                    this.googleResponse(res)
-                                }
-                                getFbResponse={res => this.fbResponse(res)}
-                                childShowRegister={this.showRegister}
-                            />
-                        )}
-                    </Modal.Body>
+                    <Modal.Body>{this.renderBodyContent()}</Modal.Body>
                 </Modal>
                 <header className="App-header">
                     <Link to="/" className="non-link">
