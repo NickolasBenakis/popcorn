@@ -6,7 +6,7 @@ import MoviesTab from './components/moviesTab/moviesTab';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MyProfile from './components/myProfile/myProfile';
 import TheatersTab from './components/theaters/theatersTab';
-import BookingTab from './components/bookingTab/bookingTab';
+import BookingTab from './components/booking/bookingTab';
 export default class App extends Component {
     render() {
         return (
