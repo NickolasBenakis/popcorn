@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './moviesCard.scss';
-
+import defaultImgMovie from '../../../assets/defaultMovie.jpg';
 import MovieModal from './movieModal/movieModal';
 
 class MoviesCard extends Component {
@@ -18,6 +18,10 @@ class MoviesCard extends Component {
         this.setState({ show: true });
     };
 
+    addDefaultSrc(event) {
+        event.target.src = defaultImgMovie;
+    }
+
     render() {
         const { show } = this.state;
 
@@ -29,6 +33,7 @@ class MoviesCard extends Component {
                         variant="top"
                         src={this.props.moviePoster}
                         alt="movie"
+                        onError={this.addDefaultSrc}
                     />
                     <Card.Body>
                         <Card.Title

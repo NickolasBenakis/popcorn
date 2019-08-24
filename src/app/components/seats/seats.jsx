@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SeatPicker from 'react-seat-picker';
 
-class Example extends Component {
+class Seats extends Component {
     render() {
         const rows = [
             [
@@ -67,4 +67,4 @@ class Example extends Component {
     }
 }
 
-export default Example;
+export default Seats;
