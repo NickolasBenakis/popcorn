@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 function MovieModal({
     show,
     onHide,
+    id,
     title,
     poster,
     description,
@@ -61,11 +62,16 @@ function MovieModal({
                             <p className="description col-sm-12">
                                 {description}
                             </p>
-                            <Link to="/movieDetails" className="col-sm-12">
-                                <Button className="btn btn-primary">
-                                    Book me
-                                </Button>
-                            </Link>
+                            <p key={id}>
+                                <Link
+                                    to={`/booking?q=${id}`}
+                                    className="col-sm-12"
+                                >
+                                    <Button className="btn btn-primary">
+                                        Book me
+                                    </Button>
+                                </Link>
+                            </p>
                         </div>
                     </div>
                 </Modal.Body>

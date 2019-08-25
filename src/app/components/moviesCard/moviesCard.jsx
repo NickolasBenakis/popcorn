@@ -61,6 +61,7 @@ class MoviesCard extends Component {
                 <MovieModal
                     show={show}
                     onHide={this.handleClose}
+                    id={this.props.id}
                     title={this.props.title}
                     description={this.props.description}
                     poster={this.props.moviePoster}
