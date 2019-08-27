@@ -15,7 +15,7 @@ class TheaterCard extends Component {
                 <Card.Img
                     className="card-img"
                     variant="top"
-                    src={`https://res.cloudinary.com/nickolasben/image/upload/v1566751750/popcorn/${this.props.name.toLowerCase()}.png`}
+                    src={`https://res.cloudinary.com/nickolasben/image/upload/w_450,c_scale/popcorn/${this.props.name.toLowerCase()}.png`}
                     alt="theater"
                 />
                 <Card.Body>
