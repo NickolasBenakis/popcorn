@@ -34,6 +34,7 @@ class MoviesCard extends Component {
                         src={this.props.moviePoster}
                         alt="movie"
                         onError={this.addDefaultSrc}
+                        rel="preload"
                     />
                     <Card.Body>
                         <Card.Title

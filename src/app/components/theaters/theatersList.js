@@ -1,9 +1,9 @@
 import React from 'react';
 import TheaterCard from './theaterCard.jsx';
 
-export default function TheatersList({ auditoriums }) {
+function TheatersList({ auditoriums }) {
     return (
-        <div className="moviesList">
+        <div className="theatersList">
             {auditoriums.map(auditorium => {
                 return (
                     <TheaterCard
@@ -20,3 +20,5 @@ export default function TheatersList({ auditoriums }) {
         </div>
     );
 }
+
+export default TheatersList;

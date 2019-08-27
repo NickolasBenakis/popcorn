@@ -3,6 +3,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './theaterCard.scss';
 import '../moviesCard/moviesCard.scss';
+import mars from '../../../assets/mars.png';
+import jupiter from '../../../assets/jupiter.png';
+import earth from '../../../assets/earth.png';
 import { Link } from 'react-router-dom';
 
 class TheaterCard extends Component {
@@ -12,7 +15,7 @@ class TheaterCard extends Component {
                 <Card.Img
                     className="card-img"
                     variant="top"
-                    src={`https://robohash.org/${this.props.id}?200x200`}
+                    src={`https://res.cloudinary.com/nickolasben/image/upload/v1566751750/popcorn/${this.props.name.toLowerCase()}.png`}
                     alt="theater"
                 />
                 <Card.Body>

@@ -1,0 +1,46 @@
+.parent {
+    margin: 20px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    @media (max-width : 1024px) {
+        flex-direction: column;
+    }
+
+    .div1 {
+        border-right: 1px solid black;
+
+        @media (max-width: 600px) {
+            border-right: unset;
+            border-bottom: 1px solid black;
+        }
+
+        @media (max-width : 1024px) {
+            border-right: unset;
+            border-bottom: 1px solid black;
+        }
+    }
+
+    .div2 {
+        .seats {
+            margin: auto 0;
+            padding: 50px;
+        }
+    }
+}
+
+.step-heading {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
