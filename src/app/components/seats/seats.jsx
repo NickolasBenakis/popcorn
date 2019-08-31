@@ -5,7 +5,7 @@ class Seats extends Component {
     render() {
         const rows = [
             [
-                { number: 1, isSelected: true },
+                { number: 1 },
                 { number: 2 },
                 null,
                 { number: '3', isReserved: true, orientation: 'east' },

@@ -28,7 +28,7 @@ function MovieModal({
                                 src={poster}
                                 alt=""
                                 srcSet=""
-                                className="col-sm-6"
+                                className="col-sm-6 responsive-img"
                             />
                             <div className="col-sm-6">
                                 <ul className="side-list">

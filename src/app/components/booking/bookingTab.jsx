@@ -23,7 +23,10 @@ class BookingTab extends Component {
                 );
             });
             this.setState({ movieShow: filteredMovieShow[0] });
-            this.setState({ auditorium: filteredMovieShow[0].auditorium });
+            this.setState({
+                auditorium:
+                    filteredMovieShow[0] && filteredMovieShow[0].auditorium,
+            });
         } catch (error) {
             throw new Error(error);
         }
@@ -33,7 +36,8 @@ class BookingTab extends Component {
     render() {
         return (
             <div>
-                {this.state.auditorium === null ? (
+                {(this.state && this.state.auditorium === null) ||
+                this.state.auditorium === undefined ? (
                     <div className="loading-bar"></div>
                 ) : (
                     <div className="parent">

@@ -19,12 +19,28 @@
     }
 }
 
+.display-fill .modal-content {
+
+    @media (max-width: 600px) {
+        height: unset !important;
+    }
+}
+
 .card-body {
     text-align: center;
 }
 
 .card-img {
     height: 250px;
+}
+
+.responsive-img {
+
+    @media (max-width: 600px) {
+        width: 50vw;
+        margin: 0 auto;
+    }
+
 }
 
 .moviesList,

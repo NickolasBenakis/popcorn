@@ -5,13 +5,18 @@ import Carousel from 'react-bootstrap/Carousel';
 import defaultImg from '../../../assets/defaultMarvel.jpg';
 
 function CarouselComp() {
+    const cdnUrl =
+        'https://res.cloudinary.com/nickolasben/image/fetch/w_1920,h_1080/';
     return (
         <Fragment>
             <Carousel className="mainCarousel" interval="3000">
                 <Carousel.Item>
                     <img
                         className="d-block responsive"
-                        src="https://hdqwalls.com/download/captain-marvel-5k-poster-oy-1920x1080.jpg"
+                        src={
+                            cdnUrl +
+                            'https://hdqwalls.com/download/captain-marvel-5k-poster-oy-1920x1080.jpg'
+                        }
                         alt={defaultImg}
                     />
                     <Carousel.Caption>
@@ -22,7 +27,10 @@ function CarouselComp() {
                 <Carousel.Item>
                     <img
                         className="d-block responsive"
-                        src="https://hdqwalls.com/download/toothless-how-to-train-your-dragon-n8-1920x1080.jpg"
+                        src={
+                            cdnUrl +
+                            'https://hdqwalls.com/download/toothless-how-to-train-your-dragon-n8-1920x1080.jpg'
+                        }
                         alt={defaultImg}
                     />
                     <Carousel.Caption>
@@ -33,7 +41,10 @@ function CarouselComp() {
                 <Carousel.Item>
                     <img
                         className="d-block responsive"
-                        src="https://i1.imgiz.com/rshots/9469/panic-at-the-disco-bohemian-rhapsody_9469069-60110_1920x1080.jpg"
+                        src={
+                            cdnUrl +
+                            'https://i1.imgiz.com/rshots/9469/panic-at-the-disco-bohemian-rhapsody_9469069-60110_1920x1080.jpg'
+                        }
                         alt={defaultImg}
                     />
                     <Carousel.Caption>
