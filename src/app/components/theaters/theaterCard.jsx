@@ -16,6 +16,7 @@ function TheaterCard({
     movieShowingID,
     movieShowDateRange,
     movieScreeningTime,
+    toggleSeats,
 }) {
     const cardElement = useRef(null);
     const [flipped, setFlipped] = useState(false);
@@ -55,14 +56,7 @@ function TheaterCard({
                         ></ion-icon>
                     </span>
                     <Card.Body className="width-full text-left">
-                        <Card.Title
-                            style={{
-                                padding: '10px',
-                                fontSize: '11px',
-                                textAlign: 'center',
-                            }}
-                            className="text-center"
-                        ></Card.Title>
+                        <Card.Title className="text-center card-title"></Card.Title>
                         <div className="container">
                             <table className="width-full transformerY table">
                                 <thead className="no-border">
@@ -79,6 +73,7 @@ function TheaterCard({
                                                     day={day}
                                                     time={screeningTime}
                                                     key={index}
+                                                    toggleSeats={toggleSeats}
                                                 />
                                             );
                                         })
@@ -97,15 +92,13 @@ function TheaterCard({
                     ref={cardElement}
                 >
                     <Card.Img
-                        className="card-img"
+                        className="card-img-theater "
                         variant="top"
                         src={`https://res.cloudinary.com/nickolasben/image/upload/w_450,c_scale/popcorn/${name.toLowerCase()}.png`}
                         alt="theater"
                     />
                     <Card.Body>
-                        <Card.Title
-                            style={{ padding: '10px', fontSize: '11px' }}
-                        >
+                        <Card.Title className="text-center card-title">
                             {name}
                         </Card.Title>
                         {typeof movieShowingID === 'number' ? (

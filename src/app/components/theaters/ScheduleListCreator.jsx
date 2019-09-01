@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 
-const ScheduleListCreator = ({ day, time }) => {
+const ScheduleListCreator = ({ day, time, toggleSeats }) => {
     return (
         <Fragment>
             <tr className="schedule-row">
-                <td style={{ textAlign: 'left', paddingRight: '20px' }}>
-                    {day}
-                </td>
-                <td style={{ paddingRight: '20px' }} className="schedule-hour">
+                <td className=" text-left padding-right-20">{day}</td>
+                <td
+                    className="schedule-hour padding-right-20"
+                    onClick={toggleSeats}
+                >
                     {time}
                 </td>
             </tr>

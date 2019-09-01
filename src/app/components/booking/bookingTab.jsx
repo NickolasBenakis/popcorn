@@ -4,14 +4,21 @@ import TheatersList from '../theaters/theatersList';
 import Seats from '../seats/seats';
 import './bookingTab.scss';
 import { idText } from 'typescript';
+
 class BookingTab extends Component {
     state = {
         movieShow: null,
         auditorium: null,
+        showSeats: false,
     };
+
     componentDidMount() {
         this.getMovieShowingsPerMovie();
     }
+
+    toggleSeats = () => {
+        this.setState({ showSeats: !this.state.showSeats });
+    };
 
     getMovieShowingsPerMovie = async () => {
         try {
@@ -48,16 +55,20 @@ class BookingTab extends Component {
                                 <TheatersList
                                     auditoriums={[this.state.auditorium]}
                                     movieShow={this.state.movieShow}
+                                    toggleSeats={this.toggleSeats}
                                 />
                             </div>
                         </div>
-                        <div className="div2">
-                            <h2 className="step-heading">Choose seat</h2>
-                            {}
-                            <div className="seats">
-                                <Seats />
+                        {this.state.showSeats ? (
+                            <div className="div2">
+                                <h2 className="step-heading">Choose seat</h2>
+                                <div className="seats">
+                                    <Seats />
+                                </div>
                             </div>
-                        </div>
+                        ) : (
+                            <div className="div2"></div>
+                        )}
                     </div>
                 )}
             </div>

@@ -22,6 +22,10 @@
 
 }
 
+.card-img-theater {
+    height: 300px;
+}
+
 .transformerY {
     transform: rotateY(180deg);
 
@@ -73,5 +77,11 @@
 
 .card-title {
     text-align: center;
+    padding: 10px;
+    font-size: 11px;
+    text-align: center;
+}
 
+.padding-right-20 {
+    padding-right: 20px;
 }
