@@ -4,13 +4,23 @@ import Button from 'react-bootstrap/Button';
 import './theaterCard.scss';
 import '../moviesCard/moviesCard.scss';
 import { Link } from 'react-router-dom';
-import { calculateWeekdays } from '../../utils/dateUtils';
+import {
+    calculateWeekdays,
+    convertToStandardTime,
+} from '../../utils/dateUtils';
 import ScheduleListCreator from './ScheduleListCreator';
 
-function TheaterCard({ name, id, movieShowingID, movieShowDateRange }) {
+function TheaterCard({
+    name,
+    id,
+    movieShowingID,
+    movieShowDateRange,
+    movieScreeningTime,
+}) {
     const cardElement = useRef(null);
     const [flipped, setFlipped] = useState(false);
     const [days, setDays] = useState([]);
+    const [screeningTime, setScreeningTime] = useState('');
 
     function flipTheCard() {
         if (flipped) {
@@ -27,6 +37,7 @@ function TheaterCard({ name, id, movieShowingID, movieShowDateRange }) {
         setDays(
             calculateWeekdays(movieShowDateRange[0], movieShowDateRange[1])
         );
+        setScreeningTime(convertToStandardTime(movieScreeningTime));
     }, []);
 
     return (
@@ -66,6 +77,7 @@ function TheaterCard({ name, id, movieShowingID, movieShowDateRange }) {
                                             return (
                                                 <ScheduleListCreator
                                                     day={day}
+                                                    time={screeningTime}
                                                     key={index}
                                                 />
                                             );

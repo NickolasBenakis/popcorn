@@ -15,3 +15,7 @@ export function calculateWeekdays(dateFrom, dateTo) {
     }
     return arrayOfDays;
 }
+
+export function convertToStandardTime(input) {
+    return moment(input, 'HH:mm:ss').format('HH:mm');
+}

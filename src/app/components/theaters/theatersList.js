@@ -19,6 +19,9 @@ function TheatersList({ auditoriums, movieShow }) {
                             movieShow && movieShow.showingDateFrom,
                             movieShow && movieShow.showingDateTo,
                         ]}
+                        movieScreeningTime={
+                            movieShow && movieShow.screeningDateTime
+                        }
                     />
                 );
             })}
