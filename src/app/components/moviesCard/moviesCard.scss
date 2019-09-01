@@ -1,4 +1,8 @@
 .CardContainer {
+    &.static-height {
+        width: auto;
+        min-width: 250px;
+    }
 
     width: 250px;
     align-items: center;
@@ -9,8 +13,10 @@
     }
 }
 
+
 .card {
     transition: all 0.5s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
     &:hover {
         opacity: 0.9;

@@ -1,0 +1,77 @@
+.static-height {
+    min-height: 375px;
+}
+
+.relative-box {
+    position: relative;
+}
+
+.return-button {
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.list-none {
+    list-style: none;
+}
+
+.width-full {
+    width: 100%;
+
+}
+
+.transformerY {
+    transform: rotateY(180deg);
+
+}
+
+.theater-card-container {
+    width: 350px;
+    align-items: center;
+    margin: 20px 40px 20px 40px;
+
+    @media (max-width: 600px) {
+        width: 250px;
+    }
+}
+
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.no-border {
+    border: unset !important;
+}
+
+.border-top-1 {
+    border-top: 1px solid black !important;
+}
+
+.schedule-row {
+    &:hover {
+        background-color: azure;
+
+    }
+
+    .schedule-hour {
+        &:hover {
+            background-color: #F44236;
+        }
+    }
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.card-title {
+    text-align: center;
+
+}

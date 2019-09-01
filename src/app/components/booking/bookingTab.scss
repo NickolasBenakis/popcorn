@@ -5,6 +5,7 @@
     flex-direction: row;
 
     @media (max-width: 600px) {
+        border: unset;
         flex-direction: column;
     }
 

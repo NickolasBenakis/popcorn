@@ -1,7 +1,7 @@
 import React from 'react';
 import TheaterCard from './theaterCard.jsx';
 
-function TheatersList({ auditoriums }) {
+function TheatersList({ auditoriums, movieShow }) {
     return (
         <div className="theatersList">
             {auditoriums.map(auditorium => {
@@ -14,6 +14,11 @@ function TheatersList({ auditoriums }) {
                         totalSeats={auditorium.totalSeats}
                         seats={auditorium.seats}
                         movieShowing={auditorium.movieShowing}
+                        movieShowingID={movieShow && movieShow.movieShowingId}
+                        movieShowDateRange={[
+                            movieShow && movieShow.showingDateFrom,
+                            movieShow && movieShow.showingDateTo,
+                        ]}
                     />
                 );
             })}
