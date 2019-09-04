@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 export function convertDate(input) {
     return moment(input).format('LL');
@@ -18,4 +18,12 @@ export function calculateWeekdays(dateFrom, dateTo) {
 
 export function convertToStandardTime(input) {
     return moment(input, 'HH:mm:ss').format('HH:mm');
+}
+
+export function convertFromStandardToUTC(day, time) {
+    const input = day + ' ' + time;
+    const format = 'ddd DD/MM HH:mm';
+    const zone = 'Europe/Athens';
+    const m = moment.tz(input, format, zone);
+    return m.utc().format();
 }

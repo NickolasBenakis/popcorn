@@ -1,7 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import SeatPicker from 'react-seat-picker';
+import fetchSeatsReserved from '../../../api/fetchSeatsReserved';
 
-function Seats() {
+function Seats({ movieShowingId, dateTime }) {
+    const [seats, setSeats] = useState([]);
+
+    useEffect(() => {
+        
+        getSeatsReserved();
+    }, []);
+
+    const getSeatsReserved = async () => {
+        const seatsReserved = await fetchSeatsReserved(
+            movieShowingId,
+            dateTime
+        );
+        console.log(seatsReserved);
+    };
+
     const rows = [
         [
             { number: 1 },

@@ -17,6 +17,7 @@ function TheaterCard({
     movieShowDateRange,
     movieScreeningTime,
     toggleSeats,
+    handleTime,
 }) {
     const cardElement = useRef(null);
     const [flipped, setFlipped] = useState(false);
@@ -74,6 +75,7 @@ function TheaterCard({
                                                     time={screeningTime}
                                                     key={index}
                                                     toggleSeats={toggleSeats}
+                                                    handleTime={handleTime}
                                                 />
                                             );
                                         })

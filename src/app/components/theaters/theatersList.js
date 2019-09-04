@@ -1,7 +1,7 @@
 import React from 'react';
 import TheaterCard from './theaterCard.jsx';
 
-function TheatersList({ auditoriums, movieShow, toggleSeats }) {
+function TheatersList({ auditoriums, movieShow, toggleSeats, handleTime }) {
     return (
         <div className="theatersList">
             {auditoriums.map(auditorium => {
@@ -23,6 +23,7 @@ function TheatersList({ auditoriums, movieShow, toggleSeats }) {
                             movieShow && movieShow.screeningDateTime
                         }
                         toggleSeats={toggleSeats}
+                        handleTime={handleTime}
                     />
                 );
             })}
