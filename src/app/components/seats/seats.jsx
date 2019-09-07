@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import SeatPicker from 'react-seat-picker';
-import fetchSeatsReserved from '../../../api/fetchSeatsReserved';
+import fetchSeatsReserved from '../../../api/seatsReserved/fetchSeatsReserved';
+import fetchSeats from '../../../api/seats/fetchSeats';
 
-function Seats({ movieShowingId, dateTime }) {
-    const [seats, setSeats] = useState([]);
+function Seats({ movieShowingId, auditoriumId, dateTime }) {
+    const [seatRows, setSeatRows] = useState([]);
 
     useEffect(() => {
-        
-        getSeatsReserved();
+        Promise.all([getSeats(), getSeatsReserved()]);
     }, []);
 
     const getSeatsReserved = async () => {
@@ -15,70 +15,49 @@ function Seats({ movieShowingId, dateTime }) {
             movieShowingId,
             dateTime
         );
-        console.log(seatsReserved);
     };
+    const getSeats = async () => {
+        const seatsResponse = await fetchSeats(auditoriumId);
+        const seats = seatsResponse.map(el => {
+            return {
+                seatId: el.seatId,
+                seatRow: el.seatRow,
+                seatNumber: el.seatNumber,
+                reserved: el.seatsReserved,
+            };
+        });
+        const rowsCounterArray = seats
+            .map(el => el.seatRow)
+            .filter((value, index, self) => self.indexOf(value) === index);
 
-    const rows = [
-        [
-            { number: 1 },
-            { number: 2 },
-            null,
-            { number: '3', isReserved: true, orientation: 'east' },
-            { number: '4', orientation: 'west' },
-            null,
-            { number: 5 },
-            { number: 6 },
-        ],
-        [
-            { number: 1, isReserved: true },
-            { number: 2, isReserved: true },
-            null,
-            { number: '3', isReserved: true, orientation: 'east' },
-            { number: '4', orientation: 'west' },
-            null,
-            { number: 5 },
-            { number: 6 },
-        ],
-        [
-            { number: 1 },
-            { number: 2 },
-            null,
-            { number: 3, isReserved: true, orientation: 'east' },
-            { number: '4', orientation: 'west' },
-            null,
-            { number: 5 },
-            { number: 6 },
-        ],
-        [
-            { number: 1 },
-            { number: 2 },
-            null,
-            { number: 3, orientation: 'east' },
-            { number: '4', orientation: 'west' },
-            null,
-            { number: 5 },
-            { number: 6 },
-        ],
-        [
-            { number: 1, isReserved: true },
-            { number: 2, orientation: 'east' },
-            null,
-            { number: '3', isReserved: true },
-            { number: '4', orientation: 'west' },
-            null,
-            { number: 5 },
-            { number: 6, isReserved: true },
-        ],
-    ];
-
+        const rows = rowsCounterArray.map((el, index) => {
+            return seats.filter(seat => {
+                return seat.seatRow === rowsCounterArray[index];
+            });
+        });
+        setSeatRows(rows);
+    };
     return (
-        <SeatPicker
-            rows={rows}
-            maxReservableSeats={3}
-            alpha
-            visible
-            selectedByDefault
-        />
+        <Fragment>
+            <div>
+                {seatRows.length ? (
+                    <span className="easy-in">
+                        <h2 className="step-heading">Choose seat</h2>
+                        <div className="seats">
+                            <SeatPicker
+                                rows={seatRows}
+                                maxReservableSeats={3}
+                                alpha
+                                visible
+                                selectedByDefault
+                            />
+                        </div>
+                    </span>
+                ) : (
+                    <span className="easy-in"></span>
+                )}
+            </div>
+        </Fragment>
     );
 }
 

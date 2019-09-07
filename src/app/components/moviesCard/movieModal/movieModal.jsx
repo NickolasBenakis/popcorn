@@ -64,7 +64,7 @@ function MovieModal({
                             </p>
                             <p key={id}>
                                 <Link
-                                    to={`/booking?q=${id}`}
+                                    to={`/booking?q=movieID${id}`}
                                     className="col-sm-12"
                                 >
                                     <Button className="btn btn-primary">

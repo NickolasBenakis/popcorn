@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MoviesList from '../moviesCard/moviesList';
-import fetchMovies from '../../../api/fetchMovies';
+import fetchMovies from '../../../api/movies/fetchMovies';
 import FilterMovies from '../filter/filterMovies';
 import './moviesTab.scss';
 class MoviesTab extends Component {

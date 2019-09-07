@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import TheatersList from './theatersList.js';
-import fetchAuditoriums from '../../../api/fetchAuditoriums';
+import fetchAuditoriums from '../../../api/auditoriums/fetchAuditoriums';
 import '../moviesTab/moviesTab.scss';
 
 function TheatersTab() {

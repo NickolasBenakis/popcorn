@@ -26,11 +26,13 @@ function TheaterCard({
 
     function flipTheCard() {
         if (flipped) {
-            cardElement.current.style.transform = 'rotateY(0)';
-            cardElement.current.style.transition = 'all 1s';
+            cardElement.current.style.transform = 'rotateY(0';
+            cardElement.current.style.transition =
+                '0.8s cubic-bezier(0.75, 0, 0.85, 1);';
         } else {
-            cardElement.current.style.transform = 'rotateY(180deg)';
-            cardElement.current.style.transition = 'all 1s';
+            cardElement.current.style.transform = 'rotateY(-180deg)';
+            cardElement.current.style.transition =
+                '0.8s cubic-bezier(0.75, 0, 0.85, 1);';
         }
         setFlipped(!flipped);
     }

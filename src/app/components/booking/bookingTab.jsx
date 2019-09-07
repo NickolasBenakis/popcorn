@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fetchMovieShowings from '../../../api/fetchMovieShowing';
+import fetchMovieShowings from '../../../api/movieShowing/fetchMovieShowing';
 import TheatersList from '../theaters/theatersList';
 import Seats from '../seats/seats';
 import './bookingTab.scss';
@@ -33,7 +33,7 @@ class BookingTab extends Component {
                     show &&
                     show.movie &&
                     show.movie.movieId ===
-                        parseInt(window.location.href.split('?q=')[1])
+                        parseInt(window.location.href.split('?q=movieID')[1])
                 );
             });
             this.setState({
@@ -67,16 +67,17 @@ class BookingTab extends Component {
                         </div>
                         {this.state.showSeats ? (
                             <div className="div2">
-                                <h2 className="step-heading">Choose seat</h2>
-                                <div className="seats">
                                     <Seats
                                         movieShowingId={
                                             this.state.movieShow &&
                                             this.state.movieShow.MovieShowingId
                                         }
                                         dateTime={this.state.dateTime}
+                                        auditoriumId={
+                                            this.state.auditorium &&
+                                            this.state.auditorium.auditoriumId
+                                        }
                                     />
-                                </div>
                             </div>
                         ) : (
                             <div className="div2"></div>

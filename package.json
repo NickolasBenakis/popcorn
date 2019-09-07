@@ -21,7 +21,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"fullstack": "concurrently --kill-others -n \"react,dotnet\" -c \"yellow,blue\" \"npm run start\" \"cd ../popCornApi/popCornCinemaApi/popCornCinemaApi && dotnet run\" "
+		"fullstack": "concurrently --kill-others -n \"react,dotnet\" -c \"magenta,blue\" \"npm run start\" \"cd ../popCornApi/popCornCinemaApi/popCornCinemaApi && dotnet run\" "
 	},
 	"eslintConfig": {
 		"extends": "react-app"
