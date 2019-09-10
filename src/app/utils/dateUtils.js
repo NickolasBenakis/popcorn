@@ -23,7 +23,7 @@ export function convertToStandardTime(input) {
 export function convertFromStandardToUTC(day, time) {
     const input = day + ' ' + time;
     const format = 'ddd DD/MM HH:mm';
-    const zone = 'Europe/Athens';
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const m = moment.tz(input, format, zone);
     return m.utc().format();
 }
