@@ -21,7 +21,6 @@ class BookingTab extends Component {
     };
 
     handleTime = dateTime => {
-        console.log(dateTime);
         this.setState({ dateTime: dateTime });
     };
 
@@ -67,17 +66,17 @@ class BookingTab extends Component {
                         </div>
                         {this.state.showSeats ? (
                             <div className="div2">
-                                    <Seats
-                                        movieShowingId={
-                                            this.state.movieShow &&
-                                            this.state.movieShow.MovieShowingId
-                                        }
-                                        dateTime={this.state.dateTime}
-                                        auditoriumId={
-                                            this.state.auditorium &&
-                                            this.state.auditorium.auditoriumId
-                                        }
-                                    />
+                                <Seats
+                                    movieShowingId={
+                                        this.state.movieShow &&
+                                        this.state.movieShow.MovieShowingId
+                                    }
+                                    dateTime={this.state.dateTime}
+                                    auditoriumId={
+                                        this.state.auditorium &&
+                                        this.state.auditorium.auditoriumId
+                                    }
+                                />
                             </div>
                         ) : (
                             <div className="div2"></div>

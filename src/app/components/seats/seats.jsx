@@ -7,14 +7,19 @@ function Seats({ movieShowingId, auditoriumId, dateTime }) {
     const [seatRows, setSeatRows] = useState([]);
 
     useEffect(() => {
-        Promise.all([getSeats(), getSeatsReserved()]);
+        getSeats();
     }, []);
+
+    useEffect(() => {
+        getSeatsReserved();
+    }, [seatRows]);
 
     const getSeatsReserved = async () => {
         const seatsReserved = await fetchSeatsReserved(
             movieShowingId,
             dateTime
         );
+        console.log(seatsReserved);
     };
     const getSeats = async () => {
         const seatsResponse = await fetchSeats(auditoriumId);
@@ -22,8 +27,8 @@ function Seats({ movieShowingId, auditoriumId, dateTime }) {
             return {
                 seatId: el.seatId,
                 seatRow: el.seatRow,
-                seatNumber: el.seatNumber,
-                reserved: el.seatsReserved,
+                number: el.seatNumber,
+                isReserved: el.seatsReserved,
             };
         });
         const rowsCounterArray = seats
@@ -37,11 +42,12 @@ function Seats({ movieShowingId, auditoriumId, dateTime }) {
         });
         setSeatRows(rows);
     };
+
     return (
         <Fragment>
             <div>
                 {seatRows.length ? (
-                    <span className="easy-in">
+                    <span>
                         <h2 className="step-heading">Choose seat</h2>
                         <div className="seats">
                             <SeatPicker
@@ -54,7 +60,7 @@ function Seats({ movieShowingId, auditoriumId, dateTime }) {
                         </div>
                     </span>
                 ) : (
-                    <span className="easy-in"></span>
+                    <span></span>
                 )}
             </div>
         </Fragment>
