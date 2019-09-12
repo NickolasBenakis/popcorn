@@ -2,24 +2,48 @@ import React, { useState, useEffect, Fragment } from 'react';
 import SeatPicker from 'react-seat-picker';
 import fetchSeatsReserved from '../../../api/seatsReserved/fetchSeatsReserved';
 import fetchSeats from '../../../api/seats/fetchSeats';
+import {
+    reduceValuesToSingleOnes,
+    splitIntoNestedArrays,
+} from '../../utils/arrayUtils';
 
 function Seats({ movieShowingId, auditoriumId, dateTime }) {
     const [seatRows, setSeatRows] = useState([]);
+    const [seatsReserved, setSeatsReserved] = useState([]);
+    const [finalRows, setFinalRows] = useState([]);
 
     useEffect(() => {
-        getSeats();
+        Promise.all([getSeats(), getSeatsReserved()]);
     }, []);
 
     useEffect(() => {
-        getSeatsReserved();
-    }, [seatRows]);
+        if (seatRows.length) {
+            const arrayOfIDs = seatsReserved.map(seat => {
+                return seat.seat.seatId;
+            });
+            const finalRowModel = arrayOfIDs.map(id =>
+                seatRows.flat().map(reservedSeat => {
+                    if (id === reservedSeat.seatId) {
+                        reservedSeat.isReserved = true;
+                    }
+                    return reservedSeat;
+                })
+            );
+            const formattedRows = splitIntoNestedArrays(
+                finalRowModel[0],
+                reduceValuesToSingleOnes(finalRowModel[0], 'seatRow'),
+                'seatRow'
+            );
+            setFinalRows(formattedRows);
+        }
+    }, [seatsReserved]);
 
     const getSeatsReserved = async () => {
         const seatsReserved = await fetchSeatsReserved(
             movieShowingId,
             dateTime
         );
-        console.log(seatsReserved);
+        setSeatsReserved(seatsReserved);
     };
     const getSeats = async () => {
         const seatsResponse = await fetchSeats(auditoriumId);
@@ -31,27 +55,23 @@ function Seats({ movieShowingId, auditoriumId, dateTime }) {
                 isReserved: el.seatsReserved,
             };
         });
-        const rowsCounterArray = seats
-            .map(el => el.seatRow)
-            .filter((value, index, self) => self.indexOf(value) === index);
-
-        const rows = rowsCounterArray.map((el, index) => {
-            return seats.filter(seat => {
-                return seat.seatRow === rowsCounterArray[index];
-            });
-        });
-        setSeatRows(rows);
+        const formattedRows = splitIntoNestedArrays(
+            seats,
+            reduceValuesToSingleOnes(seats, 'seatRow'),
+            'seatRow'
+        );
+        setSeatRows(formattedRows);
     };
 
     return (
         <Fragment>
             <div>
-                {seatRows.length ? (
+                {finalRows.length ? (
                     <span>
                         <h2 className="step-heading">Choose seat</h2>
                         <div className="seats">
                             <SeatPicker
-                                rows={seatRows}
+                                rows={finalRows}
                                 maxReservableSeats={3}
                                 alpha
                                 visible

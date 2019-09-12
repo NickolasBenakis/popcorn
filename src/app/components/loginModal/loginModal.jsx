@@ -3,8 +3,8 @@ import { Form, Button } from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
-import { facebookApiID } from '../../../enviromental/api_key';
-import { googleClientID } from '../../../enviromental/api_key';
+// import { facebookApiID } from '../../../enviromental/api_key';
+// import { googleClientID } from '../../../enviromental/api_key';
 
 import './loginModal.scss';
 class LoginModal extends Component {
@@ -42,7 +42,7 @@ class LoginModal extends Component {
                     className="socialMediaSignIn"
                     controlId="SocialMediaSignIn"
                 >
-                    <GoogleLogin
+                    {/* <GoogleLogin
                         clientId={googleClientID}
                         buttonText="Login with Google"
                         onSuccess={res => this.props.getGoogleResponse(res)}
@@ -55,7 +55,7 @@ class LoginModal extends Component {
                         fields="name,email,picture"
                         onClick={res => this.props.getFbResponse(res)}
                         callback={res => this.props.getFbResponse(res)}
-                    />
+                    /> */}
                 </Form.Group>
                 <hr />
                 <Form.Group controlId="formBasicEmail">

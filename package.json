@@ -21,7 +21,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"fullstack": "concurrently --kill-others -n \"react,dotnet\" -c \"magenta,blue\" \"npm run start\" \"cd ../popCornApi/popCornCinemaApi/popCornCinemaApi && dotnet run\" "
+		"fullstack": "concurrently --kill-others -n \"react,dotnet\" -c \"magenta,blue\" \"npm run start\" \"cd ../popCornCinemaApi/popCornCinemaApi && dotnet run\" "
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -50,6 +50,7 @@
 		"react-router": "^5.0.1",
 		"react-router-dom": "^5.0.1",
 		"react-test-renderer": "^16.8.6",
+		"react-use-form-state": "^0.11.0",
 		"redux": "^4.0.1",
 		"redux-logger": "^3.0.6",
 		"redux-mock-store": "^1.5.3",

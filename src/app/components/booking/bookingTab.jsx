@@ -69,7 +69,7 @@ class BookingTab extends Component {
                                 <Seats
                                     movieShowingId={
                                         this.state.movieShow &&
-                                        this.state.movieShow.MovieShowingId
+                                        this.state.movieShow.movieShowingId
                                     }
                                     dateTime={this.state.dateTime}
                                     auditoriumId={

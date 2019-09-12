@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SimpleForm from './simpleForm';
+import SimpleForm from './simpleForm.jsx';
 import './myProfile.scss';
 
 class MyProfile extends Component {
