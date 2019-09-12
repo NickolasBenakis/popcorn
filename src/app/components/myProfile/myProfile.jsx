@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Basic from './Basic';
+import SimpleForm from './simpleForm';
 import './myProfile.scss';
 
 class MyProfile extends Component {
@@ -7,7 +7,7 @@ class MyProfile extends Component {
         return (
             <div className="profile-container">
                 Edit your profile
-                <Basic />
+                <SimpleForm />
             </div>
         );
     }
