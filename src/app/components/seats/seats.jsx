@@ -10,33 +10,45 @@ import {
 function Seats({ movieShowingId, auditoriumId, dateTime }) {
     const [seatRows, setSeatRows] = useState([]);
     const [seatsReserved, setSeatsReserved] = useState([]);
-    const [finalRows, setFinalRows] = useState([]);
+    const [finalSeatRows, setFinalSeatRows] = useState([]);
+    const [seatsSelected, setSeatsSelected] = useState([]);
 
     useEffect(() => {
         Promise.all([getSeats(), getSeatsReserved()]);
     }, []);
 
     useEffect(() => {
-        if (seatRows.length) {
-            const arrayOfIDs = seatsReserved.map(seat => {
+        console.log('DidUpdate');
+        if (seatRows.length && seatsReserved.length) {
+            const reservedSeatsIdArray = seatsReserved.map(seat => {
                 return seat.seat.seatId;
             });
-            const finalRowModel = arrayOfIDs.map(id =>
+            const seatsRowsReserved = reservedSeatsIdArray.map(id =>
                 seatRows.flat().map(reservedSeat => {
                     if (id === reservedSeat.seatId) {
                         reservedSeat.isReserved = true;
                     }
-                    return reservedSeat;
+                    return {
+                        id: reservedSeat.seatId,
+                        seatRow: reservedSeat.seatRow,
+                        number: reservedSeat.number,
+                        isReserved: reservedSeat.isReserved,
+                    };
                 })
             );
             const formattedRows = splitIntoNestedArrays(
-                finalRowModel[0],
-                reduceValuesToSingleOnes(finalRowModel[0], 'seatRow'),
+                seatsRowsReserved[0],
+                reduceValuesToSingleOnes(seatsRowsReserved[0], 'seatRow'),
                 'seatRow'
             );
-            setFinalRows(formattedRows);
+            setFinalSeatRows(formattedRows);
+        } else if (seatRows.length) {
+            setFinalSeatRows(seatRows);
         }
     }, [seatsReserved]);
+    useEffect(() => {
+        console.log(seatsSelected);
+    }, [seatsSelected]);
 
     const getSeatsReserved = async () => {
         const seatsReserved = await fetchSeatsReserved(
@@ -63,16 +75,39 @@ function Seats({ movieShowingId, auditoriumId, dateTime }) {
         setSeatRows(formattedRows);
     };
 
+    const addSeatCallback = (row, number, id, cb) => {
+        setSeatsSelected(oldArray => [
+            ...oldArray,
+            {
+                row: row,
+                number: number,
+                id: id,
+            },
+        ]);
+        cb(row, number);
+    };
+
+    const removeSeatCallback = (row, number, id, cb) => {
+        setSeatsSelected(
+            seatsSelected.filter((seat, index, array) => {
+                return seat.id !== id;
+            })
+        );
+        cb(row, number);
+    };
+
     return (
         <Fragment>
             <div>
-                {finalRows.length ? (
+                {finalSeatRows.length ? (
                     <span>
                         <h2 className="step-heading">Choose seat</h2>
                         <div className="seats">
                             <SeatPicker
-                                rows={finalRows}
+                                rows={finalSeatRows}
                                 maxReservableSeats={3}
+                                addSeatCallback={addSeatCallback}
+                                removeSeatCallback={removeSeatCallback}
                                 alpha
                                 visible
                                 selectedByDefault
