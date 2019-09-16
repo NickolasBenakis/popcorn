@@ -4,6 +4,10 @@ export function convertDate(input) {
     return moment(input).format('LL');
 }
 
+export function convertDateTime(input) {
+    return moment(input).format('dddd DD/MM HH:mm');
+}
+
 export function calculateWeekdays(dateFrom, dateTo) {
     const startWeek = moment(dateFrom);
     const endWeek = moment(dateTo);

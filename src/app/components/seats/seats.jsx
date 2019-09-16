@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, useRef } from 'react';
 import SeatPicker from 'react-seat-picker';
 import fetchSeatsReserved from '../../../api/seatsReserved/fetchSeatsReserved';
 import fetchSeats from '../../../api/seats/fetchSeats';
@@ -6,62 +6,74 @@ import {
     reduceValuesToSingleOnes,
     splitIntoNestedArrays,
 } from '../../utils/arrayUtils';
-
-function Seats({ movieShowingId, auditoriumId, dateTime }) {
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+function Seats({
+    movieShowingId,
+    auditoriumId,
+    dateTime,
+    getConfirmationData,
+    toggleModal,
+}) {
     const [seatRows, setSeatRows] = useState([]);
     const [seatsReserved, setSeatsReserved] = useState([]);
     const [finalSeatRows, setFinalSeatRows] = useState([]);
     const [seatsSelected, setSeatsSelected] = useState([]);
+    const { height, width } = useWindowDimensions();
+    const seatsComponent = useRef(null);
 
     useEffect(() => {
         Promise.all([getSeats(), getSeatsReserved()]);
     }, []);
 
     useEffect(() => {
-        console.log('DidUpdate');
         if (seatRows.length && seatsReserved.length) {
             const reservedSeatsIdArray = seatsReserved.map(seat => {
-                return seat.seat.seatId;
+                return seat.id;
             });
-            const seatsRowsReserved = reservedSeatsIdArray.map(id =>
-                seatRows.flat().map(reservedSeat => {
-                    if (id === reservedSeat.seatId) {
-                        reservedSeat.isReserved = true;
-                    }
-                    return {
-                        id: reservedSeat.seatId,
-                        seatRow: reservedSeat.seatRow,
-                        number: reservedSeat.number,
-                        isReserved: reservedSeat.isReserved,
-                    };
-                })
-            );
+            const seatsRowsReserved = reservedSeatsIdArray
+                .map(id =>
+                    seatRows.flat().map(seat => {
+                        if (id === seat.id) {
+                            seat.isReserved = true;
+                        }
+                        return seat;
+                    })
+                )
+                .flat();
             const formattedRows = splitIntoNestedArrays(
-                seatsRowsReserved[0],
-                reduceValuesToSingleOnes(seatsRowsReserved[0], 'seatRow'),
+                seatsRowsReserved,
+                reduceValuesToSingleOnes(seatsRowsReserved, 'seatRow'),
                 'seatRow'
             );
             setFinalSeatRows(formattedRows);
+            moveViewToSeats();
         } else if (seatRows.length) {
             setFinalSeatRows(seatRows);
+            moveViewToSeats();
         }
     }, [seatsReserved]);
+
     useEffect(() => {
         console.log(seatsSelected);
     }, [seatsSelected]);
 
     const getSeatsReserved = async () => {
-        const seatsReserved = await fetchSeatsReserved(
-            movieShowingId,
-            dateTime
-        );
+        let seatsReserved = await fetchSeatsReserved(movieShowingId, dateTime);
+        seatsReserved = seatsReserved.map(reservedSeat => {
+            return {
+                id: reservedSeat.seat.seatId,
+                seatRow: reservedSeat.seat.seatRow,
+                number: reservedSeat.seat.seatNumber,
+                isReserved: reservedSeat.seat.seatsReserved,
+            };
+        });
         setSeatsReserved(seatsReserved);
     };
     const getSeats = async () => {
         const seatsResponse = await fetchSeats(auditoriumId);
         const seats = seatsResponse.map(el => {
             return {
-                seatId: el.seatId,
+                id: el.seatId,
                 seatRow: el.seatRow,
                 number: el.seatNumber,
                 isReserved: el.seatsReserved,
@@ -96,28 +108,58 @@ function Seats({ movieShowingId, auditoriumId, dateTime }) {
         cb(row, number);
     };
 
+    const moveViewToSeats = () => {
+        const el = document.getElementById('load-content');
+        if (width < 768) {
+            el &&
+                el.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'nearest',
+                });
+        }
+    };
     return (
         <Fragment>
-            <div>
-                {finalSeatRows.length ? (
-                    <span>
-                        <h2 className="step-heading">Choose seat</h2>
-                        <div className="seats">
-                            <SeatPicker
-                                rows={finalSeatRows}
-                                maxReservableSeats={3}
-                                addSeatCallback={addSeatCallback}
-                                removeSeatCallback={removeSeatCallback}
-                                alpha
-                                visible
-                                selectedByDefault
-                            />
-                        </div>
-                    </span>
-                ) : (
-                    <span></span>
-                )}
-            </div>
+            {finalSeatRows.length ? (
+                <span>
+                    <h2 className="step-heading">Choose seat</h2>
+                    <div className="seats">
+                        <SeatPicker
+                            ref={seatsComponent}
+                            rows={finalSeatRows}
+                            maxReservableSeats={3}
+                            addSeatCallback={addSeatCallback}
+                            removeSeatCallback={removeSeatCallback}
+                            alpha
+                            visible
+                            selectedByDefault
+                        />
+                    </div>
+                    <section className="text-center">
+                        <button
+                            className="btn btn-primary text-center"
+                            disabled={!seatsSelected.length}
+                            onClick={() => {
+                                getConfirmationData({
+                                    seatsSelected: seatsSelected,
+                                });
+                                toggleModal();
+                            }}
+                        >
+                            Continue
+                        </button>
+                    </section>
+                </span>
+            ) : (
+                <div>
+                    <p className="step-heading"></p>
+                    <div
+                        id="load-content"
+                        className="loading-bar container seats width-full"
+                    ></div>
+                </div>
+            )}
         </Fragment>
     );
 }

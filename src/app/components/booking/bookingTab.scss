@@ -1,6 +1,5 @@
 .parent {
-    margin: 20px;
-    border: 1px solid black;
+
     display: flex;
     flex-direction: row;
 
@@ -14,16 +13,13 @@
     }
 
     .div1 {
-        border-right: 1px solid black;
 
         @media (max-width: 600px) {
             border-right: unset;
-            border-bottom: 1px solid black;
         }
 
         @media (max-width : 1024px) {
             border-right: unset;
-            border-bottom: 1px solid black;
         }
     }
 
