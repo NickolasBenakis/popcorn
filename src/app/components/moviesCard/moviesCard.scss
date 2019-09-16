@@ -19,8 +19,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
     &:hover {
-        opacity: 0.9;
-        transform: scale(1.1);
+        box-shadow: 0 25px 25px rgba(0, 0, 0, 0.19), 0 15px 20px rgba(0, 0, 0, 0.23);
         cursor: pointer;
     }
 }

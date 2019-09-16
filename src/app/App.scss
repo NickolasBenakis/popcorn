@@ -17,3 +17,22 @@
     background-repeat: no-repeat;
     background-position-x: center;
 }
+
+
+.text-center {
+    text-align: center;
+}
+
+.width-full {
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
