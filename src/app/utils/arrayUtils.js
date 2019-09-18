@@ -1,4 +1,6 @@
-/**  @description Takes an array Model, loops in with a specific given property and returns an array with these unique property values. --no duplicates
+/**
+ * @function reduceValuesToSingleOnes
+ * @description Takes an array Model, loops in with a specific given property and returns an array with these unique property values. --no duplicates
  * @arrayModel {array} the model that we want to loop in.
  * @myProperty {string} the given property we want to return the array with.
  * @return {array}
@@ -10,7 +12,9 @@ export function reduceValuesToSingleOnes(arrayModel, myProperty) {
     return res;
 }
 
-/**  @description Make nested Arrays inside an Array depending on the valuesModel length.
+/**
+ * @function splitIntoNestedArrays
+ * @description Make nested Arrays inside an Array depending on the valuesModel length.
  * @arrayModel {array}
  * @valuesModel {array}
  * @myProperty {string}
@@ -21,5 +25,18 @@ export function splitIntoNestedArrays(arrayModel, valuesModel, myProperty) {
         return arrayModel.filter(el => {
             return el[myProperty] === valuesModel[index];
         });
+    });
+}
+
+/**
+ * @function removeDuplicateElements
+ * @description Removes duplicate elements from an Array
+ * @arrayModel {array}
+ * @return {array}
+ */
+
+export function removeDuplicateElements(arrayModel) {
+    return arrayModel.filter((item, index) => {
+        return arrayModel.indexOf(item) === index;
     });
 }

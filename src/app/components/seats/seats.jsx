@@ -5,6 +5,7 @@ import fetchSeats from '../../../api/seats/fetchSeats';
 import {
     reduceValuesToSingleOnes,
     splitIntoNestedArrays,
+    removeDuplicateElements,
 } from '../../utils/arrayUtils';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 function Seats({
@@ -30,16 +31,18 @@ function Seats({
             const reservedSeatsIdArray = seatsReserved.map(seat => {
                 return seat.id;
             });
-            const seatsRowsReserved = reservedSeatsIdArray
-                .map(id =>
-                    seatRows.flat().map(seat => {
-                        if (id === seat.id) {
-                            seat.isReserved = true;
-                        }
-                        return seat;
-                    })
-                )
-                .flat();
+            const seatsRowsReserved = removeDuplicateElements(
+                reservedSeatsIdArray
+                    .map(id =>
+                        seatRows.flat().map((seat, index, array) => {
+                            if (id === seat.id) {
+                                seat.isReserved = true;
+                            }
+                            return seat;
+                        })
+                    )
+                    .flat()
+            );
             const formattedRows = splitIntoNestedArrays(
                 seatsRowsReserved,
                 reduceValuesToSingleOnes(seatsRowsReserved, 'seatRow'),
@@ -61,7 +64,7 @@ function Seats({
         let seatsReserved = await fetchSeatsReserved(movieShowingId, dateTime);
         seatsReserved = seatsReserved.map(reservedSeat => {
             return {
-                id: reservedSeat.seat.seatId,
+                id: reservedSeat.seat.id,
                 seatRow: reservedSeat.seat.seatRow,
                 number: reservedSeat.seat.seatNumber,
                 isReserved: reservedSeat.seat.seatsReserved,
@@ -73,7 +76,7 @@ function Seats({
         const seatsResponse = await fetchSeats(auditoriumId);
         const seats = seatsResponse.map(el => {
             return {
-                id: el.seatId,
+                id: el.id,
                 seatRow: el.seatRow,
                 number: el.seatNumber,
                 isReserved: el.seatsReserved,
@@ -128,7 +131,7 @@ function Seats({
                         <SeatPicker
                             ref={seatsComponent}
                             rows={finalSeatRows}
-                            maxReservableSeats={3}
+                            maxReservableSeats={9}
                             addSeatCallback={addSeatCallback}
                             removeSeatCallback={removeSeatCallback}
                             alpha
