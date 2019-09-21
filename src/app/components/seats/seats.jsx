@@ -12,7 +12,7 @@ function Seats({
     movieShowingId,
     auditoriumId,
     dateTime,
-    getConfirmationData,
+    getSeatsReservedData,
     toggleModal,
 }) {
     const [seatRows, setSeatRows] = useState([]);
@@ -55,10 +55,6 @@ function Seats({
             moveViewToSeats();
         }
     }, [seatsReserved]);
-
-    useEffect(() => {
-        console.log(seatsSelected);
-    }, [seatsSelected]);
 
     const getSeatsReserved = async () => {
         let seatsReserved = await fetchSeatsReserved(movieShowingId, dateTime);
@@ -144,7 +140,7 @@ function Seats({
                             className="btn btn-primary text-center"
                             disabled={!seatsSelected.length}
                             onClick={() => {
-                                getConfirmationData({
+                                getSeatsReservedData({
                                     seatsSelected: seatsSelected,
                                 });
                                 toggleModal();

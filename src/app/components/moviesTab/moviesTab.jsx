@@ -35,16 +35,6 @@ class MoviesTab extends Component {
             <div id="MovieTab">
                 <hr />
                 <FilterMovies searchChange={this.onSearchChange} />
-                <div id="chooseTypeOfMovie">
-                    <ul>
-                        <li>
-                            <a href="1">Playing Now</a>
-                        </li>
-                        <li>
-                            <a href="2">Coming Soon</a>
-                        </li>
-                    </ul>
-                </div>
                 <div id="MovieCards" className="movie-tab-wrapper">
                     {this.state.movies.length ? (
                         <MoviesList movies={filteredMovies} />

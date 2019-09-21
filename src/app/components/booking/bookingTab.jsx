@@ -4,19 +4,32 @@ import TheatersList from '../theaters/theatersList';
 import Seats from '../seats/seats';
 import './bookingTab.scss';
 import ConfirmModal from '../modals/confirmModal/confirmModal';
-
+import { convertToDateTimeLocale } from '../../utils/dateUtils';
+import addReservation from '../../../api/reservations/addReservation';
 class BookingTab extends Component {
     state = {
         movieShow: null,
         auditorium: null,
         showSeats: false,
         dateTime: '',
+        bookingDateTime: '',
         showModal: false,
         seatsSelected: [],
+        confirmationData: {},
+        reservationSubmitTimes: 0,
     };
 
     componentDidMount() {
         this.getMovieShowingsPerMovie();
+    }
+
+    async componentDidUpdate(prevProps, prevState) {
+        if (prevState.confirmationData !== this.state.confirmationData) {
+            console.log(this.state.reservationSubmitTimes);
+            console.log(this.state.confirmationData);
+            const res = await addReservation(this.state.confirmationData);
+            console.log('APANTISI', res);
+        }
     }
 
     toggleSeats = () => {
@@ -28,7 +41,24 @@ class BookingTab extends Component {
     };
 
     handleSubmit = () => {
-        console.log('Hello world');
+        this.setState({
+            confirmationData: {
+                user: {
+                    userId: 1,
+                },
+                MovieShowing: {
+                    movieShowingId:
+                        this.state.movieShow &&
+                        this.state.movieShow.movieShowingId,
+                },
+                SeatsReserved: this.state.seatsSelected,
+                BookingDateTime: convertToDateTimeLocale(),
+                MovieShowingDateTime: this.state.dateTime,
+            },
+        });
+        this.setState(prevState => ({
+            reservationSubmitTimes: prevState.reservationSubmitTimes + 1,
+        }));
     };
 
     getMovieShowingsPerMovie = async () => {
@@ -51,12 +81,20 @@ class BookingTab extends Component {
             throw new Error(error);
         }
     };
-    componentDidUpdate() {
-        console.log(this.state);
-    }
 
-    getConfirmationData = data => {
-        this.setState({ seatsSelected: data.seatsSelected });
+    getSeatsReservedData = data => {
+        const seats =
+            data.seatsSelected &&
+            data.seatsSelected.map(el => {
+                return {
+                    seat: {
+                        id: el.id,
+                        row: el.row,
+                        number: el.number,
+                    },
+                };
+            });
+        this.setState({ seatsSelected: seats });
     };
     toggleModal = () => {
         this.setState({
@@ -112,8 +150,8 @@ class BookingTab extends Component {
                                             this.state.auditorium &&
                                             this.state.auditorium.auditoriumId
                                         }
-                                        getConfirmationData={
-                                            this.getConfirmationData
+                                        getSeatsReservedData={
+                                            this.getSeatsReservedData
                                         }
                                         toggleModal={this.toggleModal}
                                     />

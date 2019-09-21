@@ -8,6 +8,10 @@ export function convertDateTime(input) {
     return moment(input).format('dddd DD/MM HH:mm');
 }
 
+export function convertToDateTimeLocale(input) {
+    return moment(input).format('YYYY-MM-DDTHH:mm');
+}
+
 export function calculateWeekdays(dateFrom, dateTo) {
     const startWeek = moment(dateFrom);
     const endWeek = moment(dateTo);

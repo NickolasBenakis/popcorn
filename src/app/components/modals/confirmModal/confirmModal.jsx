@@ -1,15 +1,28 @@
-import React, { Fragment, useEffect } from 'react';
-import { Form, Modal, InputGroup, FormControl, Spinner } from 'react-bootstrap';
+import React, { Fragment, useEffect, useState } from 'react';
+import {
+    Form,
+    Modal,
+    InputGroup,
+    FormControl,
+    Spinner,
+    Button,
+} from 'react-bootstrap';
 import { convertDateTime } from '../../../utils/dateUtils';
 import './confirmModal.scss';
 
 const ConfirmModal = ({ showModal, handleModalClose, model, handleSubmit }) => {
     useEffect(() => {
-        console.log(showModal);
+        //console.log(showModal);
     }, []);
     useEffect(() => {
-        console.log(model);
+        //console.log(model);
     }, [model]);
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleButton = () => {
+        setIsLoading(true);
+    };
 
     const priceCalculator = arrayModel => {
         if (arrayModel.length) {
@@ -21,7 +34,7 @@ const ConfirmModal = ({ showModal, handleModalClose, model, handleSubmit }) => {
     const seatsList = arrayModel => {
         if (arrayModel && arrayModel.length) {
             const list = arrayModel.map(el => {
-                return el.row + el.number;
+                return el.seat.row + el.seat.number;
             });
             return list;
         } else {
@@ -93,18 +106,43 @@ const ConfirmModal = ({ showModal, handleModalClose, model, handleSubmit }) => {
     return (
         <Fragment>
             {model.movieShow && model.dateTime ? (
-                <Modal show={showModal} onHide={handleModalClose}>
-                    <Modal.Header closeButton>
+                <Modal
+                    id="confirmModal"
+                    show={showModal}
+                    onHide={handleModalClose}
+                    keyboard={!isLoading}
+                    backdrop={isLoading ? 'static' : true}
+                >
+                    <Modal.Header closeButton={!isLoading}>
                         <Modal.Title>Verify your reservation</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>{contentForm()}</Modal.Body>
                     <Modal.Footer className="block text-center">
-                        <button
-                            className="btn btn-primary"
-                            onClick={handleSubmit}
-                        >
-                            Proceed
-                        </button>
+                        {isLoading ? (
+                            <span>
+                                {' '}
+                                <Button variant="primary" disabled>
+                                    <Spinner
+                                        as="span"
+                                        animation="grow"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                    />
+                                    Loading...
+                                </Button>
+                            </span>
+                        ) : (
+                            <button
+                                className="btn btn-primary"
+                                onClick={() => {
+                                    handleSubmit();
+                                    handleButton();
+                                }}
+                            >
+                                Proceed
+                            </button>
+                        )}
                     </Modal.Footer>
                 </Modal>
             ) : (
