@@ -4,5 +4,6 @@ export default () => {
         method: 'GET',
     })
         .then(data => data.json())
-        .then(res => res);
+        .then(res => res)
+        .catch(error => console.log(error));
 };

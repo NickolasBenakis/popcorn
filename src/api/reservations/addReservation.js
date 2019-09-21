@@ -9,6 +9,14 @@ export default payload => {
         },
         body: JSON.stringify(payload),
     })
-        .then(data => data.json())
-        .then(res => res);
+        .then(data => handleErrors(data))
+        .then(res => res)
+        .catch(error => console.log(error));
 };
+
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response.json();
+}
