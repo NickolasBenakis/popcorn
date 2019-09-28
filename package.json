@@ -26,7 +26,8 @@
 		"fullstack": "concurrently --kill-others -n \"react,dotnet\" -c \"magenta,blue\" \"npm run start\" \"cd ../popCornCinemaApi/popCornCinemaApi && dotnet run\" "
 	},
 	"eslintConfig": {
-		"extends": "react-app"
+		"parser": "babel-eslint",
+		"extends": "airbnb/hooks"
 	},
 	"browserslist": [
 		">0.2%",
@@ -37,6 +38,12 @@
 	"devDependencies": {
 		"enzyme": "^3.9.0",
 		"enzyme-adapter-react-16": "^1.13.2",
+		"eslint": "^6.1.0",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-react": "^7.14.3",
+		"eslint-plugin-react-hooks": "^1.7.0",
 		"fetch-mock": "^7.3.3",
 		"gh-pages": "^2.0.1",
 		"jquery": "^3.3.1",
