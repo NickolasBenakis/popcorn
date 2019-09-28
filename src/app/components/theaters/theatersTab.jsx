@@ -2,18 +2,22 @@ import React, { useEffect, useState, Fragment } from 'react';
 import TheatersList from './theatersList.js';
 import fetchAuditoriums from '../../../api/auditoriums/fetchAuditoriums';
 import '../moviesTab/moviesTab.scss';
+import errorHandling from '../../services/errorHandling';
 
 function TheatersTab() {
     const [auditoriums, setAuditoriums] = useState([]);
 
-    // like componentDidMount
     useEffect(() => {
         getAuditoriums();
     }, []);
 
     const getAuditoriums = async () => {
-        const res = await fetchAuditoriums();
-        setAuditoriums(res);
+        try {
+            const res = await fetchAuditoriums();
+            setAuditoriums(res);
+        } catch (error) {
+            errorHandling();
+        }
     };
 
     return (

@@ -16,9 +16,6 @@ class RegisterModal extends Component {
     componentDidMount() {
         console.log('Register');
     }
-    componentWillMount() {
-        console.log('Will register');
-    }
 
     validateEmail = event => {
         // eslint-disable-next-line

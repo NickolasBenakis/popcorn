@@ -1,5 +1,4 @@
 import React, { Fragment, useRef, useState } from 'react';
-import moment from 'moment';
 import { convertFromStandardToUTC } from '../../utils/dateUtils';
 
 const ScheduleListCreator = ({ day, time, toggleSeats, handleTime }) => {

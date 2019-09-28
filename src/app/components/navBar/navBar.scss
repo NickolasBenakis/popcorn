@@ -1,7 +1,6 @@
 .App-logo {
     /* animation: App-logo-spin infinite 20s linear; */
     height: 25px;
-    padding-left: 40px;
     pointer-events: none;
 }
 
@@ -15,7 +14,7 @@
     left: 0;
     display: inline;
     text-align: start;
-    padding-top: 20px;
+    padding: 15px 0;
     opacity: 0.85;
 
     @media (max-width: 600px) {
@@ -38,6 +37,10 @@ a.non-link {
     font-size: 16px;
     font-weight: 600;
     display: inline-flex;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 .navBarLinks {
@@ -50,6 +53,9 @@ a.non-link {
     font-size: 14px;
     padding-right: 40px;
     color: #282c34;
+    height: 34px;
+    margin-bottom: 0;
+    align-items: center;
 
     a {
         color: #282c34;
@@ -133,12 +139,13 @@ a.non-link {
     }
 
     .App-logo {
-        height: 25px;
-        padding-left: 20px;
+        height: 34px;
+        width: 54px;
         pointer-events: none;
     }
 
     .navBarLinkList {
+        height: 34px;
         padding-right: 0;
     }
 }

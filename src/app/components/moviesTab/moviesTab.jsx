@@ -12,17 +12,22 @@ class MoviesTab extends Component {
         };
     }
 
-    componentWillMount() {}
     componentDidMount() {
         this.getMovies();
     }
     onSearchChange = event => {
-        this.setState({ searchField: event.target.value });
+        this.setState({
+            searchField: event && event.target && event.target.value
+        });
     };
 
     getMovies = async () => {
-        const res = await fetchMovies();
-        this.setState({ movies: res });
+        try {
+            const res = await fetchMovies();
+            this.setState({ movies: res });
+        } catch (error) {
+            alert('Sorry there was an error. Wanna reload?');
+        }
     };
     render() {
         const filteredMovies = this.state.movies.filter(movie =>

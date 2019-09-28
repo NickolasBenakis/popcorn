@@ -65,7 +65,7 @@ function NavBarLink({
     }
 
     return (
-        <div className="navBarLinks">
+        <div className="navBarLinks col-sm-8-offset">
             <ul className="navBarLinkList">
                 <Link to="/theaters">
                     <li className="link-item m-r-10">Theaters</li>

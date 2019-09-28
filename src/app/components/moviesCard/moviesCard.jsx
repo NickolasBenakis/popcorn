@@ -69,6 +69,7 @@ class MoviesCard extends Component {
                     cast={this.props.cast}
                     durationMin={this.props.durationMin}
                     director={this.props.director}
+                    fallbackImg={this.addDefaultSrc}
                 />
             </Fragment>
         );

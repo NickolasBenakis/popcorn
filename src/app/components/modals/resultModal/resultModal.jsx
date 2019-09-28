@@ -1,13 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import {
-    Form,
-    Modal,
-    InputGroup,
-    FormControl,
-    Spinner,
-    Button
-} from 'react-bootstrap';
-import { convertDateTime } from '../../../utils/dateUtils';
+import React, { Fragment, useEffect } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 import './resultModal.scss';
 import { Link } from 'react-router-dom';
 
@@ -18,18 +10,6 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
     useEffect(() => {
         //console.log(model);
     }, [model]);
-
-    const priceCalculator = arrayModel => {
-        if (arrayModel.length) {
-            return arrayModel.length * 8;
-        }
-        return 0;
-    };
-    const isNullObject = object => {
-        return (
-            Object.entries(object).length !== 0 && object.constructor !== Object
-        );
-    };
 
     return (
         <Fragment>

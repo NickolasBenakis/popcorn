@@ -19,7 +19,7 @@ function Seats({
     const [seatsReserved, setSeatsReserved] = useState([]);
     const [finalSeatRows, setFinalSeatRows] = useState([]);
     const [seatsSelected, setSeatsSelected] = useState([]);
-    const { height, width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
     const seatsComponent = useRef(null);
 
     useEffect(() => {

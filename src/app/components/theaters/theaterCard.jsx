@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './theaterCard.scss';
 import '../moviesCard/moviesCard.scss';
-import { Link } from 'react-router-dom';
 import {
     calculateWeekdays,
     convertToStandardTime

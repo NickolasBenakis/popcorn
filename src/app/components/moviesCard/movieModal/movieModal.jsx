@@ -13,7 +13,8 @@ function MovieModal({
     description,
     durationMin,
     cast,
-    director
+    director,
+    fallbackImg
 }) {
     return (
         <Fragment>
@@ -26,7 +27,8 @@ function MovieModal({
                         <div className="row">
                             <img
                                 src={poster}
-                                alt=""
+                                onError={fallbackImg}
+                                alt="poster"
                                 srcSet=""
                                 className="col-sm-6 responsive-img"
                             />
