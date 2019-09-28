@@ -19,7 +19,6 @@
 
 .width-full {
     width: 100%;
-
 }
 
 .card-img-theater {
@@ -28,7 +27,6 @@
 
 .transformerY {
     transform: rotateY(180deg);
-
 }
 
 .theater-card-container {
@@ -40,7 +38,6 @@
         width: 250px;
     }
 }
-
 
 .margin-top-50 {
     margin-top: 50px;
@@ -57,12 +54,11 @@
 .schedule-row {
     &:hover {
         background-color: azure;
-
     }
 
     .schedule-hour {
         &:hover {
-            background-color: #F44236;
+            background-color: #f44236;
         }
     }
 }
@@ -72,10 +68,8 @@
 }
 
 .active-hour {
-    background-color: #F44236;
-
+    background-color: #f44236;
 }
-
 
 .text-center {
     text-align: center !important;

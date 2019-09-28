@@ -15,6 +15,8 @@
 		"react-seat-picker": "^1.2.0"
 	},
 	"scripts": {
+		"prettier:write": "./node_modules/.bin/prettier --write './src/**/*{.js,.jsx,.scss}'",
+		"prettier:check": "./node_modules/.bin/prettier --check './src/**/*{.js,.jsx,.scss}'",
 		"docker:build": "docker build -t popcorn:dev .",
 		"docker:run": "docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm popcorn:dev",
 		"start": "HTTPS=false react-scripts start",

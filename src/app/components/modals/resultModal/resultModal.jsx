@@ -5,7 +5,7 @@ import {
     InputGroup,
     FormControl,
     Spinner,
-    Button,
+    Button
 } from 'react-bootstrap';
 import { convertDateTime } from '../../../utils/dateUtils';
 import './resultModal.scss';

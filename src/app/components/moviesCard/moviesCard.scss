@@ -13,19 +13,18 @@
     }
 }
 
-
 .card {
     transition: all 0.5s;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
     &:hover {
-        box-shadow: 0 25px 25px rgba(0, 0, 0, 0.19), 0 15px 20px rgba(0, 0, 0, 0.23);
+        box-shadow: 0 25px 25px rgba(0, 0, 0, 0.19),
+            0 15px 20px rgba(0, 0, 0, 0.23);
         cursor: pointer;
     }
 }
 
 .display-fill .modal-content {
-
     @media (max-width: 600px) {
         height: unset !important;
     }
@@ -40,12 +39,10 @@
 }
 
 .responsive-img {
-
     @media (max-width: 600px) {
         width: 50vw;
         margin: 0 auto;
     }
-
 }
 
 .moviesList,
@@ -64,7 +61,6 @@
 }
 
 .display-fill {
-
     .modal-content {
         height: 100vh;
     }

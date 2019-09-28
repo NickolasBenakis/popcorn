@@ -6,7 +6,7 @@ import '../moviesCard/moviesCard.scss';
 import { Link } from 'react-router-dom';
 import {
     calculateWeekdays,
-    convertToStandardTime,
+    convertToStandardTime
 } from '../../utils/dateUtils';
 import ScheduleListCreator from './ScheduleListCreator';
 
@@ -17,7 +17,7 @@ function TheaterCard({
     movieShowDateRange,
     movieScreeningTime,
     toggleSeats,
-    handleTime,
+    handleTime
 }) {
     const cardElement = useRef(null);
     const [flipped, setFlipped] = useState(false);

@@ -9,5 +9,5 @@ export default () =>
         birthdate: '0001-01-01T00:00:00',
         active: 0,
         creationDate: '0001-01-01T00:00:00',
-        role: null,
+        role: null
     });

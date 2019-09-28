@@ -5,7 +5,7 @@ import fetchSeats from '../../../api/seats/fetchSeats';
 import {
     reduceValuesToSingleOnes,
     splitIntoNestedArrays,
-    removeDuplicateElements,
+    removeDuplicateElements
 } from '../../utils/arrayUtils';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 function Seats({
@@ -13,7 +13,7 @@ function Seats({
     auditoriumId,
     dateTime,
     getSeatsReservedData,
-    toggleModal,
+    toggleModal
 }) {
     const [seatRows, setSeatRows] = useState([]);
     const [seatsReserved, setSeatsReserved] = useState([]);
@@ -63,7 +63,7 @@ function Seats({
                 id: reservedSeat.seat.id,
                 seatRow: reservedSeat.seat.seatRow,
                 number: reservedSeat.seat.seatNumber,
-                isReserved: reservedSeat.seat.seatsReserved,
+                isReserved: reservedSeat.seat.seatsReserved
             };
         });
         setSeatsReserved(seatsReserved);
@@ -75,7 +75,7 @@ function Seats({
                 id: el.id,
                 seatRow: el.seatRow,
                 number: el.seatNumber,
-                isReserved: el.seatsReserved,
+                isReserved: el.seatsReserved
             };
         });
         const formattedRows = splitIntoNestedArrays(
@@ -92,8 +92,8 @@ function Seats({
             {
                 row: row,
                 number: number,
-                id: id,
-            },
+                id: id
+            }
         ]);
         cb(row, number);
     };
@@ -114,7 +114,7 @@ function Seats({
                 el.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start',
-                    inline: 'nearest',
+                    inline: 'nearest'
                 });
         }
     };
@@ -141,7 +141,7 @@ function Seats({
                             disabled={!seatsSelected.length}
                             onClick={() => {
                                 getSeatsReservedData({
-                                    seatsSelected: seatsSelected,
+                                    seatsSelected: seatsSelected
                                 });
                                 toggleModal();
                             }}

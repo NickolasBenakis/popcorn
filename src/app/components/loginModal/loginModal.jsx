@@ -16,7 +16,7 @@ class LoginModal extends Component {
             password: '',
             validPassword: false,
             responseGoogle: {},
-            responseFb: {},
+            responseFb: {}
         };
     }
 

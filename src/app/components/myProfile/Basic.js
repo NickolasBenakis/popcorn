@@ -7,7 +7,7 @@ const Basic = () => (
             initialValues={{
                 firstName: '',
                 lastName: '',
-                email: '',
+                email: ''
             }}
             onSubmit={values => {
                 setTimeout(() => {

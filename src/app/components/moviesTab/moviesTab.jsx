@@ -8,7 +8,7 @@ class MoviesTab extends Component {
         super();
         this.state = {
             movies: [],
-            searchField: '',
+            searchField: ''
         };
     }
 

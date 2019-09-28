@@ -1,5 +1,4 @@
 .parent {
-
     display: flex;
     flex-direction: row;
 
@@ -8,17 +7,16 @@
         flex-direction: column;
     }
 
-    @media (max-width : 1024px) {
+    @media (max-width: 1024px) {
         flex-direction: column;
     }
 
     .div1 {
-
         @media (max-width: 600px) {
             border-right: unset;
         }
 
-        @media (max-width : 1024px) {
+        @media (max-width: 1024px) {
             border-right: unset;
         }
     }

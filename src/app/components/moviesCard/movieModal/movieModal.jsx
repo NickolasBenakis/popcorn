@@ -13,7 +13,7 @@ function MovieModal({
     description,
     durationMin,
     cast,
-    director,
+    director
 }) {
     return (
         <Fragment>

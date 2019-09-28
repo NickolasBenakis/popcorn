@@ -7,7 +7,7 @@ function NavBarLink({
     isGoogleLoggedIn,
     handleShow,
     handleBadge,
-    openBadge,
+    openBadge
 }) {
     function googleLoggedInContent() {
         return isGoogleLoggedIn ? (

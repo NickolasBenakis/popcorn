@@ -10,7 +10,7 @@ import {
     NavDropdown,
     Form,
     FormControl,
-    Button,
+    Button
 } from 'react-bootstrap';
 import RegisterModal from '../registerModal/registerModal';
 import NavbarLink from './navBarLink/navBarLink';
@@ -23,7 +23,7 @@ class navBar extends Component {
         showRegister: false,
         isLoggedIn: false,
         isGoogleLoggedIn: false,
-        openBadge: false,
+        openBadge: false
     };
 
     handleClose = () => {
@@ -49,7 +49,7 @@ class navBar extends Component {
     };
     handleBadge = () => {
         this.setState(prevState => ({
-            openBadge: !prevState.openBadge,
+            openBadge: !prevState.openBadge
         }));
     };
 

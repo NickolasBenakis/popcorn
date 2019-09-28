@@ -38,8 +38,6 @@ a.non-link {
     font-size: 16px;
     font-weight: 600;
     display: inline-flex;
-
-
 }
 
 .navBarLinks {
@@ -56,7 +54,6 @@ a.non-link {
     a {
         color: #282c34;
         text-decoration: none;
-
     }
 
     .link-item {
@@ -83,7 +80,7 @@ a.non-link {
 }
 
 .avatar {
-    background-image: url("../../../assets/avatar.svg");
+    background-image: url('../../../assets/avatar.svg');
     width: 25px;
     height: 22px;
     border-radius: 50%;
@@ -114,7 +111,6 @@ a.non-link {
 
     &:hover {
         border-bottom: 1px solid rgb(118, 118, 118) !important;
-
     }
 }
 
@@ -128,9 +124,7 @@ a.non-link {
     }
 }
 
-
 @media (max-width: 600px) {
-
     .link-item {
         list-style: none;
         display: inline-flex;
@@ -147,8 +141,4 @@ a.non-link {
     .navBarLinkList {
         padding-right: 0;
     }
-
-
-
-
 }

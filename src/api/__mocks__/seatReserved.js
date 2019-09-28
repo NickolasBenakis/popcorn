@@ -1,5 +1,6 @@
-export default () => Promise.resolve({
-    seatReservedId: 0,
-    order: null,
-    seat: null
-});
+export default () =>
+    Promise.resolve({
+        seatReservedId: 0,
+        order: null,
+        seat: null
+    });

@@ -9,7 +9,7 @@ class RegisterModal extends Component {
             email: '',
             validEmail: false,
             password: '',
-            validPassword: false,
+            validPassword: false
         };
     }
 

@@ -5,12 +5,12 @@ export default (id, dateTime) => {
         method: 'POST',
         headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             MovieShowingId: id,
-            MovieShowingDateTime: dateTime,
-        }),
+            MovieShowingDateTime: dateTime
+        })
     })
         .then(data => data.json())
         .then(res => res)

@@ -5,9 +5,9 @@ export default payload => {
         method: 'POST',
         headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
     })
         .then(data => handleErrors(data))
         .then(res => res)

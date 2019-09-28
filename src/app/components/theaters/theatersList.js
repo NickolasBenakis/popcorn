@@ -17,7 +17,7 @@ function TheatersList({ auditoriums, movieShow, toggleSeats, handleTime }) {
                         movieShowingID={movieShow && movieShow.movieShowingId}
                         movieShowDateRange={[
                             movieShow && movieShow.showingDateFrom,
-                            movieShow && movieShow.showingDateTo,
+                            movieShow && movieShow.showingDateTo
                         ]}
                         movieScreeningTime={
                             movieShow && movieShow.screeningDateTime

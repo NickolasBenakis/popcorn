@@ -19,7 +19,7 @@ class BookingTab extends Component {
         seatsSelected: [],
         confirmationData: {},
         reservationSubmitTimes: 0,
-        resultModel: {},
+        resultModel: {}
     };
 
     componentDidMount() {
@@ -32,7 +32,7 @@ class BookingTab extends Component {
             this.setState({
                 resultModel: res,
                 showConfirmModal: false,
-                showResultModal: true,
+                showResultModal: true
             });
             console.log('APANTISI', res);
         }
@@ -50,20 +50,20 @@ class BookingTab extends Component {
         this.setState({
             confirmationData: {
                 user: {
-                    userId: 1,
+                    userId: 1
                 },
                 MovieShowing: {
                     movieShowingId:
                         this.state.movieShow &&
-                        this.state.movieShow.movieShowingId,
+                        this.state.movieShow.movieShowingId
                 },
                 SeatsReserved: this.state.seatsSelected,
                 BookingDateTime: convertToDateTimeLocale(),
-                MovieShowingDateTime: this.state.dateTime,
-            },
+                MovieShowingDateTime: this.state.dateTime
+            }
         });
         this.setState(prevState => ({
-            reservationSubmitTimes: prevState.reservationSubmitTimes + 1,
+            reservationSubmitTimes: prevState.reservationSubmitTimes + 1
         }));
     };
 
@@ -81,7 +81,7 @@ class BookingTab extends Component {
             this.setState({
                 movieShow: filteredMovieShow[0],
                 auditorium:
-                    filteredMovieShow[0] && filteredMovieShow[0].auditorium,
+                    filteredMovieShow[0] && filteredMovieShow[0].auditorium
             });
         } catch (error) {
             throw new Error(error);
@@ -96,15 +96,15 @@ class BookingTab extends Component {
                     seat: {
                         id: el.id,
                         row: el.row,
-                        number: el.number,
-                    },
+                        number: el.number
+                    }
                 };
             });
         this.setState({ seatsSelected: seats });
     };
     toggleConfirmModal = () => {
         this.setState({
-            showConfirmModal: !this.state.showConfirmModal,
+            showConfirmModal: !this.state.showConfirmModal
         });
     };
     handleConfirmModalClose = () => {
@@ -125,7 +125,7 @@ class BookingTab extends Component {
                             seatsSelected: this.state.seatsSelected,
                             dateTime: this.state.dateTime,
                             auditorium: this.state.auditorium,
-                            movieShow: this.state.movieShow,
+                            movieShow: this.state.movieShow
                         }}
                         handleSubmit={this.handleSubmit}
                     />

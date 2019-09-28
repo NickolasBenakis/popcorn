@@ -7,7 +7,7 @@ import MovieModal from './movieModal/movieModal';
 
 class MoviesCard extends Component {
     state = {
-        show: false,
+        show: false
     };
 
     handleClose = () => {
@@ -41,7 +41,7 @@ class MoviesCard extends Component {
                             style={{
                                 padding: '10px',
                                 fontSize: 'medium',
-                                height: '80px',
+                                height: '80px'
                             }}
                         >
                             {this.props.title}
