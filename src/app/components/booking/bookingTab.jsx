@@ -6,6 +6,7 @@ import './bookingTab.scss';
 import ConfirmModal from '../modals/confirmModal/confirmModal';
 import { convertToDateTimeLocale } from '../../utils/dateUtils';
 import addReservation from '../../../api/reservations/addReservation';
+import ResultModal from '../modals/resultModal/resultModal';
 class BookingTab extends Component {
     state = {
         movieShow: null,
@@ -13,10 +14,12 @@ class BookingTab extends Component {
         showSeats: false,
         dateTime: '',
         bookingDateTime: '',
-        showModal: false,
+        showConfirmModal: false,
+        showResultModal: false,
         seatsSelected: [],
         confirmationData: {},
         reservationSubmitTimes: 0,
+        resultModel: {},
     };
 
     componentDidMount() {
@@ -25,9 +28,12 @@ class BookingTab extends Component {
 
     async componentDidUpdate(prevProps, prevState) {
         if (prevState.confirmationData !== this.state.confirmationData) {
-            console.log(this.state.reservationSubmitTimes);
-            console.log(this.state.confirmationData);
             const res = await addReservation(this.state.confirmationData);
+            this.setState({
+                resultModel: res,
+                showConfirmModal: false,
+                showResultModal: true,
+            });
             console.log('APANTISI', res);
         }
     }
@@ -96,13 +102,16 @@ class BookingTab extends Component {
             });
         this.setState({ seatsSelected: seats });
     };
-    toggleModal = () => {
+    toggleConfirmModal = () => {
         this.setState({
-            showModal: !this.state.showModal,
+            showConfirmModal: !this.state.showConfirmModal,
         });
     };
-    handleModalClose = () => {
-        this.setState({ showModal: false });
+    handleConfirmModalClose = () => {
+        this.setState({ showConfirmModal: false });
+    };
+    handleResultModalClose = () => {
+        this.setState({ showResultModal: false });
     };
 
     render() {
@@ -110,8 +119,8 @@ class BookingTab extends Component {
             <Fragment>
                 <div>
                     <ConfirmModal
-                        showModal={this.state.showModal}
-                        handleModalClose={this.handleModalClose}
+                        showModal={this.state.showConfirmModal}
+                        handleModalClose={this.handleConfirmModalClose}
                         model={{
                             seatsSelected: this.state.seatsSelected,
                             dateTime: this.state.dateTime,
@@ -119,6 +128,11 @@ class BookingTab extends Component {
                             movieShow: this.state.movieShow,
                         }}
                         handleSubmit={this.handleSubmit}
+                    />
+                    <ResultModal
+                        showModal={this.state.showResultModal}
+                        handleModalClose={this.handleResultModalClose}
+                        model={this.state.resultModel}
                     />
                 </div>
                 <div>
@@ -153,7 +167,7 @@ class BookingTab extends Component {
                                         getSeatsReservedData={
                                             this.getSeatsReservedData
                                         }
-                                        toggleModal={this.toggleModal}
+                                        toggleModal={this.toggleConfirmModal}
                                     />
                                 </div>
                             ) : (
