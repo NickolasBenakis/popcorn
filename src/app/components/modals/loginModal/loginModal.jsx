@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Ref } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import login from '../../../../api/login/login';
 
 // import { facebookApiID } from '../../../enviromental/api_key';
 // import { googleClientID } from '../../../enviromental/api_key';
@@ -16,13 +17,16 @@ class LoginModal extends Component {
             password: '',
             validPassword: false,
             responseGoogle: {},
-            responseFb: {}
+            responseFb: {},
+            responseLogin: {},
+            successLogin: false
         };
+        this.emailRef = React.createRef();
+        this.passRef = React.createRef();
     }
 
     validateEmail = event => {
         // eslint-disable-next-line
-        console.log('skata');
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         emailRegex.test(String(event.target.value).toLowerCase())
             ? this.setState({ validEmail: true })
@@ -30,10 +34,8 @@ class LoginModal extends Component {
     };
 
     validatePassword = event => {
-        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-        passRegex.test(String(event.target.value).toLowerCase())
-            ? this.setState({ validPassword: true })
-            : this.setState({ validPassword: false });
+        // gelaei o kosmos
+        this.setState({ validPassword: true });
     };
 
     renderEmailError = () => {
@@ -49,11 +51,45 @@ class LoginModal extends Component {
         return null;
     };
 
-    handleSubmit = event => {};
+    closeModal = () => {};
+
+    postCredentials = async () => {
+        try {
+            const res = await login(
+                this.emailRef.current.value,
+                this.passRef.current.value
+            );
+            console.log(res);
+            if (res.error) {
+                this.setState({ successLogin: false });
+                console.log('lathos stixia');
+            } else {
+                window.sessionStorage.setItem('token', res.token);
+                this.setState({ successLogin: true, responseLogin: res });
+            }
+        } catch (error) {
+            console.log('Ton ipiamen crashare to backend tou onasi', error);
+        }
+    };
+    handleSubmit = event => {
+        const form = event.currentTarget;
+        event.preventDefault();
+        event.stopPropagation();
+        console.log(form.checkValidity());
+        this.postCredentials().then(() => {
+            if (this.state.successLogin) {
+                return this.props.childLogIn;
+            }
+        });
+    };
+
+    enableButton = () => {
+        if (this.state.validEmail && this.state.validPassword) return true;
+    };
 
     render() {
         return (
-            <Form onSubmit={this.handleSubmit}>
+            <Form noValidate onSubmit={this.handleSubmit}>
                 <Form.Group
                     className="socialMediaSignIn"
                     controlId="SocialMediaSignIn"
@@ -79,10 +115,10 @@ class LoginModal extends Component {
                         type="email"
                         placeholder="Enter email"
                         autoComplete="true"
-                        onBlur={() => this.validateEmail}
+                        onBlur={this.validateEmail}
                         isValid={this.state.validEmail}
+                        ref={this.emailRef}
                     />
-                    {/* {this.renderEmailError} */}
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                     <Form.Control
@@ -91,13 +127,19 @@ class LoginModal extends Component {
                         autoComplete="true"
                         onBlur={this.validatePassword}
                         isValid={this.state.validPassword}
+                        ref={this.passRef}
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember me" />
                 </Form.Group>
                 <div style={{ textAlign: 'center' }}>
-                    <Button variant="primary" type="submit" id="submitBtn">
+                    <Button
+                        variant="primary"
+                        type="submit"
+                        id="submitBtn"
+                        disabled={!this.enableButton()}
+                    >
                         Login
                     </Button>
                     <Form.Text className="text-muted">

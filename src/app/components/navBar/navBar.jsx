@@ -72,6 +72,7 @@ class navBar extends Component {
                 getGoogleResponse={res => this.googleResponse(res)}
                 getFbResponse={res => this.fbResponse(res)}
                 childShowRegister={this.showRegister}
+                childLogIn={this.login}
             />
         );
     }
