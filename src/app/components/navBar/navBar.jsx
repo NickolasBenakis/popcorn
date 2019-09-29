@@ -1,18 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import popCornLogo from '../../../assets/logos/popcorn2.svg';
 import './navBar.scss';
-import LoginModal from '../loginModal/loginModal';
+import LoginModal from '../modals/loginModal/loginModal';
+import RegisterModal from '../modals/registerModal/registerModal';
 
-import {
-    Modal,
-    Navbar,
-    Nav,
-    NavDropdown,
-    Form,
-    FormControl,
-    Button
-} from 'react-bootstrap';
-import RegisterModal from '../registerModal/registerModal';
+import { Modal } from 'react-bootstrap';
 import NavbarLink from './navBarLink/navBarLink';
 import { Link } from 'react-router-dom';
 

@@ -22,6 +22,7 @@ class LoginModal extends Component {
 
     validateEmail = event => {
         // eslint-disable-next-line
+        console.log('skata');
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         emailRegex.test(String(event.target.value).toLowerCase())
             ? this.setState({ validEmail: true })
@@ -35,9 +36,24 @@ class LoginModal extends Component {
             : this.setState({ validPassword: false });
     };
 
+    renderEmailError = () => {
+        if (!this.state.validEmail) {
+            return (
+                <div>
+                    <label className="error">
+                        Please enter the same password again.
+                    </label>
+                </div>
+            );
+        }
+        return null;
+    };
+
+    handleSubmit = event => {};
+
     render() {
         return (
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 <Form.Group
                     className="socialMediaSignIn"
                     controlId="SocialMediaSignIn"
@@ -63,9 +79,10 @@ class LoginModal extends Component {
                         type="email"
                         placeholder="Enter email"
                         autoComplete="true"
-                        onBlur={this.validateEmail}
+                        onBlur={() => this.validateEmail}
                         isValid={this.state.validEmail}
                     />
+                    {/* {this.renderEmailError} */}
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                     <Form.Control
