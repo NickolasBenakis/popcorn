@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import MoviesCard from './moviesCard';
 import { convertDate } from '../../utils/dateUtils';
 import { moviePoster } from '../../utils/moviePoster';
 
-export default function MoviesList({ movies }) {
+function MoviesList({ movies }) {
     return (
-        <div className="moviesList">
-            {movies.map(movie => {
-                return (
-                    <MoviesCard
-                        key={movie.movieId}
-                        id={movie.movieId}
-                        title={movie.title}
-                        premiereDate={convertDate(movie.premiereDate)}
-                        moviePoster={moviePoster(movie.movieImageUrl)}
-                        description={movie.description}
-                        durationMin={movie.durationMin}
-                        cast={movie.cast}
-                        director={movie.director}
-                    />
-                );
-            })}
-        </div>
+        <Fragment>
+            <div className="moviesList" style={movies.length <3 ? {justifyContent:"center"} :{justifyContent:"flex-start"}}>
+                {movies.map(movie => {
+                    return (
+                        <MoviesCard
+                            key={movie.movieId}
+                            id={movie.movieId}
+                            title={movie.title}
+                            premiereDate={convertDate(movie.premiereDate)}
+                            moviePoster={moviePoster(movie.movieImageUrl)}
+                            description={movie.description}
+                            durationMin={movie.durationMin}
+                            cast={movie.cast}
+                            director={movie.director}
+                        />
+                    );
+                })}
+            </div>
+        </Fragment>
     );
 }
+export default MoviesList;
