@@ -144,8 +144,7 @@ function Seats({
                                     seatsSelected: seatsSelected
                                 });
                                 toggleModal();
-                            }}
-                        >
+                            }}>
                             Continue
                         </button>
                     </section>
@@ -155,8 +154,7 @@ function Seats({
                     <p className="step-heading"></p>
                     <div
                         id="load-content"
-                        className="loading-bar container seats width-full"
-                    ></div>
+                        className="loading-bar container seats width-full"></div>
                 </div>
             )}
         </Fragment>

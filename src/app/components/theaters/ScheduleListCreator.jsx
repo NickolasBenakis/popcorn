@@ -14,6 +14,12 @@ const ScheduleListCreator = ({ day, time, toggleSeats, handleTime }) => {
             hourElement.current.classList.remove('active-hour');
         }
     };
+    const handleClick = () => {
+        handleTime(convertFromStandardToUTC(day, time));
+        makeColorToStick();
+        toggleSeats();
+        setClicked(!clicked);
+    };
 
     return (
         <Fragment>
@@ -22,13 +28,7 @@ const ScheduleListCreator = ({ day, time, toggleSeats, handleTime }) => {
                 <td
                     ref={hourElement}
                     className="schedule-hour padding-right-20"
-                    onClick={() => {
-                        handleTime(convertFromStandardToUTC(day, time));
-                        makeColorToStick();
-                        toggleSeats();
-                        setClicked(!clicked);
-                    }}
-                >
+                    onClick={handleClick}>
                     {time}
                 </td>
             </tr>

@@ -51,7 +51,7 @@ class LoginModal extends Component {
         return null;
     };
 
-    closeModal = () => {};
+    closeModal = () => this.props.childLogIn();
 
     postCredentials = async () => {
         try {
@@ -66,6 +66,7 @@ class LoginModal extends Component {
             } else {
                 window.sessionStorage.setItem('token', res.token);
                 this.setState({ successLogin: true, responseLogin: res });
+                this.closeModal();
             }
         } catch (error) {
             console.log('Ton ipiamen crashare to backend tou onasi', error);
@@ -76,11 +77,7 @@ class LoginModal extends Component {
         event.preventDefault();
         event.stopPropagation();
         console.log(form.checkValidity());
-        this.postCredentials().then(() => {
-            if (this.state.successLogin) {
-                return this.props.childLogIn;
-            }
-        });
+        this.postCredentials();
     };
 
     enableButton = () => {
@@ -92,8 +89,7 @@ class LoginModal extends Component {
             <Form noValidate onSubmit={this.handleSubmit}>
                 <Form.Group
                     className="socialMediaSignIn"
-                    controlId="SocialMediaSignIn"
-                >
+                    controlId="SocialMediaSignIn">
                     {/* <GoogleLogin
                         clientId={googleClientID}
                         buttonText="Login with Google"
@@ -138,8 +134,7 @@ class LoginModal extends Component {
                         variant="primary"
                         type="submit"
                         id="submitBtn"
-                        disabled={!this.enableButton()}
-                    >
+                        disabled={!this.enableButton()}>
                         Login
                     </Button>
                     <Form.Text className="text-muted">
@@ -151,8 +146,7 @@ class LoginModal extends Component {
                     Do you have an account?
                     <button
                         className="a-mime"
-                        onClick={() => this.props.childShowRegister()}
-                    >
+                        onClick={() => this.props.childShowRegister()}>
                         Register
                     </button>
                 </Form.Text>

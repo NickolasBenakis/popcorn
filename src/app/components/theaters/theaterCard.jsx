@@ -49,13 +49,11 @@ function TheaterCard({
                 <Card
                     className="theater-card-container relative-box static-height"
                     key={movieShowingID}
-                    ref={cardElement}
-                >
+                    ref={cardElement}>
                     <span className="return-button" onClick={flipTheCard}>
                         <ion-icon
                             size="large"
-                            name="arrow-round-forward"
-                        ></ion-icon>
+                            name="arrow-round-forward"></ion-icon>
                     </span>
                     <Card.Body className="width-full text-left">
                         <Card.Title className="text-center card-title"></Card.Title>
@@ -92,8 +90,7 @@ function TheaterCard({
                 <Card
                     className="theater-card-container"
                     key={movieShowingID}
-                    ref={cardElement}
-                >
+                    ref={cardElement}>
                     <Card.Img
                         className="card-img-theater "
                         variant="top"
@@ -108,9 +105,7 @@ function TheaterCard({
                             <Button variant="primary" onClick={flipTheCard}>
                                 Schedule
                             </Button>
-                        ) : (
-                            <span></span>
-                        )}
+                        ) : null}
                     </Card.Body>
                 </Card>
             )}

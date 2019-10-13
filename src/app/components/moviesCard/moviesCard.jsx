@@ -42,16 +42,14 @@ class MoviesCard extends Component {
                                 padding: '10px',
                                 fontSize: 'medium',
                                 height: '80px'
-                            }}
-                        >
+                            }}>
                             {this.props.title}
                         </Card.Title>
                         <strong>In Theaters from:</strong>
                         <Card.Text>
                             <ion-icon
                                 name="calendar"
-                                style={{ marginBottom: '-2px' }}
-                            ></ion-icon>
+                                style={{ marginBottom: '-2px' }}></ion-icon>
                             {this.props.premiereDate}
                         </Card.Text>
                         <Button variant="primary" onClick={this.handleShow}>

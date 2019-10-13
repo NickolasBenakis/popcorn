@@ -18,8 +18,7 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                 show={showModal}
                 onHide={handleModalClose}
                 keyboard={false}
-                backdrop="static"
-            >
+                backdrop="static">
                 <Modal.Header closeButton={false}>
                     <Modal.Title>
                         {model.error ? (
@@ -33,8 +32,7 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                     <div
                         className={
                             model.error ? 'error-result' : 'success-result'
-                        }
-                    ></div>
+                        }></div>
                 </Modal.Body>
                 <Modal.Footer className="block text-center">
                     <Link to={`/`} className="col-sm-12">
@@ -42,8 +40,7 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                             className="btn btn-primary"
                             onClick={() => {
                                 console.log('return to home');
-                            }}
-                        >
+                            }}>
                             Return to home
                         </Button>
                     </Link>

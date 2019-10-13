@@ -111,8 +111,7 @@ const ConfirmModal = ({ showModal, handleModalClose, model, handleSubmit }) => {
                     show={showModal}
                     onHide={handleModalClose}
                     keyboard={!isLoading}
-                    backdrop={isLoading ? 'static' : true}
-                >
+                    backdrop={isLoading ? 'static' : true}>
                     <Modal.Header closeButton={!isLoading}>
                         <Modal.Title>Verify your reservation</Modal.Title>
                     </Modal.Header>
@@ -138,8 +137,7 @@ const ConfirmModal = ({ showModal, handleModalClose, model, handleSubmit }) => {
                                 onClick={() => {
                                     handleSubmit();
                                     handleButton();
-                                }}
-                            >
+                                }}>
                                 Proceed
                             </button>
                         )}
