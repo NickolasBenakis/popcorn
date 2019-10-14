@@ -7,7 +7,7 @@
 /src/enviromental
 # testing
 /coverage
-
+/src/app/api_keys.js
 # production
 /build
 /src/envs

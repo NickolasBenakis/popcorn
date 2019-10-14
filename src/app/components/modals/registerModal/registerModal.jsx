@@ -72,6 +72,7 @@ class RegisterModal extends Component {
                     <Button
                         variant="primary"
                         id="submitBtn"
+                        className="submitBtn"
                         onClick={() => this.props.childLogIn()}>
                         Register
                     </Button>

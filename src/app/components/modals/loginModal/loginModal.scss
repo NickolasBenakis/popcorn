@@ -13,8 +13,7 @@
     }
 }
 
-#submitBtn {
-    //display: flex;
+.submitBtn {
     margin: auto;
     width: 100%;
 }
@@ -51,4 +50,9 @@
     &:focus {
         outline: none;
     }
+}
+
+
+.error-color {
+    color: darkred;
 }

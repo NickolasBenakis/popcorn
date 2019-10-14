@@ -1,11 +1,11 @@
 import React, { Component, Ref } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
+//import FacebookLogin from 'react-facebook-login';
 import login from '../../../../api/login/login';
 
 // import { facebookApiID } from '../../../enviromental/api_key';
-// import { googleClientID } from '../../../enviromental/api_key';
+import { googleClientID } from '../../../api_keys';
 
 import './loginModal.scss';
 class LoginModal extends Component {
@@ -19,7 +19,8 @@ class LoginModal extends Component {
             responseGoogle: {},
             responseFb: {},
             responseLogin: {},
-            successLogin: false
+            successLogin: false,
+            loginAttempt: false
         };
         this.emailRef = React.createRef();
         this.passRef = React.createRef();
@@ -39,16 +40,13 @@ class LoginModal extends Component {
     };
 
     renderEmailError = () => {
-        if (!this.state.validEmail) {
-            return (
-                <div>
-                    <label className="error">
-                        Please enter the same password again.
-                    </label>
-                </div>
-            );
-        }
-        return null;
+        return this.state.loginAttempt &&
+            !this.state.validEmail &&
+            !this.state.validPassword ? (
+            <label className="error-color">
+                Wrong credentials.Please retry.
+            </label>
+        ) : null;
     };
 
     closeModal = () => this.props.childLogIn();
@@ -59,12 +57,18 @@ class LoginModal extends Component {
                 this.emailRef.current.value,
                 this.passRef.current.value
             );
-            console.log(res);
+            console.log('res apo backen', res);
             if (res.error) {
-                this.setState({ successLogin: false });
+                this.setState({
+                    successLogin: false,
+                    validEmail: false,
+                    validPassword: false,
+                    loginAttempt: true
+                });
                 console.log('lathos stixia');
             } else {
                 window.sessionStorage.setItem('token', res.token);
+                window.document.cookie = `token=${res.token}`;
                 this.setState({ successLogin: true, responseLogin: res });
                 this.closeModal();
             }
@@ -86,18 +90,21 @@ class LoginModal extends Component {
 
     render() {
         return (
-            <Form noValidate onSubmit={this.handleSubmit}>
+            <Form
+                noValidate
+                validated={this.state.validEmail && this.state.validPassword}
+                onSubmit={this.handleSubmit}>
                 <Form.Group
                     className="socialMediaSignIn"
                     controlId="SocialMediaSignIn">
-                    {/* <GoogleLogin
+                    <GoogleLogin
                         clientId={googleClientID}
                         buttonText="Login with Google"
                         onSuccess={res => this.props.getGoogleResponse(res)}
                         onFailure={res => this.props.getGoogleResponse(res)}
                         cookiePolicy={'single_host_origin'}
                     />
-                    <FacebookLogin
+                    {/* <FacebookLogin
                         cssClass="fb-button"
                         appId={facebookApiID}
                         fields="name,email,picture"
@@ -125,6 +132,7 @@ class LoginModal extends Component {
                         isValid={this.state.validPassword}
                         ref={this.passRef}
                     />
+                    {this.renderEmailError()}
                 </Form.Group>
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember me" />
@@ -133,7 +141,7 @@ class LoginModal extends Component {
                     <Button
                         variant="primary"
                         type="submit"
-                        id="submitBtn"
+                        className="submitBtn"
                         disabled={!this.enableButton()}>
                         Login
                     </Button>

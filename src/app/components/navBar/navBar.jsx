@@ -10,24 +10,24 @@ import { Link } from 'react-router-dom';
 
 class navBar extends Component {
     state = {
-        show: false,
-        showRegister: false,
+        showModal: false,
+        showRegisterModal: false,
         isLoggedIn: false,
         isGoogleLoggedIn: false,
         openBadge: false
     };
 
     handleClose = () => {
-        this.setState({ show: false });
-        this.setState({ showRegister: false });
+        this.setState({ showModal: false });
+        this.setState({ showRegisterModal: false });
     };
 
-    handleShow = () => {
-        this.setState({ show: true });
+    handleShowModal = () => {
+        this.setState({ showModal: true });
     };
 
-    showRegister = () => {
-        this.setState({ showRegister: true });
+    handleShowRegisterModal = () => {
+        this.setState({ showRegisterModal: true });
     };
     googleLogIn = () => {
         this.setState({ isGoogleLoggedIn: true });
@@ -35,9 +35,15 @@ class navBar extends Component {
     };
 
     logIn = () => {
+        console.log('navBar login');
         this.setState({ isLoggedIn: true });
         this.handleClose();
     };
+    LogOut = () => {
+        console.log('ekana log out');
+        this.setState({ isLoggedIn: false });
+    };
+
     handleBadge = () => {
         this.setState(prevState => ({
             openBadge: !prevState.openBadge
@@ -48,6 +54,8 @@ class navBar extends Component {
         console.log(res);
         if (res && !res.error) {
             this.googleLogIn();
+        } else if (res.error) {
+            console.log(res.error);
         }
     };
     fbResponse = res => {
@@ -55,14 +63,14 @@ class navBar extends Component {
     };
 
     title = () => {
-        if (!this.state.showRegister) {
+        if (!this.state.showRegisterModal) {
             return 'Login';
         }
         return 'Register';
     };
 
     renderBodyContent() {
-        return this.state.showRegister ? (
+        return this.state.showRegisterModal ? (
             <RegisterModal
                 childLogIn={this.logIn}
                 childHandleClose={this.handleClose}
@@ -71,21 +79,21 @@ class navBar extends Component {
             <LoginModal
                 getGoogleResponse={res => this.googleResponse(res)}
                 getFbResponse={res => this.fbResponse(res)}
-                childShowRegister={this.showRegister}
-                childLogIn={this.login}
+                childShowRegister={this.handleShowRegisterModal}
+                childLogIn={this.logIn}
             />
         );
     }
 
     render() {
-        const { show } = this.state;
+        const { showModal } = this.state;
         const { openBadge } = this.state;
         const { isLoggedIn } = this.state;
         const { isGoogleLoggedIn } = this.state;
 
         return (
             <Fragment>
-                <Modal show={show} onHide={this.handleClose}>
+                <Modal show={showModal} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>{this.title()}</Modal.Title>
                     </Modal.Header>
@@ -103,9 +111,11 @@ class navBar extends Component {
                     <NavbarLink
                         isGoogleLoggedIn={isGoogleLoggedIn}
                         isLoggedIn={isLoggedIn}
-                        handleShow={this.handleShow}
+                        handleShowModal={this.handleShowModal}
                         handleBadge={this.handleBadge}
                         openBadge={openBadge}
+                        logOut={this.LogOut}
+                        badgeImage={this.badgeImage}
                     />
                 </header>
             </Fragment>

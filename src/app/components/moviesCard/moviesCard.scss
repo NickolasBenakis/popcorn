@@ -50,7 +50,7 @@
     display: flex;
     flex-flow: row wrap;
     background: whitesmoke;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 0 100px;
     padding: 20px;
 
@@ -93,5 +93,5 @@
 }
 
 .modal-header {
-    padding: 10px 25px;
+    padding: 10px 10px;
 }

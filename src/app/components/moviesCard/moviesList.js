@@ -6,7 +6,7 @@ import { moviePoster } from '../../utils/moviePoster';
 function MoviesList({ movies }) {
     return (
         <Fragment>
-            <div className="moviesList" style={movies.length <3 ? {justifyContent:"center"} :{justifyContent:"flex-start"}}>
+            <div className="moviesList">
                 {movies.map(movie => {
                     return (
                         <MoviesCard

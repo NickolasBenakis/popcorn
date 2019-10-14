@@ -3,20 +3,25 @@ import { Collapse } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function NavBarLink({
+    logOut,
     isLoggedIn,
     isGoogleLoggedIn,
-    handleShow,
+    handleShowModal,
     handleBadge,
     openBadge
 }) {
     function googleLoggedInContent() {
         return isGoogleLoggedIn ? (
             <Link to="/">
-                <li className="link-item option">Sign out</li>
+                <li className="link-item option" onClick={() => logOut()}>
+                    Sign out
+                </li>
             </Link>
         ) : (
             <Link to="/">
-                <li className="link-item option">Sign out</li>
+                <li className="link-item option" onClick={() => logOut()}>
+                    Sign out
+                </li>
             </Link>
         );
     }
@@ -44,7 +49,7 @@ function NavBarLink({
                 </Collapse>
             </li>
         ) : (
-            <li className="link-item" onClick={handleShow}>
+            <li className="link-item" onClick={handleShowModal}>
                 Login
             </li>
         );
