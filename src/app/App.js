@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MyProfile from './components/myProfile/myProfile';
 import TheatersTab from './components/theaters/theatersTab';
 import BookingTab from './components/booking/bookingTab';
+import AdminPanel from './components/adminPanel/adminPanel';
 export default class App extends Component {
     render() {
         return (
@@ -47,6 +48,15 @@ export default class App extends Component {
                         render={() => (
                             <div className="content-m-top">
                                 <BookingTab />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/adminPanel"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <AdminPanel />
                             </div>
                         )}
                     />
