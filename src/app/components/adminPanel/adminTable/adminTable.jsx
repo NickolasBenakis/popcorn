@@ -89,10 +89,6 @@ function AdminTable() {
                         sortable={false}
                     />
                 </Fields>
-                {/* <Pagination
-                    itemsPerPage={5}
-                    fetchTotalOfItems={payload => service.fetchTotal(payload)}
-                /> */}
                 <CreateForm
                     title="Movie Creation"
                     message="Create a new movie!"
