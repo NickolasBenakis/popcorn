@@ -10,14 +10,10 @@ import CRUDTable, {
     Field,
     CreateForm,
     UpdateForm,
-    DeleteForm,
-    Pagination
+    DeleteForm
 } from 'react-crud-table';
 
 function AdminTable() {
-    const DescriptionRenderer = ({ field }) => <textarea {...field} />;
-    const renderNumberField = ({ field }) => <input type="number" {...field} />;
-
     const [data, setData] = useState([]);
 
     async function fetchApi() {
@@ -46,17 +42,24 @@ function AdminTable() {
     const styles = {
         container: { margin: 'auto 20px', width: 'fit-content' }
     };
+    const DescriptionRenderer = ({ field }) => (
+        <textarea maxLength={100} {...field} />
+    );
+    const renderNumberField = ({ field }) => <input type="number" {...field} />;
+    const dateRender = ({ field }) => <input type="date" {...field} />;
     return (
         <div style={styles.container}>
             <CRUDTable caption="movies" items={data}>
                 <Fields>
-                    <Field
-                        name="movieId"
-                        label="id"
-                        hideInCreateForm
-                        type="number"
-                        sortable={false}
-                    />
+                    <div>
+                        <Field
+                            name="movieId"
+                            label="id"
+                            hideInCreateForm
+                            type="number"
+                            sortable={false}
+                        />
+                    </div>
                     <Field name="title" label="Title" sortable={false} />
                     <Field name="director" label="Director" sortable={false} />
                     <Field name="cast" label="Cast" sortable={false} />
@@ -87,6 +90,7 @@ function AdminTable() {
                         name="premiereDate"
                         label="PremiereDate"
                         sortable={false}
+                        render={dateRender}
                     />
                 </Fields>
                 <CreateForm
