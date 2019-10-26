@@ -5,17 +5,17 @@
 }
 
 .App-header {
-    background-color: whitesmoke;
-    color: #282c34;
+    background-color: #00756a;
+    color: whitesmoke;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
     position: fixed;
-    z-index: 1;
+    z-index: 19;
     width: 100%;
     top: 0;
     left: 0;
     display: inline;
     text-align: start;
     padding: 15px 0;
-    opacity: 0.85;
 
     @media (max-width: 600px) {
         display: inline-flex;
@@ -37,6 +37,7 @@ a.non-link {
     font-size: 20px;
     font-weight: 600;
     display: inline-flex;
+    vertical-align: sub;
 
     @media (max-width: 600px) {
         display: none;
@@ -52,13 +53,13 @@ a.non-link {
     display: inline-flex;
     font-size: 20px;
     padding-right: 40px;
-    color: #282c34;
+    color: whitesmoke;
     height: 34px;
     margin-bottom: 0;
     align-items: center;
 
     a {
-        color: #282c34;
+        color: whitesmoke;
         text-decoration: none;
     }
 
@@ -67,7 +68,7 @@ a.non-link {
 
         a:hover,
         &:hover {
-            color: royalblue;
+            color: #282c34;
         }
     }
 }
