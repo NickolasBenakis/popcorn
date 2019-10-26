@@ -1,10 +1,11 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import './adminTable.scss';
-import fetchMovies from '../../../../api/movies/fetchMovies';
-import addMovie from '../../../../api/movies/addMovie';
-import deleteMovie from '../../../../api/movies/deleteMovie';
-import updateMovie from '../../../../api/movies/updateMovie';
-
+import '../adminTable.scss';
+import fetchMovies from '../../../../../api/movies/fetchMovies';
+import addMovie from '../../../../../api/movies/addMovie';
+import deleteMovie from '../../../../../api/movies/deleteMovie';
+import updateMovie from '../../../../../api/movies/updateMovie';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import CRUDTable, {
     Fields,
     Field,
@@ -13,7 +14,7 @@ import CRUDTable, {
     DeleteForm
 } from 'react-crud-table';
 
-function AdminTable() {
+function AdminTableAuditoriums() {
     const [data, setData] = useState([]);
     const [operation, setOperation] = useState({
         action: '',
@@ -61,6 +62,9 @@ function AdminTable() {
     return (
         <Fragment>
             <div style={styles.container}>
+                <Link to="/adminPanel/">
+                    <Button className="Back crud-button ">Back</Button>
+                </Link>
                 <CRUDTable caption="movies" items={data}>
                     <Fields>
                         <Field
@@ -177,4 +181,4 @@ function AdminTable() {
     );
 }
 
-export default AdminTable;
+export default AdminTableAuditoriums;

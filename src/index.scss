@@ -10,9 +10,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-$xs: (
-    max-width: 600px
-);
+$xs: (max-width: 600px);
 
 .no-padding {
     padding: unset !important;

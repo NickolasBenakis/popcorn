@@ -1,0 +1,42 @@
+.header {
+    padding: 20px;
+    white-space: nowrap;
+
+    @media (max-width: 576px) {
+        text-align: center;
+    }
+}
+
+.operations-list {
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+
+    a {
+        text-decoration: none;
+        
+    }
+
+    li {
+        cursor: pointer;
+        border: 1px solid black;
+        text-align: left;
+        padding: 15px;
+        background-color: whitesmoke;
+        color: black;
+
+        &:hover {
+            border: 1px solid royalblue;
+            background-color: royalblue;
+            color: whitesmoke;
+        }
+    }
+}
+
+.edit-list {
+    display: grid;
+    justify-content: center;
+}

@@ -8,6 +8,9 @@ import MyProfile from './components/myProfile/myProfile';
 import TheatersTab from './components/theaters/theatersTab';
 import BookingTab from './components/booking/bookingTab';
 import AdminPanel from './components/adminPanel/adminPanel';
+import AdminTableMovies from './components/adminPanel/adminTable/adminTableMovies/adminTableMovies';
+import AdminTableUsers from './components/adminPanel/adminTable/adminTableUsers/adminTableUsers';
+import AdminTableAuditoriums from './components/adminPanel/adminTable/adminTableAuditoriums/adminTableAuditoriums';
 export default class App extends Component {
     render() {
         return (
@@ -57,6 +60,33 @@ export default class App extends Component {
                         render={() => (
                             <div className="content-m-top">
                                 <AdminPanel />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/adminPanel/movies"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <AdminTableMovies />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/adminPanel/users"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <AdminTableUsers />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/adminPanel/auditoriums"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <AdminTableAuditoriums />
                             </div>
                         )}
                     />
