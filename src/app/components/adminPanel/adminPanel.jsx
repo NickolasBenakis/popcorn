@@ -18,6 +18,9 @@ function AdminPanel() {
                         <Link to="/adminPanel/auditoriums">
                             <li>Auditoriums</li>
                         </Link>
+                        <Link to="/adminPanel/movieShowings">
+                            <li>Movie Showings</li>
+                        </Link>
                     </ul>
                 </section>
             </main>

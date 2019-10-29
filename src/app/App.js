@@ -11,6 +11,7 @@ import AdminPanel from './components/adminPanel/adminPanel';
 import AdminTableMovies from './components/adminPanel/adminTable/adminTableMovies/adminTableMovies';
 import AdminTableUsers from './components/adminPanel/adminTable/adminTableUsers/adminTableUsers';
 import AdminTableAuditoriums from './components/adminPanel/adminTable/adminTableAuditoriums/adminTableAuditoriums';
+import AdminTableMovieShowings from './components/adminPanel/adminTable/adminTableMovieShowings/adminTableMovieShowings';
 export default class App extends Component {
     render() {
         return (
@@ -87,6 +88,15 @@ export default class App extends Component {
                         render={() => (
                             <div className="content-m-top">
                                 <AdminTableAuditoriums />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/adminPanel/movieShowings"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <AdminTableMovieShowings />
                             </div>
                         )}
                     />
