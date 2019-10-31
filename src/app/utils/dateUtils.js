@@ -33,3 +33,6 @@ export function convertFromStandardToUTC(day, time) {
     const format = 'ddd DD/MM HH:mm';
     return moment(input, format).format('YYYY-MM-DDTHH:mm');
 }
+ export function convertDateToInputDateForm(date){
+     return moment(date).format("YYYY-MM-DD");
+ }

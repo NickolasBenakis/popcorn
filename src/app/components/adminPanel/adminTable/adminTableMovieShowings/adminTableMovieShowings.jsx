@@ -75,7 +75,7 @@ function AdminTableMovieShowings() {
                             type="number"
                             sortable={false}
                         />
-                        <Field name="screeningDateTime" label="screeningDateTime" sortable={false} render={dateRender} />
+                        <Field name="screeningDateTime" label="screeningDateTime" sortable={false}  />
                         <Field name="showingDateFrom" label="showingDateFrom" sortable={false} render={dateRender} />
                         <Field name="showingDateTo" label="showingDateTo" sortable={false} render={dateRender} />
                         <Field
