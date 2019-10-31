@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import '../adminTable.scss';
-import fetchMovies from '../../../../../api/movies/fetchMovies';
-import addMovie from '../../../../../api/movies/addMovie';
-import deleteMovie from '../../../../../api/movies/deleteMovie';
-import updateMovie from '../../../../../api/movies/updateMovie';
+import fetchUsers from '../../../../../api/user/fetchUsers';
+import addUser from '../../../../../api/user/addUser';
+import deleteUser from '../../../../../api/user/deleteUser';
+import updateUser from '../../../../../api/user/updateUser';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import CRUDTable, {
@@ -22,25 +22,25 @@ function AdminTableUsers() {
     });
 
     async function fetchApi() {
-        let res = await fetchMovies();
+        let res = await fetchUsers();
         setData(res);
     }
     async function addTaskApi(payload) {
-        await addMovie(payload);
+        await addUser(payload);
         setOperation({
             action: 'create',
             times: operation.times++
         });
     }
     async function deleteTaskApi(payload) {
-        await deleteMovie(payload.movieId);
+        await deleteUser(payload.userId);
         setOperation({
             action: 'delete',
             times: operation.times++
         });
     }
     async function updateTaskApi(payload) {
-        await updateMovie(payload);
+        await updateUser(payload);
         setOperation({
             action: 'update',
             times: operation.times++
@@ -51,6 +51,9 @@ function AdminTableUsers() {
         fetchApi();
     }, [operation]);
 
+    const getRoleName = (items)=> {
+        return items.role.roleName;
+    }
     const styles = {
         container: { margin: 'auto 20px', width: 'fit-content' }
     };
@@ -65,55 +68,33 @@ function AdminTableUsers() {
                 <Link to="/adminPanel/">
                     <Button className="Back crud-button ">Back</Button>
                 </Link>
-                <CRUDTable caption="movies" items={data}>
+                <CRUDTable caption="users" items={data}>
                     <Fields>
                         <Field
-                            name="movieId"
+                            name="userId"
                             label="id"
                             hideInCreateForm
                             type="number"
                             sortable={false}
                         />
-                        <Field name="title" label="Title" sortable={false} />
-                        <Field
-                            name="director"
-                            label="Director"
-                            sortable={false}
-                        />
-                        <Field name="cast" label="Cast" sortable={false} />
-                        <Field
-                            name="description"
-                            label="Description"
-                            render={DescriptionRenderer}
-                            sortable={false}
-                        />
-                        <Field
-                            name="movieImageUrl"
-                            label="Image"
-                            sortable={false}
-                        />
-                        <Field
-                            name="movieTrailerUrl"
-                            label="Trailer"
-                            sortable={false}
-                        />
-                        <Field
-                            name="durationMin"
-                            label="Mins"
-                            sortable={false}
-                            render={renderNumberField}
-                        />
-                        <Field
-                            name="premiereDate"
-                            label="PremiereDate"
-                            sortable={false}
-                            render={dateRender}
-                        />
+                        <Field name="roleId" label="RoleId" sortable={false} tableValueResolver="role.roleId" />
+                        <Field name="roleName" label="RoleName" sortable={false} tableValueResolver="role.roleName" />
+                        <Field name="password" label="Password" sortable={false} />
+                        <Field name="firstName" label="firstName" sortable={false} />
+                        <Field name="lastName" label="lastName" sortable={false} />
+                        <Field name="email" label="email" sortable={false} />
+                        <Field name="phone" label="phone" sortable={false} />
+                        <Field name="token" label="token" sortable={false} />
+                        <Field name="birthdate" label="birthdate" sortable={false}  render={dateRender}/>
+                        <Field name="active" label="active" sortable={false} />
+                        <Field name="reservations" label="reservations" sortable={false} />
+                        <Field name="thirdPartyOAuth" label="thirdPartyOAuth" sortable={false} />
+                        <Field name="creationDate" label="creationDate" sortable={false} render={dateRender} />
                     </Fields>
                     <CreateForm
-                        title="Movie Creation"
-                        message="Create a new movie!"
-                        trigger="Create Movie"
+                        title="Task Creation"
+                        message="Create a new task!"
+                        trigger="Create task"
                         onSubmit={task => addTaskApi(task)}
                         submitText="Create"
                         validate={values => {
