@@ -24,7 +24,6 @@ function AdminPanel() {
                     </ul>
                 </section>
             </main>
-            {/* <AdminTable /> */}
         </Fragment>
     );
 }

@@ -6,6 +6,8 @@ import deleteUser from '../../../../../api/user/deleteUser';
 import updateUser from '../../../../../api/user/updateUser';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { getOptionSelectedDataKey } from '../../../../utils/arrayUtils';
+
 import CRUDTable, {
     Fields,
     Field,
@@ -26,11 +28,16 @@ function AdminTableUsers() {
         setData(res);
     }
     async function addTaskApi(payload) {
+        payload.role = {
+            roleId: options.roleSelected
+        };
+        console.log(payload);
         await addUser(payload);
         setOperation({
             action: 'create',
             times: operation.times++
         });
+        //window.location.reload();
     }
     async function deleteTaskApi(payload) {
         await deleteUser(payload.userId);
@@ -38,22 +45,27 @@ function AdminTableUsers() {
             action: 'delete',
             times: operation.times++
         });
+        window.location.reload();
     }
     async function updateTaskApi(payload) {
+        payload.role = {
+            roleId: options.roleSelected
+        };
         await updateUser(payload);
         setOperation({
             action: 'update',
             times: operation.times++
         });
+        window.location.reload();
     }
 
     useEffect(() => {
         fetchApi();
     }, [operation]);
 
-    const getRoleName = (items)=> {
-        return items.role.roleName;
-    }
+    // const getRoleName = items => {
+    //     return items.role.roleName;
+    // };
     const styles = {
         container: { margin: 'auto 20px', width: 'fit-content' }
     };
@@ -62,6 +74,26 @@ function AdminTableUsers() {
     );
     const renderNumberField = ({ field }) => <input type="number" {...field} />;
     const dateRender = ({ field }) => <input type="date" {...field} />;
+    const options = {
+        roleSelected: null
+    };
+    const handleRoleChangeOption = e => {
+        options.roleSelected = getOptionSelectedDataKey(e.target);
+        console.log(options.roleSelected);
+    };
+
+    const selectMovieRender = () => {
+        return (
+            <select className="preselect" onChange={handleRoleChangeOption}>
+                <option datakey="1" value="user">
+                    user
+                </option>
+                <option datakey="2" value="admin">
+                    admin
+                </option>
+            </select>
+        );
+    };
     return (
         <Fragment>
             <div style={styles.container}>
@@ -77,19 +109,61 @@ function AdminTableUsers() {
                             type="number"
                             sortable={false}
                         />
-                        <Field name="roleId" label="RoleId" sortable={false} tableValueResolver="role.roleId" />
-                        <Field name="roleName" label="RoleName" sortable={false} tableValueResolver="role.roleName" />
-                        <Field name="password" label="Password" sortable={false} />
-                        <Field name="firstName" label="firstName" sortable={false} />
-                        <Field name="lastName" label="lastName" sortable={false} />
+                        {/* <Field
+                            name="roleId"
+                            label="RoleId"
+                            sortable={false}
+                            tableValueResolver="role.roleId"
+                        /> */}
+                        <Field
+                            name="roleName"
+                            label="RoleName"
+                            sortable={false}
+                            tableValueResolver="role.roleName"
+                            render={selectMovieRender}
+                        />
+                        <Field
+                            name="password"
+                            label="Password"
+                            sortable={false}
+                        />
+                        <Field
+                            name="firstName"
+                            label="firstName"
+                            sortable={false}
+                        />
+                        <Field
+                            name="lastName"
+                            label="lastName"
+                            sortable={false}
+                        />
                         <Field name="email" label="email" sortable={false} />
                         <Field name="phone" label="phone" sortable={false} />
                         <Field name="token" label="token" sortable={false} />
-                        <Field name="birthdate" label="birthdate" sortable={false}  render={dateRender}/>
+                        <Field
+                            name="birthdate"
+                            label="birthdate"
+                            sortable={false}
+                            render={dateRender}
+                        />
                         <Field name="active" label="active" sortable={false} />
-                        <Field name="reservations" label="reservations" sortable={false} />
-                        <Field name="thirdPartyOAuth" label="thirdPartyOAuth" sortable={false} />
-                        <Field name="creationDate" label="creationDate" sortable={false} render={dateRender} />
+                        <Field
+                            name="reservations"
+                            label="reservations"
+                            sortable={false}
+                        />
+                        <Field
+                            name="thirdPartyOAuth"
+                            label="thirdPartyOAuth"
+                            sortable={false}
+                        />
+                        <Field
+                            name="creationDate"
+                            label="creationDate"
+                            sortable={false}
+                            render={dateRender}
+                            hideInCreateForm
+                        />
                     </Fields>
                     <CreateForm
                         title="Task Creation"
@@ -99,19 +173,6 @@ function AdminTableUsers() {
                         submitText="Create"
                         validate={values => {
                             const errors = {};
-                            // if (!values.title) {
-                            //     errors.title = "Please, provide movie's title";
-                            // }
-                            // if (!values.description) {
-                            //     errors.description =
-                            //         "Please, provide movie's description";
-                            //}
-                            // if (values.durationMin) {
-                            //     console.log(values.durationMin);
-                            //     values.durationMin = parseInt(values.durationMin);
-                            //     // errors.durationMin =
-                            //     //     "Please, provide movie's duration";
-                            // }
                             return errors;
                         }}
                     />
@@ -124,20 +185,6 @@ function AdminTableUsers() {
                         submitText="Update"
                         validate={values => {
                             const errors = {};
-
-                            // if (!values.id) {
-                            //     errors.id = 'Please, provide id';
-                            // }
-
-                            // if (!values.title) {
-                            //     errors.title = "Please, provide task's title";
-                            // }
-
-                            // if (!values.description) {
-                            //     errors.description =
-                            //         "Please, provide task's description";
-                            // }
-
                             return errors;
                         }}
                     />
@@ -150,9 +197,6 @@ function AdminTableUsers() {
                         submitText="Delete"
                         validate={values => {
                             const errors = {};
-                            if (!values.movieId) {
-                                errors.id = 'Please, provide id';
-                            }
                             return errors;
                         }}
                     />
