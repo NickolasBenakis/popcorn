@@ -40,3 +40,18 @@ export function removeDuplicateElements(arrayModel) {
         return arrayModel.indexOf(item) === index;
     });
 }
+
+/**
+ * @function getOptionSelectedDataKey
+ * @description extracts a data-key value from a selected option
+ * @elementRef {ref}
+ * @return {number} id
+ */
+
+export function getOptionSelectedDataKey(ref) {
+    const selected = Array.from(ref.options)[ref.selectedIndex];
+    const selectedDataKey = parseInt(Array.from(selected.attributes[0].value));
+    console.log('id', selectedDataKey);
+
+    return selectedDataKey;
+}

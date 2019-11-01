@@ -3,6 +3,22 @@
     min-width: 128px;
 }
 
+.preselect {
+    width: 100px;
+
+    &:after {
+        width: inherit;
+    }
+
+    &:host {
+        width: 100px;
+    }
+
+    option {
+        width: 100px !important;
+    }
+}
+
 .crud-modal-wrapper {
     position: absolute;
     top: 0;
