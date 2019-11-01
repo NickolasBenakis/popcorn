@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment, useRef } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import '../adminTable.scss';
 import fetchShowings from '../../../../../api/movieShowing/fetchMovieShowing';
 import addShowing from '../../../../../api/movieShowing/addMovieShowing';
@@ -10,6 +10,7 @@ import fetchMovies from '../../../../../api/movies/fetchMovies';
 import fetchAuditoriums from '../../../../../api/auditoriums/fetchAuditoriums';
 import { getOptionSelectedDataKey } from '../../../../utils/arrayUtils';
 import { validateChecker } from '../../../../utils/validateChecker';
+
 import CRUDTable, {
     Fields,
     Field,
@@ -31,16 +32,15 @@ function AdminTableMovieShowings() {
         auditoriumSelected: null
     };
     const handleMovieChangeOption = e => {
-        console.log(e.target.selectedIndex);
         options.movieSelected = getOptionSelectedDataKey(e.target);
     };
     const handleAuditoriumsChangeOption = e => {
-        console.log(e.target.selectedIndex);
         options.auditoriumSelected = getOptionSelectedDataKey(e.target);
     };
 
     async function fetchApi() {
         let res = await fetchShowings();
+        res = res.sort((a, b) => a.movieShowingId - b.movieShowingId);
         setData(res);
     }
     async function addTaskApi(payload) {
@@ -54,23 +54,13 @@ function AdminTableMovieShowings() {
                 auditoriumId: options.auditoriumSelected
             };
         }
-        console.log(payload);
         await addShowing(payload);
         setOperation({
             action: 'create',
             times: operation.times++
         });
-        //window.location.reload();
-    }
-    async function deleteTaskApi(payload) {
-        await deleteShowing(payload.movieShowingId);
-        setOperation({
-            action: 'delete',
-            times: operation.times++
-        });
         window.location.reload();
     }
-
     async function updateTaskApi(payload) {
         if (validateChecker(options.movieSelected)) {
             payload.movie = {
@@ -82,7 +72,6 @@ function AdminTableMovieShowings() {
                 auditoriumId: options.auditoriumSelected
             };
         }
-        console.log(payload);
         await updateShowing(payload);
         setOperation({
             action: 'update',
@@ -90,6 +79,15 @@ function AdminTableMovieShowings() {
         });
         window.location.reload();
     }
+    async function deleteTaskApi(payload) {
+        await deleteShowing(payload.movieShowingId);
+        setOperation({
+            action: 'delete',
+            times: operation.times++
+        });
+        window.location.reload();
+    }
+
     const getSubTableData = async () => {
         const resMovies = await fetchMovies();
         const resAuditoriums = await fetchAuditoriums();
@@ -97,7 +95,6 @@ function AdminTableMovieShowings() {
         setAuditoriums(makeAuditoriumOptions(resAuditoriums));
     };
     useEffect(() => {
-        console.log('mpika');
         Promise.all([getSubTableData(), fetchApi()]);
     }, [operation]);
 
@@ -206,19 +203,6 @@ function AdminTableMovieShowings() {
                             submitText="Create"
                             validate={values => {
                                 const errors = {};
-                                // if (!values.title) {
-                                //     errors.title = "Please, provide movie's title";
-                                // }
-                                // if (!values.description) {
-                                //     errors.description =
-                                //         "Please, provide movie's description";
-                                //}
-                                // if (values.durationMin) {
-                                //     console.log(values.durationMin);
-                                //     values.durationMin = parseInt(values.durationMin);
-                                //     // errors.durationMin =
-                                //     //     "Please, provide movie's duration";
-                                // }
                                 return errors;
                             }}
                         />
@@ -231,20 +215,6 @@ function AdminTableMovieShowings() {
                             submitText="Update"
                             validate={values => {
                                 const errors = {};
-
-                                // if (!values.id) {
-                                //     errors.id = 'Please, provide id';
-                                // }
-
-                                // if (!values.title) {
-                                //     errors.title = "Please, provide task's title";
-                                // }
-
-                                // if (!values.description) {
-                                //     errors.description =
-                                //         "Please, provide task's description";
-                                // }
-
                                 return errors;
                             }}
                         />
@@ -257,9 +227,6 @@ function AdminTableMovieShowings() {
                             submitText="Delete"
                             validate={values => {
                                 const errors = {};
-                                if (!values.movieId) {
-                                    errors.id = 'Please, provide id';
-                                }
                                 return errors;
                             }}
                         />

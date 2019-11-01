@@ -50,8 +50,9 @@ export function removeDuplicateElements(arrayModel) {
 
 export function getOptionSelectedDataKey(ref) {
     const selected = Array.from(ref.options)[ref.selectedIndex];
-    const selectedDataKey = parseInt(Array.from(selected.attributes[0].value));
-    console.log('id', selectedDataKey);
+    const selectedDataKey = parseInt(
+        Array.from(selected.attributes[0].value).join('')
+    );
 
     return selectedDataKey;
 }
