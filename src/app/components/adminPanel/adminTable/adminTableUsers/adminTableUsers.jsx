@@ -7,6 +7,7 @@ import updateUser from '../../../../../api/user/updateUser';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { getOptionSelectedDataKey } from '../../../../utils/arrayUtils';
+import { validateChecker } from '../../../../utils/validateChecker';
 
 import CRUDTable, {
     Fields,
@@ -22,15 +23,21 @@ function AdminTableUsers() {
         action: '',
         times: 0
     });
+    const options = {
+        roleSelected: 1
+    };
 
     async function fetchApi() {
         let res = await fetchUsers();
+        res = res.sort((a, b) => a.userId - b.userId);
         setData(res);
     }
     async function addTaskApi(payload) {
-        payload.role = {
-            roleId: options.roleSelected
-        };
+        if (validateChecker(options.roleSelected)) {
+            payload.role = {
+                roleId: options.roleSelected
+            };
+        }
         console.log(payload);
         await addUser(payload);
         setOperation({
@@ -48,15 +55,18 @@ function AdminTableUsers() {
         window.location.reload();
     }
     async function updateTaskApi(payload) {
-        payload.role = {
-            roleId: options.roleSelected
-        };
+        if (validateChecker(options.roleSelected)) {
+            payload.role = {
+                roleId: options.roleSelected
+            };
+        }
+        console.log(payload);
         await updateUser(payload);
         setOperation({
             action: 'update',
             times: operation.times++
         });
-        window.location.reload();
+        //window.location.reload();
     }
 
     useEffect(() => {
@@ -74,9 +84,6 @@ function AdminTableUsers() {
     );
     const renderNumberField = ({ field }) => <input type="number" {...field} />;
     const dateRender = ({ field }) => <input type="date" {...field} />;
-    const options = {
-        roleSelected: null
-    };
     const handleRoleChangeOption = e => {
         options.roleSelected = getOptionSelectedDataKey(e.target);
         console.log(options.roleSelected);
