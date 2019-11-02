@@ -24,6 +24,7 @@ function AdminTableMovies() {
 
     async function fetchApi() {
         let res = await fetchMovies();
+        res = res.sort((a, b) => a.movieId - b.movieId);
         setData(res);
     }
     async function addTaskApi(payload) {

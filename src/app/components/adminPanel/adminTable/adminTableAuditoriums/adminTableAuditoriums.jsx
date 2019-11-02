@@ -23,6 +23,7 @@ function AdminTableAuditoriums() {
 
     async function fetchApi() {
         let res = await fetchAuditoriums();
+        res = res.sort((a, b) => a.auditoriumId - b.auditoriumId);
         setData(res);
     }
     async function addTaskApi(payload) {
@@ -81,17 +82,13 @@ function AdminTableAuditoriums() {
                             render={DescriptionRenderer}
                             sortable={false}
                         />
+                        <Field name="seats" label="Seats" sortable={false} />
                         <Field
-                            name="seats"
-                            label="Seats"
+                            name="totalSeats"
+                            label="TotalSeats"
                             sortable={false}
                         />
-                        <Field name="totalSeats" label="TotalSeats" sortable={false} />
-                        <Field
-                            name="imgUrl"
-                            label="Image"
-                            sortable={false}
-                        />
+                        <Field name="imgUrl" label="Image" sortable={false} />
                         <Field
                             name="movieShowing"
                             label="MovieShowing"
