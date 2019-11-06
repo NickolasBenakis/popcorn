@@ -146,7 +146,6 @@ function AdminTableUsers() {
                         />
                         <Field name="email" label="email" sortable={false} />
                         <Field name="phone" label="phone" sortable={false} />
-                        <Field name="token" label="token" sortable={false} />
                         <Field
                             name="birthdate"
                             label="birthdate"

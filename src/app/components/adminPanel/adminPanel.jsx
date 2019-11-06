@@ -6,7 +6,8 @@ function AdminPanel() {
     return (
         <Fragment>
             <h1 className="header col-12 col-sm-4">Admin Panel</h1>
-            <main className="edit-list">
+            <main className="admin-content">
+                <h5 className="col-12">Edit the following data</h5>
                 <section>
                     <ul className="operations-list">
                         <Link to="/adminPanel/users">
@@ -21,6 +22,14 @@ function AdminPanel() {
                         <Link to="/adminPanel/movieShowings">
                             <li>Movie Showings</li>
                         </Link>
+                    </ul>
+                </section>
+                <h5 className="col-12">Reports</h5>
+                <section>
+                    <ul className="reports-list">
+                        <li>Check-in reservations</li>
+                        <li>Total reservations by showings</li>
+                        <li>Total reservations by users</li>
                     </ul>
                 </section>
             </main>

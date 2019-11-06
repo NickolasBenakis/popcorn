@@ -206,7 +206,6 @@ function AdminTableMovieShowings() {
                                 return errors;
                             }}
                         />
-
                         <UpdateForm
                             title="Task Update Process"
                             message="Update task"
@@ -218,7 +217,6 @@ function AdminTableMovieShowings() {
                                 return errors;
                             }}
                         />
-
                         <DeleteForm
                             title="Task Delete Process"
                             message="Are you sure you want to delete the task?"
