@@ -46,6 +46,7 @@
 		"popper.js": "^1.14.7",
 		"prettier": "1.18.2",
 		"react-crud-table": "0.0.8",
+		"react-date-picker": "^7.8.2",
 		"react-facebook-login": "^4.1.1",
 		"react-google-login": "^5.0.4",
 		"react-icons": "^3.7.0",
