@@ -27,9 +27,11 @@ function AdminPanel() {
                 <h5 className="col-12">Reports</h5>
                 <section>
                     <ul className="reports-list">
-                        <li>Check-in reservations</li>
-                        <li>Total reservations by showings</li>
-                        <li>Total reservations by users</li>
+                        {/* <li>Check-in reservations</li>
+                        <li>Total reservations by showings</li> */}
+                        <Link to="/adminPanel/reports">
+                            <li>Total reservations by users</li>
+                        </Link>
                     </ul>
                 </section>
             </main>
