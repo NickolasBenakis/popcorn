@@ -1,0 +1,27 @@
+.calendar-label {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.calendars {
+    display: inline;
+}
+
+.title {
+    width: 100px;
+    display: inline-block;
+    text-align: left;
+}
+
+.submit-btn {
+    display: inline;
+    margin: 20px;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+}
+
+.alert-wrapper {
+    margin: 20px;
+}
