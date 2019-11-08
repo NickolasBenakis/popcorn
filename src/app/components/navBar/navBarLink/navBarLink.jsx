@@ -70,9 +70,11 @@ function NavBarLink({
     return (
         <div className="navBarLinks col-sm-8-offset">
             <ul className="navBarLinkList">
-                <Link to="/theaters">
-                    <li className="link-item m-r-10">Theaters</li>
-                </Link>
+                <li className="link-item m-r-10">
+                    <Link to="/theaters">
+                        Theaters
+                    </Link>
+                </li>
                 {displayMovieTab()}
                 {logStatusContent()}
             </ul>

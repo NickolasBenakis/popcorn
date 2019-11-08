@@ -25,3 +25,12 @@
 .alert-wrapper {
     margin: 20px;
 }
+
+.crud-table {
+    margin: 0 auto;
+}
+.crud-table{
+    &__row{
+        font-size: 14px;
+    }
+}

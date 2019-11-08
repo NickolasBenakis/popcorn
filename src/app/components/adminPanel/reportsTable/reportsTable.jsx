@@ -9,7 +9,7 @@ import { convertDateToInputDateForm } from '../../../utils/dateUtils';
 function ReportsTable() {
     const [data, setData] = useState([]);
     const [showResults, setShowResults] = useState(false);
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date(2019,4,1));
     const [endDate, setEndDate] = useState(new Date());
     const [isLoading, setIsLoading] = useState(false);
     const [showInvalidAlert, setShowInvalidAlert] = useState(false);
@@ -34,18 +34,20 @@ function ReportsTable() {
     };
     const handleSubmit = async () => {
         if (startDate && endDate) {
-            setShowInvalidAlert(false);
             setIsLoading(true);
             const dateFrom = convertDateToInputDateForm(startDate);
             const dateTo = convertDateToInputDateForm(endDate);
             try {
                 let res = await fetchAllReservations(dateFrom, dateTo);
+                setShowNoResultsAlert(false);
+                setShowInvalidAlert(false);
                 if (res) {
                     setIsLoading(false);
                 }
-                if (res.reportModels.length) {
-                    setShowNoResultsAlert(false);
-                    setData(res.reportModels);
+                if (res.reportModels.length && res.reportModels2.length && res.reportModels3.length) {
+                    const finalData = res.reportModels.concat(res.reportModels2, res.reportModels3)
+                    console.log(finalData)
+                    setData(finalData);
                     setShowResults(true);
                 } else {
                     setShowNoResultsAlert(true);
@@ -119,7 +121,7 @@ function ReportsTable() {
                             </div>
                         </div>
                     </div>
-                    {showResults ? (
+                    {showResults && !showInvalidAlert && !showNoResultsAlert ? (
                         <CRUDTable
                             style={styles.container}
                             caption="reports"
@@ -127,8 +129,32 @@ function ReportsTable() {
                             >
                             <Fields>
                                 <Field
+                                    name="userFirstName"
+                                    label="FirstName"
+                                    hideInCreateForm
+                                    sortable={false}
+                                />
+                                <Field
+                                    name="userLastName"
+                                    label="LastName"
+                                    hideInCreateForm
+                                    sortable={false}
+                                />
+                                <Field
                                     name="auditoriumName"
                                     label="auditoriumName"
+                                    hideInCreateForm
+                                    sortable={false}
+                                />
+                                <Field
+                                    name="movieName"
+                                    label="movieName"
+                                    hideInCreateForm
+                                    sortable={false}
+                                />
+                                <Field
+                                    name="bookedTickets"
+                                    label="bookedTickets"
                                     hideInCreateForm
                                     sortable={false}
                                 />
