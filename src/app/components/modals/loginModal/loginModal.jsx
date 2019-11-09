@@ -67,8 +67,9 @@ class LoginModal extends Component {
                 });
                 console.log('lathos stixia');
             } else {
-                window.sessionStorage.setItem('token', res.token);
+                //window.sessionStorage.setItem('token', res.token);
                 window.document.cookie = `token=${res.token}`;
+                this.props.handleLoginResponse(res);
                 this.setState({ successLogin: true, responseLogin: res });
                 this.closeModal();
             }

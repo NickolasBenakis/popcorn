@@ -6,7 +6,7 @@ import RegisterModal from '../modals/registerModal/registerModal';
 
 import { Modal } from 'react-bootstrap';
 import NavbarLink from './navBarLink/navBarLink';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
 
 class navBar extends Component {
     state = {
@@ -14,7 +14,12 @@ class navBar extends Component {
         showRegisterModal: false,
         isLoggedIn: false,
         isGoogleLoggedIn: false,
-        openBadge: false
+        openBadge: false,
+        loginResponse: {}
+    };
+
+    handleLoginResponse = model => {
+        this.setState({ loginResponse: model });
     };
 
     handleClose = () => {
@@ -42,6 +47,8 @@ class navBar extends Component {
     LogOut = () => {
         console.log('ekana log out');
         this.setState({ isLoggedIn: false });
+        window.document.cookie =
+            'token' + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;';
     };
 
     handleBadge = () => {
@@ -81,6 +88,7 @@ class navBar extends Component {
                 getFbResponse={res => this.fbResponse(res)}
                 childShowRegister={this.handleShowRegisterModal}
                 childLogIn={this.logIn}
+                handleLoginResponse={res => this.handleLoginResponse(res)}
             />
         );
     }
@@ -90,6 +98,7 @@ class navBar extends Component {
         const { openBadge } = this.state;
         const { isLoggedIn } = this.state;
         const { isGoogleLoggedIn } = this.state;
+        const { loginResponse } = this.state;
 
         return (
             <Fragment>
@@ -116,6 +125,7 @@ class navBar extends Component {
                         openBadge={openBadge}
                         logOut={this.LogOut}
                         badgeImage={this.badgeImage}
+                        loginResponse={loginResponse}
                     />
                 </header>
             </Fragment>
