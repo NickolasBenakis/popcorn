@@ -1,0 +1,24 @@
+.black-border {
+    border: 2px solid black;
+
+    &:focus {
+        outline: 2px solid royalblue;
+
+    }
+}
+
+.select-row {
+    display: inline-flex;
+    justify-content: left;
+    margin: 15px;
+}
+
+.select-title {
+    margin: 0 5px;
+    padding: 0;
+    line-height: 2.25;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}

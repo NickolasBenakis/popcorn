@@ -54,7 +54,9 @@ function NavBarLink({
                             </Link> */}
                             {isAdmin(loginResponse) ? (
                                 <Link to="/adminPanel">
-                                    <li className="link-item">admin panel</li>
+                                    <li className="link-item option">
+                                        admin panel
+                                    </li>
                                 </Link>
                             ) : null}
                             {googleLoggedInContent()}
@@ -85,7 +87,8 @@ function NavBarLink({
         <div className="navBarLinks col-sm-8-offset">
             <ul className="navBarLinkList">
                 <li className="link-item m-r-10">
-                    <Link to="/theaters">Theaters</Link>
+                    <Link to="/searchReservation">Search</Link>
+                    {/* <Link to="/theaters">Theaters</Link> */}
                 </li>
                 {displayMovieTab()}
                 {logStatusContent()}

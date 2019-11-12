@@ -13,6 +13,7 @@ import AdminTableUsers from './components/adminPanel/adminTable/adminTableUsers/
 import AdminTableAuditoriums from './components/adminPanel/adminTable/adminTableAuditoriums/adminTableAuditoriums';
 import AdminTableMovieShowings from './components/adminPanel/adminTable/adminTableMovieShowings/adminTableMovieShowings';
 import ReportsTable from './components/adminPanel/reportsTable/reportsTable';
+import SearchReservation from './components/searchReservation/searchReservation';
 export default class App extends Component {
     render() {
         return (
@@ -107,6 +108,15 @@ export default class App extends Component {
                         render={() => (
                             <div className="content-m-top">
                                 <ReportsTable />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/searchReservation"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <SearchReservation />
                             </div>
                         )}
                     />
