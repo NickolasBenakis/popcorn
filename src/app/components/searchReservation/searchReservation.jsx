@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './searchReservation.scss';
 import { useFormState } from 'react-use-form-state';
-import { Button, Alert, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Button, Alert, Dropdown } from 'react-bootstrap';
 import findReservations from '../../../api/reservations/findReservations';
 const SearchReservation = () => {
     const [formState, { text, email }] = useFormState();

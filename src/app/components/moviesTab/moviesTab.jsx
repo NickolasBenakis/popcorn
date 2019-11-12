@@ -30,10 +30,11 @@ class MoviesTab extends Component {
         }
     };
     render() {
-        const filteredMovies = this.state.movies.filter(movie =>
-            movie.title
-                .toLowerCase()
-                .includes(this.state.searchField.toLowerCase())
+        const { movies } = this.state;
+        const { searchField } = this.state;
+
+        const filteredMovies = movies.filter(movie =>
+            movie.title.toLowerCase().includes(searchField.toLowerCase())
         );
 
         return (
@@ -41,7 +42,7 @@ class MoviesTab extends Component {
                 <hr />
                 <FilterMovies searchChange={this.onSearchChange} />
                 <div id="MovieCards" className="movie-tab-wrapper">
-                    {this.state.movies.length ? (
+                    {movies.length ? (
                         <MoviesList movies={filteredMovies} />
                     ) : (
                         <div className="loading-bar"></div>
