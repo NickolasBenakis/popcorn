@@ -3,7 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import './registerModal';
 import uploadImage from '../../../../api/image/uploadImage';
 import { cdnOptions } from '../../../api_keys';
-import addUser from '../../../../api/user/addUser';
+import registerUser from '../../../../api/user/registerUser';
 class RegisterModal extends Component {
 	constructor() {
 		super();
@@ -61,14 +61,11 @@ class RegisterModal extends Component {
 			Email: this.emailRef.current.value,
 			FirstName: this.firstNameRef.current.value,
 			LastName: this.surNameRef.current.value,
-			imageUrl: this.state.imageUrl,
-			Role: {
-				RoleId: 1
-			}
+			imageUrl: this.state.imageUrl
 		};
 
 		try {
-			let res = await addUser(bodyPayload);
+			let res = await registerUser(bodyPayload);
 			console.log(res);
 			if (res) {
 				this.handleLogin();
