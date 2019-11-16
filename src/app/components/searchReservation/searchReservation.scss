@@ -1,5 +1,8 @@
 .black-border {
     border: 2px solid black;
+    min-width: 250px;
+    max-width: 350px;
+    width: calc(100% - 100px);
 
     &:focus {
         outline: 2px solid royalblue;
@@ -11,6 +14,10 @@
     display: inline-flex;
     justify-content: left;
     margin: 15px;
+
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
 }
 
 .select-title {
