@@ -15,7 +15,7 @@
     left: 0;
     display: inline;
     text-align: start;
-    padding: 15px 0;
+    padding: 20px 0;
 
     @media (max-width: 600px) {
         display: inline-flex;
@@ -145,7 +145,8 @@ a.non-link {
     .link-item {
         list-style: none;
         display: inline-flex;
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 500;
         padding-right: 20px;
     }
 
