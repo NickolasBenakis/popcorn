@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.scss';
 import NavBar from './components/navBar/navBar';
+import Footer from './components/footer/Footer';
 import CarouselComp from './components/carousel/carouselComp';
 import MoviesTab from './components/moviesTab/moviesTab';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -120,6 +121,7 @@ export default class App extends Component {
                             </div>
                         )}
                     />
+                    <Route path="/" component={Footer} />
                 </Router>
             </div>
         );
