@@ -56,10 +56,9 @@ function NavBarLink({
                         id="example-collapse-text"
                         className="collapse-options">
                         <ul className="menu-list">
-                            {/* <Link to="/myProfile">
+                            <Link to="/myProfile">
                                 <li className="link-item option">my profile</li>
-
-                            </Link> */}
+                            </Link>
                             {isAdmin(loginResponse) ? (
                                 <Link to="/adminPanel">
                                     <li className="link-item option">

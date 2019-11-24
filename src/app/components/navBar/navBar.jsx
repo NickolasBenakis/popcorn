@@ -3,7 +3,7 @@ import popCornLogo from '../../../assets/logos/popcorn2.svg';
 import './navBar.scss';
 import LoginModal from '../modals/loginModal/loginModal';
 import RegisterModal from '../modals/registerModal/registerModal';
-
+import getUserById from '../../../api/user/getUserById';
 import { Modal } from 'react-bootstrap';
 import NavbarLink from './navBarLink/navBarLink';
 import { Link, BrowserRouter } from 'react-router-dom';
@@ -17,9 +17,27 @@ class navBar extends Component {
         openBadge: false,
         loginResponse: {}
     };
+    constructor() {
+        super();
+        this.refreshHandlerLoginState();
+    }
+    refreshHandlerLoginState = () => {
+        // handle refresh
+        if (window.performance) {
+            if (performance.navigation.type == 1) {
+                const id = parseInt(window.sessionStorage.getItem('userID'));
+                if (id) {
+                    getUserById(id).then(res =>
+                        this.setState({ loginResponse: res, isLoggedIn: true })
+                    );
+                }
+            }
+        }
+    };
 
     handleLoginResponse = model => {
         this.setState({ loginResponse: model });
+        window.sessionStorage.setItem('userID', model && model.userId);
     };
 
     handleClose = () => {
@@ -51,6 +69,7 @@ class navBar extends Component {
             isGoogleLoggedIn: false,
             loginResponse: {}
         });
+        window.sessionStorage.removeItem('userID');
         window.document.cookie =
             'token' + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;';
     };

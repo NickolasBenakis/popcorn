@@ -35,6 +35,44 @@
     width: 100%;
 }
 
+.form-edit {
+    &__label {
+        width: 100px;
+        font-weight: bold;
+        float: left;
+        padding-top: 5px;
+        padding-right: 5px;
+
+        @media (max-width: 768px) {
+            width: 300px;
+        }
+    }
+
+    &__input {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        border: 1px solid #C2C2C2;
+        box-shadow: 1px 1px 4px #EBEBEB;
+        -moz-box-shadow: 1px 1px 4px #EBEBEB;
+        -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        padding: 7px;
+        outline: none;
+        min-width: 225px;
+    }
+
+    &__submit {
+        margin: 0 auto;
+        display: block;
+        float: right;
+        width: 100%;
+    }
+
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

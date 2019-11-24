@@ -50,7 +50,7 @@ class BookingTab extends Component {
         this.setState({
             confirmationData: {
                 user: {
-                    userId: 1
+                    userId: parseInt(window.sessionStorage.getItem('userID'))
                 },
                 MovieShowing: {
                     movieShowingId:
@@ -78,6 +78,7 @@ class BookingTab extends Component {
                         parseInt(window.location.href.split('?q=movieID')[1])
                 );
             });
+            console.log(filteredMovieShow);
             this.setState({
                 movieShow: filteredMovieShow[0],
                 auditorium:
