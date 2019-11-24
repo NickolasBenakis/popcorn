@@ -15,7 +15,8 @@ class RegisterModal extends Component {
             imageUrl: '',
             validFileSize: true,
             fileProgress: 0,
-            showProgress: false
+            showProgress: false,
+            loginResponse: {}
         };
         this.emailRef = React.createRef();
         this.passwordRef = React.createRef();
@@ -85,6 +86,8 @@ class RegisterModal extends Component {
             let res = await registerUser(bodyPayload);
             console.log(res);
             if (res) {
+                this.setState({ loginResponse: res });
+                this.props.handleLoginResponse(res);
                 this.handleLogin();
             }
         } catch (error) {

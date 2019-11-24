@@ -85,6 +85,7 @@ class navBar extends Component {
             <RegisterModal
                 childLogIn={this.logIn}
                 childHandleClose={this.handleClose}
+                handleLoginResponse={res => this.handleLoginResponse(res)}
             />
         ) : (
             <LoginModal
