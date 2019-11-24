@@ -43,6 +43,16 @@ function TheaterCard({
         setScreeningTime(convertToStandardTime(movieScreeningTime));
     }, []);
 
+    const doesImageExists = imgName => {
+        switch (imgName && imgName.toLowerCase()) {
+            case 'earth':
+            case 'jupiter':
+            case 'mars':
+                return true;
+            default:
+                return false;
+        }
+    };
     return (
         <Fragment>
             {flipped ? (
@@ -94,7 +104,11 @@ function TheaterCard({
                     <Card.Img
                         className="card-img-theater "
                         variant="top"
-                        src={`https://res.cloudinary.com/nickolasben/image/upload/w_450,c_scale/popcorn/${name.toLowerCase()}.png`}
+                        src={
+                            doesImageExists(name)
+                                ? `https://res.cloudinary.com/nickolasben/image/upload/w_450,c_scale/popcorn/${name.toLowerCase()}.png`
+                                : `https://res.cloudinary.com/nickolasben/image/upload/w_450,c_scale/popcorn/mockTheater.jpg`
+                        }
                         alt="theater"
                     />
                     <Card.Body>

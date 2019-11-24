@@ -26,6 +26,7 @@ function NavBarLink({
             </Link>
         );
     }
+    const avatarImage = res => (res && res.length > 1 ? `url(${res})` : null);
 
     const isAdmin = loginResponse => {
         return (
@@ -42,7 +43,14 @@ function NavBarLink({
                         ? 'avatar-container'
                         : 'link-item avatar-container'
                 }>
-                <span className="avatar" onClick={handleBadge}></span>
+                <span
+                    style={{
+                        backgroundImage: avatarImage(loginResponse.imageUrl),
+                        backgroundSize: 'cover'
+                    }}
+                    data-img={loginResponse.imageUrl}
+                    className="avatar"
+                    onClick={handleBadge}></span>
                 <Collapse in={openBadge}>
                     <div
                         id="example-collapse-text"

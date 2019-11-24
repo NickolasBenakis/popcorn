@@ -135,9 +135,9 @@ class LoginModal extends Component {
                     />
                     {this.renderEmailError()}
                 </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
+                {/* <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember me" />
-                </Form.Group>
+                </Form.Group> */}
                 <div style={{ textAlign: 'center' }}>
                     <Button
                         variant="primary"
@@ -146,9 +146,9 @@ class LoginModal extends Component {
                         disabled={!this.enableButton()}>
                         Login
                     </Button>
-                    <Form.Text className="text-muted">
-                        <a href="2">Forgot your password?</a>
-                    </Form.Text>
+                    {/* <Form.Text className="text-muted">
+                        <a href="/changePassword">Forgot your password?</a>
+                    </Form.Text> */}
                 </div>
                 <hr />
                 <Form.Text className="text-muted">
