@@ -82,7 +82,7 @@ function AdminTableAuditoriums() {
                             render={DescriptionRenderer}
                             sortable={false}
                         />
-                        <Field name="seats" label="Seats" sortable={false} />
+                        {/* <Field name="seats" label="Seats" sortable={false} /> */}
                         <Field
                             name="totalSeats"
                             label="TotalSeats"

@@ -189,11 +189,12 @@ function AdminTableMovieShowings() {
                                 sortable={false}
                                 render={dateRender}
                             />
-                            <Field
+                            {/* <Field
                                 name="reservations"
                                 label="reservations"
                                 sortable={false}
-                            />
+                                
+                            /> */}
                         </Fields>
                         <CreateForm
                             title="task Creation"
