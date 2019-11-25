@@ -40,6 +40,7 @@
         width: 100px;
         font-weight: bold;
         float: left;
+        text-align: left;
         padding-top: 5px;
         padding-right: 5px;
 
@@ -71,6 +72,33 @@
         width: 100%;
     }
 
+}
+
+.btn-container {
+    float: right;
+    text-align: right;
+
+    label {
+        button {
+            font-weight: 600;
+            height: 50px;
+            width: 100px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
+
+.edit-fav-icon {
+    padding: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+
+    &:hover {
+        color: royalblue;
+    }
 }
 
 @keyframes fadeIn {
