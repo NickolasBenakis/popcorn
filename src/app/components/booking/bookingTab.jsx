@@ -50,7 +50,8 @@ class BookingTab extends Component {
         this.setState({
             confirmationData: {
                 user: {
-                    userId: parseInt(window.sessionStorage.getItem('userID'))
+                    userId:
+                        parseInt(window.sessionStorage.getItem('userID')) || 1
                 },
                 MovieShowing: {
                     movieShowingId:

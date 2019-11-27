@@ -2,13 +2,14 @@ import React, { Fragment, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import './resultModal.scss';
 import { Link } from 'react-router-dom';
-
+import pdfDownloader from '../../../utils/pdfDownloader';
 const ResultModal = ({ showModal, handleModalClose, model }) => {
     useEffect(() => {
         //console.log(showModal);
     }, []);
     useEffect(() => {
         //console.log(model);
+        console.log(model.reservationId);
     }, [model]);
 
     return (
@@ -35,7 +36,7 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                         }></div>
                 </Modal.Body>
                 <Modal.Footer className="block text-center">
-                    <Link to={`/`} className="col-sm-12">
+                    <Link to={`/`} className="col-12">
                         <Button
                             className="btn btn-primary"
                             onClick={() => {
@@ -44,6 +45,13 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                             Return to home
                         </Button>
                     </Link>
+                    <br />
+                    <br />
+                    <Button
+                        className="btn btn-info pdf-btn"
+                        onClick={() => pdfDownloader(model.reservationId)}>
+                        Download PDF
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </Fragment>

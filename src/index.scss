@@ -15,3 +15,11 @@ $xs: (max-width: 600px);
 .no-padding {
     padding: unset !important;
 }
+
+.btn {
+    width: 150px;
+}
+
+.modal-footer> :not(:first-child) {
+    margin-left: 0;
+}

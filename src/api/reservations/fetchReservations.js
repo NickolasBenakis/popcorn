@@ -1,6 +1,6 @@
 export default () => {
     const url =
-        'localhost:5000/popCornCinemaApi/Reservations/GetReservationsAsync';
+        'http://localhost:5000/popCornCinemaApi/Reservations/GetReservationsAsync';
     return fetch(url, {
         method: 'GET'
     })
