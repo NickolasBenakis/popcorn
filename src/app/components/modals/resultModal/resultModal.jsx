@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Accordion, Card } from 'react-bootstrap';
 import './resultModal.scss';
 import { Link } from 'react-router-dom';
 import pdfDownloader from '../../../utils/pdfDownloader';
@@ -52,6 +52,25 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                         onClick={() => pdfDownloader(model.reservationId)}>
                         Download PDF
                     </Button>
+                    <br />
+                    <Accordion>
+                        <Card>
+                            <Card.Header>
+                                <Accordion.Toggle
+                                    as={Button}
+                                    variant="link"
+                                    eventKey="0">
+                                    Email friends
+                                </Accordion.Toggle>
+                            </Card.Header>
+                            <Accordion.Collapse eventKey="0">
+                                <Card.Body>
+                                    Insert email address of a Friend
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                        <Card></Card>
+                    </Accordion>
                 </Modal.Footer>
             </Modal>
         </Fragment>
