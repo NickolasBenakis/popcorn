@@ -1,3 +1,4 @@
+import { API_URL } from '../../app/Constants';
 export default (username, password) => {
     const url = `${API_URL}/popCornCinemaApi/Session/LogIn`;
     return fetch(url, {

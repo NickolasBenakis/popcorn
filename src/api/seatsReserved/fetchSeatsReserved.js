@@ -1,3 +1,4 @@
+import { API_URL } from '../../app/Constants';
 export default (id, dateTime) => {
     const url = `${API_URL}/popCornCinemaApi/SeatsReserved/GetSeatsReservedByCriteriaAsync`;
     return fetch(url, {

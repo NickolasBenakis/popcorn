@@ -1,3 +1,4 @@
+import { API_URL } from '../../app/Constants';
 export default id => {
     const url = `${API_URL}/popCornCinemaApi/Seats/GetSeatsByAuditoriumIdAsync/${id}`;
     return fetch(url, {

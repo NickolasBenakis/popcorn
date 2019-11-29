@@ -1,3 +1,5 @@
+import { API_URL } from '../../app/Constants';
+
 export default movieID => {
     const url = `${API_URL}/popCornCinemaApi/Movies/DeleteMovieAsync/${movieID}`;
     return fetch(url, {
