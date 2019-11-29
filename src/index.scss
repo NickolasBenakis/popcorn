@@ -10,7 +10,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-$xs: (max-width: 600px);
+$xs: (
+    max-width: 600px
+);
 
 .no-padding {
     padding: unset !important;
@@ -20,6 +22,6 @@ $xs: (max-width: 600px);
     width: 150px;
 }
 
-.modal-footer> :not(:first-child) {
+.modal-footer > :not(:first-child) {
     margin-left: 0;
 }

@@ -71,7 +71,7 @@
 }
 
 .crud-modal-form__field-error:before {
-    content: "";
+    content: '';
     background-color: transparent;
     display: block;
     position: absolute;
@@ -185,7 +185,8 @@
     border-bottom: 1px solid rgba(34, 36, 38, 0.1);
 }
 
-.crud-table__header {}
+.crud-table__header {
+}
 
 .crud-table__body {
     background-color: #fff;
@@ -225,7 +226,7 @@
 }
 
 .crud-table-pagination::before {
-    content: "";
+    content: '';
     clear: both;
     display: block;
     margin-top: 2rem;

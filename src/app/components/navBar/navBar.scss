@@ -7,7 +7,8 @@
 .App-header {
     background-color: #00756a;
     color: whitesmoke;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     position: fixed;
     z-index: 19;
     width: 100%;
@@ -100,7 +101,6 @@ a.non-link {
     margin: 0 5px;
     display: block;
     cursor: pointer;
-
 
     @media (max-width: 600px) {
         width: 24px;
