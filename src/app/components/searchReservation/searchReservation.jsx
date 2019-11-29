@@ -3,6 +3,8 @@ import './searchReservation.scss';
 import { useFormState } from 'react-use-form-state';
 import { Button, Alert, Dropdown } from 'react-bootstrap';
 import findReservations from '../../../api/reservations/findReservations';
+import ReservationInfo from './reservationInfo/reservationInfo';
+
 const SearchReservation = () => {
     const [formState, { text, email }] = useFormState();
     const [reservations, setReservations] = useState([]);
@@ -52,9 +54,7 @@ const SearchReservation = () => {
                 <form className="card card-body">
                     <div className="select-row">
                         <Dropdown>
-                            <Dropdown.Toggle
-                                variant="success"
-                                id="dropdown-basic">
+                            <Dropdown.Toggle variant="info" id="dropdown-basic">
                                 Select Search
                             </Dropdown.Toggle>
 
@@ -120,7 +120,16 @@ const SearchReservation = () => {
             <br></br>
             {reservations.length ? (
                 <div className="col-xs-12 container card-group">
-                    <div className="col-xs-12 card card-body">Info...</div>
+                    <div className="col-xs-12 card card-body">
+                        {reservations.map(reservation => {
+                            return (
+                                <ReservationInfo
+                                    key={reservation}
+                                    reservation={reservation}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
             ) : null}
         </Fragment>

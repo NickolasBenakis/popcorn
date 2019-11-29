@@ -65,10 +65,14 @@ a.non-link {
 
     .link-item {
         cursor: pointer;
+        transition: all 0.5s;
+        font-weight: bold;
 
         a:hover,
         &:hover {
-            color: #282c34;
+            // color: white;
+            // filter: brightness(2);
+            transform: scale(1.05);
         }
     }
 }
@@ -96,6 +100,12 @@ a.non-link {
     margin: 0 5px;
     display: block;
     cursor: pointer;
+
+
+    @media (max-width: 600px) {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 .collapse-options {
@@ -159,5 +169,6 @@ a.non-link {
     .navBarLinkList {
         height: 34px;
         padding-right: 0;
+        padding-left: 0;
     }
 }

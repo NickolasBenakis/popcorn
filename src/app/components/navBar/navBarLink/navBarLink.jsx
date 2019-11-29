@@ -71,6 +71,40 @@ function NavBarLink({
                     </div>
                 </Collapse>
             </li>
+        ) : window.sessionStorage.getItem('userID') ? (
+            <li
+                className={
+                    openBadge
+                        ? 'avatar-container'
+                        : 'link-item avatar-container'
+                }>
+                <span
+                    style={{
+                        backgroundImage: null,
+                        backgroundSize: 'cover'
+                    }}
+                    className="avatar"
+                    onClick={handleBadge}></span>
+                <Collapse in={openBadge}>
+                    <div
+                        id="example-collapse-text"
+                        className="collapse-options">
+                        <ul className="menu-list">
+                            <Link to="/myProfile">
+                                <li className="link-item option">my profile</li>
+                            </Link>
+                            {isAdmin(loginResponse) ? (
+                                <Link to="/adminPanel">
+                                    <li className="link-item option">
+                                        admin panel
+                                    </li>
+                                </Link>
+                            ) : null}
+                            {googleLoggedInContent()}
+                        </ul>
+                    </div>
+                </Collapse>
+            </li>
         ) : (
             <li className="link-item" onClick={handleShowModal}>
                 Login
@@ -94,9 +128,11 @@ function NavBarLink({
         <div className="navBarLinks col-sm-8-offset">
             <ul className="navBarLinkList">
                 <li className="link-item m-r-10">
-                    <Link to="/searchReservation">Search</Link>
-                    {/* <Link to="/theaters">Theaters</Link> */}
+                    <Link to="/searchReservation">check-in</Link>
                 </li>
+                {/* <li className="link-item m-r-10">
+                    <Link to="/theaters">Theaters</Link>
+                </li> */}
                 {displayMovieTab()}
                 {logStatusContent()}
             </ul>
