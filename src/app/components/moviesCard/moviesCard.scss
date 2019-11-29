@@ -54,6 +54,18 @@
     margin: 0 100px;
     padding: 20px;
 
+    // ipad
+    @media (min-width:740px) and (max-width:768px) and (min-height: 850px) and (max-height: 1024px) {
+        justify-content: center;
+        margin: auto;
+    }
+
+    // ipad pro
+    @media (min-width:900px) and (max-width:1025px) and (min-height: 1265px) and (max-height: 1367px) {
+        justify-content: center;
+        margin: auto;
+    }
+
     @media (max-width: 600px) {
         justify-content: center;
         margin: auto;
