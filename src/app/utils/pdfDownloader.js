@@ -15,9 +15,7 @@ export default async id => {
 // };
 
 const pdfGenerator = data => {
-    console.log(data);
     const objectUrl = URL.createObjectURL(data);
-    console.log(objectUrl);
     //window.open(objectUrl);
     downloadFile(objectUrl, 'reservation.pdf');
 };

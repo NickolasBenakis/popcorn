@@ -53,13 +53,11 @@ function ReportsTable() {
                         res.reportModels2,
                         res.reportModels3
                     );
-                    console.log(finalData);
                     setData(finalData);
                     setShowResults(true);
                 } else {
                     setShowNoResultsAlert(true);
                 }
-                console.log(res);
             } catch (error) {
                 throw new Error(error);
             }

@@ -4,13 +4,8 @@ import './resultModal.scss';
 import { Link } from 'react-router-dom';
 import pdfDownloader from '../../../utils/pdfDownloader';
 const ResultModal = ({ showModal, handleModalClose, model }) => {
-    useEffect(() => {
-        //console.log(showModal);
-    }, []);
-    useEffect(() => {
-        //console.log(model);
-        console.log(model.reservationId);
-    }, [model]);
+    useEffect(() => {}, []);
+    useEffect(() => {}, [model]);
 
     return (
         <Fragment>
@@ -37,11 +32,7 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                 </Modal.Body>
                 <Modal.Footer className="block text-center">
                     <Link to={`/`} className="col-12">
-                        <Button
-                            className="btn btn-primary"
-                            onClick={() => {
-                                console.log('return to home');
-                            }}>
+                        <Button className="btn btn-primary" onClick={() => {}}>
                             Return to home
                         </Button>
                     </Link>

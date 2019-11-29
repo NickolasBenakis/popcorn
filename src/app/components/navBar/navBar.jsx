@@ -58,12 +58,10 @@ class navBar extends Component {
     };
 
     logIn = () => {
-        console.log('navBar login');
         this.setState({ isLoggedIn: true });
         this.handleClose();
     };
     LogOut = () => {
-        console.log('ekana log out');
         this.setState({
             isLoggedIn: false,
             isGoogleLoggedIn: false,
@@ -81,16 +79,13 @@ class navBar extends Component {
     };
 
     googleResponse = res => {
-        console.log(res);
         if (res && !res.error) {
             this.googleLogIn();
         } else if (res.error) {
             console.log(res.error);
         }
     };
-    fbResponse = res => {
-        console.log(res);
-    };
+    fbResponse = res => {};
 
     title = () => {
         if (!this.state.showRegisterModal) {

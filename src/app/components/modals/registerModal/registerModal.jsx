@@ -46,7 +46,6 @@ class RegisterModal extends Component {
     handleFile = async e => {
         let files = Array.from(e.target.files);
         const fileName = files[0] && files[0].name;
-        console.log(files[0]);
         const file = files[0];
         if (file && file.size <= 200000) {
             this.setState({ showProgress: true });
@@ -84,7 +83,6 @@ class RegisterModal extends Component {
 
         try {
             let res = await registerUser(bodyPayload);
-            console.log(res);
             if (res) {
                 this.setState({ loginResponse: res });
                 this.props.handleLoginResponse(res);

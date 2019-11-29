@@ -38,13 +38,11 @@ function AdminTableUsers() {
                 roleId: options.roleSelected
             };
         }
-        console.log(payload);
         await addUser(payload);
         setOperation({
             action: 'create',
             times: operation.times++
         });
-        //window.location.reload();
     }
     async function deleteTaskApi(payload) {
         await deleteUser(payload.userId);
@@ -60,7 +58,6 @@ function AdminTableUsers() {
                 roleId: options.roleSelected
             };
         }
-        console.log(payload);
         await updateUser(payload);
         setOperation({
             action: 'update',
@@ -86,7 +83,6 @@ function AdminTableUsers() {
     const dateRender = ({ field }) => <input type="date" {...field} />;
     const handleRoleChangeOption = e => {
         options.roleSelected = getOptionSelectedDataKey(e.target);
-        console.log(options.roleSelected);
     };
 
     const selectMovieRender = () => {

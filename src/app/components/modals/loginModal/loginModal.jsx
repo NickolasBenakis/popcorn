@@ -57,7 +57,6 @@ class LoginModal extends Component {
                 this.emailRef.current.value,
                 this.passRef.current.value
             );
-            console.log('res apo backen', res);
             if (res.error) {
                 this.setState({
                     successLogin: false,
@@ -65,7 +64,6 @@ class LoginModal extends Component {
                     validPassword: false,
                     loginAttempt: true
                 });
-                console.log('lathos stixia');
             } else {
                 //window.sessionStorage.setItem('token', res.token);
                 window.document.cookie = `token=${res.token}`;
@@ -81,7 +79,6 @@ class LoginModal extends Component {
         const form = event.currentTarget;
         event.preventDefault();
         event.stopPropagation();
-        console.log(form.checkValidity());
         this.postCredentials();
     };
 

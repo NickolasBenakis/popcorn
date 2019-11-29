@@ -31,14 +31,11 @@ const SearchReservation = () => {
                 break;
         }
         fetchReservations(payload);
-
-        console.log(payload);
     };
 
     const fetchReservations = async payload => {
         try {
             let res = await findReservations(payload);
-            console.log(res);
             res === undefined ? setShowAlert(true) : setShowAlert(false);
             setReservations(res || []);
         } catch (error) {

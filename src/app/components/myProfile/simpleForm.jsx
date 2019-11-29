@@ -43,7 +43,6 @@ const SimpleForm = () => {
             window.sessionStorage.getItem('userID')
         );
         let res = await updateUser(formState.values);
-        console.log(res);
     };
 
     const editField = e => {

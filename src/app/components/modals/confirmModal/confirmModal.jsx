@@ -11,12 +11,8 @@ import { convertDateTime } from '../../../utils/dateUtils';
 import './confirmModal.scss';
 
 const ConfirmModal = ({ showModal, handleModalClose, model, handleSubmit }) => {
-    useEffect(() => {
-        //console.log(showModal);
-    }, []);
-    useEffect(() => {
-        //console.log(model);
-    }, [model]);
+    useEffect(() => {}, []);
+    useEffect(() => {}, [model]);
 
     const [isLoading, setIsLoading] = useState(false);
 
