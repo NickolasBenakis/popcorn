@@ -133,24 +133,26 @@ class navBar extends Component {
                     <Modal.Body>{this.renderBodyContent()}</Modal.Body>
                 </Modal>
                 <header className="App-header col-xs-12">
-                    <Link to="/" className="non-link col-sm-4">
-                        <img
-                            src={popCornLogo}
-                            className="App-logo"
-                            alt="logo"
+                    <span className="layout-header">
+                        <Link to="/" className="non-link col-sm-4">
+                            <img
+                                src={popCornLogo}
+                                className="App-logo"
+                                alt="logo"
+                            />
+                            <title id="navBarTitle">popcorn</title>
+                        </Link>
+                        <NavbarLink
+                            isGoogleLoggedIn={isGoogleLoggedIn}
+                            isLoggedIn={isLoggedIn}
+                            handleShowModal={this.handleShowModal}
+                            handleBadge={this.handleBadge}
+                            openBadge={openBadge}
+                            logOut={this.LogOut}
+                            badgeImage={this.badgeImage}
+                            loginResponse={loginResponse}
                         />
-                        <title id="navBarTitle">popcorn</title>
-                    </Link>
-                    <NavbarLink
-                        isGoogleLoggedIn={isGoogleLoggedIn}
-                        isLoggedIn={isLoggedIn}
-                        handleShowModal={this.handleShowModal}
-                        handleBadge={this.handleBadge}
-                        openBadge={openBadge}
-                        logOut={this.LogOut}
-                        badgeImage={this.badgeImage}
-                        loginResponse={loginResponse}
-                    />
+                    </span>
                 </header>
             </Fragment>
         );

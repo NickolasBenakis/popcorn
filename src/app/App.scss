@@ -9,9 +9,22 @@
     font-size: 14px;
 }
 
+.layout-header {
+    margin: 0 auto;
+    max-width: 1920px;
+    display: block;
+}
+
+.layout-footer {
+    margin: 0 auto;
+    max-width: 1920px;
+}
+
 .content-m-top {
     margin-top: 100px;
     min-height: 1024px;
+    max-width: 1920px;
+    margin: 100px auto;
 }
 
 .loading-bar {
@@ -22,6 +35,7 @@
     background-repeat: no-repeat;
     background-position-x: center;
 }
+
 
 .text-center {
     text-align: center;

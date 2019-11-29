@@ -1,7 +1,7 @@
 import React from 'react';
 import { Collapse } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import defaultAvatar from '../../../../assets/avatar-placeholder.png';
 function NavBarLink({
     logOut,
     isLoggedIn,
@@ -80,30 +80,10 @@ function NavBarLink({
                 }>
                 <span
                     style={{
-                        backgroundImage: null,
+                        backgroundImage: avatarImage(defaultAvatar),
                         backgroundSize: 'cover'
                     }}
-                    className="avatar"
-                    onClick={handleBadge}></span>
-                <Collapse in={openBadge}>
-                    <div
-                        id="example-collapse-text"
-                        className="collapse-options">
-                        <ul className="menu-list">
-                            <Link to="/myProfile">
-                                <li className="link-item option">my profile</li>
-                            </Link>
-                            {isAdmin(loginResponse) ? (
-                                <Link to="/adminPanel">
-                                    <li className="link-item option">
-                                        admin panel
-                                    </li>
-                                </Link>
-                            ) : null}
-                            {googleLoggedInContent()}
-                        </ul>
-                    </div>
-                </Collapse>
+                    className="avatar"></span>
             </li>
         ) : (
             <li className="link-item" onClick={handleShowModal}>

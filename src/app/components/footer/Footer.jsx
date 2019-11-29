@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <Fragment>
             <footer className="footer-section">
-                <div className="product-container">
+                <div className="product-container layout-footer">
                     <div className="popcorn-big-logo col-4">
                         <img
                             src={popCornLogo}
