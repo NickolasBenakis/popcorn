@@ -1,6 +1,5 @@
 export default (id, dateTime) => {
-    const url =
-        'http://localhost:5000/popCornCinemaApi/SeatsReserved/GetSeatsReservedByCriteriaAsync';
+    const url = `${API_URL}/popCornCinemaApi/SeatsReserved/GetSeatsReservedByCriteriaAsync`;
     return fetch(url, {
         method: 'POST',
         headers: {

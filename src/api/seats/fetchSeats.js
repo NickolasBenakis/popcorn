@@ -1,5 +1,5 @@
 export default id => {
-    const url = `http://localhost:5000/popCornCinemaApi/Seats/GetSeatsByAuditoriumIdAsync/${id}`;
+    const url = `${API_URL}/popCornCinemaApi/Seats/GetSeatsByAuditoriumIdAsync/${id}`;
     return fetch(url, {
         method: 'GET'
     })

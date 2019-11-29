@@ -1,5 +1,5 @@
 export default (username, password) => {
-    const url = 'http://localhost:5000/popCornCinemaApi/Session/LogIn';
+    const url = `${API_URL}/popCornCinemaApi/Session/LogIn`;
     return fetch(url, {
         method: 'POST',
         headers: {

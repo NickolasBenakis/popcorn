@@ -1,5 +1,5 @@
 export default id => {
-    const url = `http://localhost:5000/popCornCinemaApi/Auditoriums/DeleteAuditoriumAsync/${id}`;
+    const url = `${API_URL}/popCornCinemaApi/Auditoriums/DeleteAuditoriumAsync/${id}`;
     return fetch(url, {
         method: 'DELETE',
         headers: {

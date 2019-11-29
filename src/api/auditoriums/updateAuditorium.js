@@ -1,6 +1,5 @@
 export default payload => {
-    const url =
-        'http://localhost:5000/popCornCinemaApi/Auditoriums/UpdateAuditoriumAsync';
+    const url = `${API_URL}/popCornCinemaApi/Auditoriums/UpdateAuditoriumAsync`;
     return fetch(url, {
         method: 'POST',
         headers: {

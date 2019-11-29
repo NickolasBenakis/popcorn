@@ -1,6 +1,5 @@
 export default payload => {
-    const url =
-        'http://localhost:5000/popCornCinemaApi/Reservations/GetReservationWithUserCriteriaAsync';
+    const url = `${API_URL}/popCornCinemaApi/Reservations/GetReservationWithUserCriteriaAsync`;
     return fetch(url, {
         method: 'POST',
         headers: {

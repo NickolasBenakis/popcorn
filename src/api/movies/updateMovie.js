@@ -1,6 +1,5 @@
 export default payload => {
-    const url =
-        'http://localhost:5000/popCornCinemaApi/Movies/UpdateMovieAsync';
+    const url = `${API_URL}/popCornCinemaApi/Movies/UpdateMovieAsync`;
     return fetch(url, {
         method: 'POST',
         headers: {

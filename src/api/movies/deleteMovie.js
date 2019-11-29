@@ -1,5 +1,5 @@
 export default movieID => {
-    const url = `http://localhost:5000/popCornCinemaApi/Movies/DeleteMovieAsync/${movieID}`;
+    const url = `${API_URL}/popCornCinemaApi/Movies/DeleteMovieAsync/${movieID}`;
     return fetch(url, {
         method: 'DELETE',
         headers: {

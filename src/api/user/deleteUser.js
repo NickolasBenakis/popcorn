@@ -1,5 +1,5 @@
 export default id => {
-    const url = `http://localhost:5000/popCornCinemaApi/Users/DeleteUser/${id}`;
+    const url = `${API_URL}/popCornCinemaApi/Users/DeleteUser/${id}`;
     return fetch(url, {
         method: 'DELETE',
         headers: {

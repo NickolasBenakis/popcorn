@@ -1,5 +1,5 @@
 export default (dateFrom, dateTo) => {
-    const url = `http://localhost:5000/popCornCinemaApi/Reports/GetAllReportsAsync?dtFrom=${dateFrom}&dtTo=${dateTo}`;
+    const url = `${API_URL}/popCornCinemaApi/Reports/GetAllReportsAsync?dtFrom=${dateFrom}&dtTo=${dateTo}`;
     return fetch(url, {
         method: 'GET'
     })

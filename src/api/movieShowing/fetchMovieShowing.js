@@ -1,6 +1,5 @@
 export default () => {
-    const url =
-        'http://localhost:5000/popCornCinemaApi/MovieShowings/GetMovieShowingsAsync';
+    const url = `${API_URL}/popCornCinemaApi/MovieShowings/GetMovieShowingsAsync`;
     return fetch(url, {
         method: 'GET',
         credentials: 'same-origin'
