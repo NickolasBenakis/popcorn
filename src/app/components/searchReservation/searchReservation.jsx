@@ -71,24 +71,24 @@ const SearchReservation = () => {
                         </Dropdown>
                     </div>
                     {searchBy === 'email' ? (
-                        <label htmlFor="email">
+                        <label htmlFor="email" className="input-group">
                             <input
                                 onKeyUp={e => {
                                     setEmailVal(e.currentTarget.value);
                                 }}
-                                className="black-border"
                                 {...email('email')}
+                                className="form-control standard-input"
                                 placeholder="email"
                                 required
                             />
                         </label>
                     ) : searchBy === 'phone' ? (
-                        <label htmlFor="phone">
+                        <label htmlFor="phone" className="input-group">
                             <input
                                 onKeyUp={e => {
                                     setPhoneVal(e.currentTarget.value);
                                 }}
-                                className="black-border"
+                                className="form-control standard-input"
                                 {...text('phone')}
                                 placeholder="phone"
                                 required

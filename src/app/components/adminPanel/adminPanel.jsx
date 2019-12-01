@@ -9,28 +9,30 @@ function AdminPanel() {
             <main className="admin-content">
                 <h5 className="col-12">Edit the following data</h5>
                 <section>
-                    <ul className="operations-list">
+                    <ul className="operations-list list-group">
                         <Link to="/adminPanel/users">
-                            <li>Users</li>
+                            <li className="list-group-item">Users</li>
                         </Link>
                         <Link to="/adminPanel/movies">
-                            <li>Movies</li>
+                            <li className="list-group-item">Movies</li>
                         </Link>
                         <Link to="/adminPanel/auditoriums">
-                            <li>Auditoriums</li>
+                            <li className="list-group-item">Auditoriums</li>
                         </Link>
                         <Link to="/adminPanel/movieShowings">
-                            <li>Movie Showings</li>
+                            <li className="list-group-item">Movie Showings</li>
                         </Link>
                     </ul>
                 </section>
                 <h5 className="col-12">Reports</h5>
                 <section>
-                    <ul className="reports-list">
+                    <ul className="reports-list list-group">
                         {/* <li>Check-in reservations</li>
                         <li>Total reservations by showings</li> */}
                         <Link to="/adminPanel/reports">
-                            <li>Total reservations by users</li>
+                            <li className="list-group-item">
+                                Total reservations by users
+                            </li>
                         </Link>
                     </ul>
                 </section>
