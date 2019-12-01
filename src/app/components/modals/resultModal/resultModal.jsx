@@ -8,8 +8,8 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
         //console.log(showModal);
     }, []);
     useEffect(() => {
-        //console.log(model);
-        console.log(model.reservationId);
+        // //console.log(model);
+        // console.log(model.reservationId);
     }, [model]);
 
     return (

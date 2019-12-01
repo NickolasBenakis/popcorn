@@ -15,6 +15,7 @@ import AdminTableAuditoriums from './components/adminPanel/adminTable/adminTable
 import AdminTableMovieShowings from './components/adminPanel/adminTable/adminTableMovieShowings/adminTableMovieShowings';
 import ReportsTable from './components/adminPanel/reportsTable/reportsTable';
 import SearchReservation from './components/searchReservation/searchReservation';
+import PrivateRoute from '../app/services/privateRoute.js';
 export default class App extends Component {
     render() {
         return (
@@ -31,7 +32,7 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route
+                    <PrivateRoute
                         path="/myProfile"
                         exact
                         render={() => (
@@ -58,7 +59,8 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route
+                    <PrivateRoute
+                        adminRoute={true}
                         path="/adminPanel"
                         exact
                         render={() => (
@@ -67,7 +69,8 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route
+                    <PrivateRoute
+                        adminRoute={true}
                         path="/adminPanel/movies"
                         exact
                         render={() => (
@@ -76,7 +79,8 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route
+                    <PrivateRoute
+                        adminRoute={true}
                         path="/adminPanel/users"
                         exact
                         render={() => (
@@ -85,7 +89,8 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route
+                    <PrivateRoute
+                        adminRoute={true}
                         path="/adminPanel/auditoriums"
                         exact
                         render={() => (
@@ -94,7 +99,8 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route
+                    <PrivateRoute
+                        adminRoute={true}
                         path="/adminPanel/movieShowings"
                         exact
                         render={() => (
@@ -103,7 +109,8 @@ export default class App extends Component {
                             </div>
                         )}
                     />
-                    <Route
+                    <PrivateRoute
+                        adminRoute={true}
                         path="/adminPanel/reports"
                         exact
                         render={() => (

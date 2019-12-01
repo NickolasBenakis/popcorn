@@ -19,13 +19,17 @@ class navBar extends Component {
     };
     constructor() {
         super();
-        this.refreshHandlerLoginState();
+        this.loginStateHandler();
     }
-    refreshHandlerLoginState = () => {
-        // handle refresh
+    loginStateHandler = () => {
+        const id = parseInt(window.sessionStorage.getItem('userID'));
+
+        // handle refresh && address change in navigation url
         if (window.performance) {
-            if (performance.navigation.type == 1) {
-                const id = parseInt(window.sessionStorage.getItem('userID'));
+            if (
+                performance.navigation.type == 1 ||
+                performance.navigation.type == 0
+            ) {
                 if (id) {
                     getUserById(id).then(res =>
                         this.setState({ loginResponse: res, isLoggedIn: true })
@@ -36,8 +40,16 @@ class navBar extends Component {
     };
 
     handleLoginResponse = model => {
-        this.setState({ loginResponse: model });
-        window.sessionStorage.setItem('userID', model && model.userId);
+        if (model) {
+            this.setState({ loginResponse: model });
+            console.log(model);
+            window.sessionStorage.setItem('userID', model.userId);
+            window.sessionStorage.setItem('token', model.token);
+            window.sessionStorage.setItem(
+                'roleID',
+                model.role && model.role.roleId
+            );
+        }
     };
 
     handleClose = () => {
@@ -70,6 +82,8 @@ class navBar extends Component {
             loginResponse: {}
         });
         window.sessionStorage.removeItem('userID');
+        window.sessionStorage.removeItem('roleID');
+        window.sessionStorage.removeItem('token');
         window.document.cookie =
             'token' + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;';
     };
@@ -83,6 +97,8 @@ class navBar extends Component {
     googleResponse = res => {
         console.log(res);
         if (res && !res.error) {
+            window.sessionStorage.setItem('userID', res.googleId);
+            window.sessionStorage.setItem('token', res.tokenId);
             this.googleLogIn();
         } else if (res.error) {
             console.log(res.error);
