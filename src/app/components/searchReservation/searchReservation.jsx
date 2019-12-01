@@ -124,7 +124,7 @@ const SearchReservation = () => {
                         {reservations.map(reservation => {
                             return (
                                 <ReservationInfo
-                                    key={reservation}
+                                    key={reservation.reservationId}
                                     reservation={reservation}
                                 />
                             );
