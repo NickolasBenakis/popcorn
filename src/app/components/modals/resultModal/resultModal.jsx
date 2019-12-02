@@ -1,17 +1,37 @@
-import React, { Fragment, useEffect } from 'react';
-import { Modal, Button, Accordion, Card } from 'react-bootstrap';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
+import { Modal, Button, Accordion, Card, Alert } from 'react-bootstrap';
 import './resultModal.scss';
 import { Link } from 'react-router-dom';
 import pdfDownloader from '../../../utils/pdfDownloader';
 const ResultModal = ({ showModal, handleModalClose, model }) => {
-    useEffect(() => {
-        //console.log(showModal);
-    }, []);
-    useEffect(() => {
-        // //console.log(model);
-        // console.log(model.reservationId);
-    }, [model]);
-
+    useEffect(() => {}, []);
+    useEffect(() => {}, [model]);
+    const friendEmail = useRef(null);
+    const [emailStatus, setEmailStatus] = useState(false);
+    const [emailRes, setEmailRes] = useState(null);
+    const emailAFriend = async e => {
+        e.preventDefault();
+        const payload = {
+            ReservationId: model.reservationId,
+            UsersEmails: [friendEmail.current.value]
+        };
+        let res = await fetch(
+            'http://localhost:5000/popCornCinemaApi/Reservations/SendReservartionPdfToFriendsByEmail',
+            {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            }
+        ).then(res => res.json());
+        console.log(res);
+        if (res) {
+            setEmailStatus(true);
+            setEmailRes(res);
+        }
+    };
     return (
         <Fragment>
             <Modal
@@ -66,6 +86,29 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>
                                     Insert email address of a Friend
+                                    <form onSubmit={emailAFriend}>
+                                        <div className="input-group">
+                                            <input
+                                                type="email"
+                                                className="form-control"
+                                                ref={friendEmail}
+                                            />
+                                            <button
+                                                type="submit"
+                                                className="btn btn-primary">
+                                                Send
+                                            </button>
+                                        </div>
+                                    </form>
+                                    {emailStatus ? (
+                                        <div>
+                                            <Alert
+                                                variant={'success'}
+                                                className="col-12 p-1 m-1">
+                                                {emailRes}
+                                            </Alert>
+                                        </div>
+                                    ) : null}
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>
