@@ -17,6 +17,7 @@ import ReportsTable from './components/adminPanel/reportsTable/reportsTable';
 import SearchReservation from './components/searchReservation/searchReservation';
 import PrivateRoute from '../app/services/privateRoute.js';
 import ReservationPipeline from './components/reservationPipeline/reservationPipeline';
+import RetryPattern from './components/retryPattern/retryPattern';
 export default class App extends Component {
     render() {
         return (
@@ -135,6 +136,15 @@ export default class App extends Component {
                         render={() => (
                             <div className="content-m-top">
                                 <ReservationPipeline />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/retry_pattern"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <RetryPattern />
                             </div>
                         )}
                     />
