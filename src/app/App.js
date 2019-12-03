@@ -16,6 +16,7 @@ import AdminTableMovieShowings from './components/adminPanel/adminTable/adminTab
 import ReportsTable from './components/adminPanel/reportsTable/reportsTable';
 import SearchReservation from './components/searchReservation/searchReservation';
 import PrivateRoute from '../app/services/privateRoute.js';
+import ReservationPipeline from './components/reservationPipeline/reservationPipeline';
 export default class App extends Component {
     render() {
         return (
@@ -125,6 +126,15 @@ export default class App extends Component {
                         render={() => (
                             <div className="content-m-top">
                                 <SearchReservation />
+                            </div>
+                        )}
+                    />
+                    <Route
+                        path="/reservation_pipeline"
+                        exact
+                        render={() => (
+                            <div className="content-m-top">
+                                <ReservationPipeline />
                             </div>
                         )}
                     />
