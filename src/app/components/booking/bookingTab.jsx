@@ -81,6 +81,7 @@ class BookingTab extends Component {
                         parseInt(window.location.href.split('?q=movieID')[1])
                 );
             });
+            console.log(movieShowings);
             let theaters = filteredMovieShow.map(el => el.auditorium);
             let movieShows = filteredMovieShow.map(el => el);
             console.log(movieShows);

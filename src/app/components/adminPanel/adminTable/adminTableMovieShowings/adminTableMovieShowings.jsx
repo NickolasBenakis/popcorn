@@ -4,7 +4,7 @@ import fetchShowings from '../../../../../api/movieShowing/fetchMovieShowing';
 import addShowing from '../../../../../api/movieShowing/addMovieShowing';
 import deleteShowing from '../../../../../api/movieShowing/deleteMovieShowing';
 import updateShowing from '../../../../../api/movieShowing/updateMovieShowing';
-import { Button } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import fetchMovies from '../../../../../api/movies/fetchMovies';
 import fetchAuditoriums from '../../../../../api/auditoriums/fetchAuditoriums';
@@ -27,6 +27,8 @@ function AdminTableMovieShowings() {
         action: '',
         times: 0
     });
+    const [error, setError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState(null);
     const options = {
         movieSelected: null,
         auditoriumSelected: null
@@ -72,12 +74,19 @@ function AdminTableMovieShowings() {
                 auditoriumId: options.auditoriumSelected
             };
         }
-        await updateShowing(payload);
-        setOperation({
-            action: 'update',
-            times: operation.times++
-        });
-        window.location.reload();
+        const res = await updateShowing(payload);
+        if (res.error) {
+            setError(true);
+            setErrorMsg(res.error);
+        } else {
+            setOperation({
+                action: 'update',
+                times: operation.times++
+            });
+            window.location.reload();
+        }
+
+        //window.location.reload();
     }
     async function deleteTaskApi(payload) {
         await deleteShowing(payload.movieShowingId);
@@ -142,6 +151,15 @@ function AdminTableMovieShowings() {
 
     return (
         <Fragment>
+            <div className="col-12 container row ">
+                {error ? (
+                    <Alert
+                        className="col-12 container row "
+                        variant={'warning'}>
+                        {errorMsg}
+                    </Alert>
+                ) : null}
+            </div>
             {movies.length && auditoriums.length ? (
                 <div style={styles.container}>
                     <Link to="/adminPanel/">
