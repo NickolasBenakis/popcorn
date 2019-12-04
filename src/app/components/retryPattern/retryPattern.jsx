@@ -4,15 +4,14 @@ import getReservationRetry from '../../../api/retryPattern/getReservationRetry';
 function RetryPattern() {
     let counter = 1;
 
-    const handlePattern = async () => {
+    const handlePattern = () => {
         if (counter !== 4) {
-            try {
-                const res = await getReservationRetry(counter);
-                console.log(res);
-            } catch (error) {
-                counter++;
-                await handlePattern();
-            }
+            getReservationRetry(counter).then(res => {
+                if (res.status === 500) {
+                    counter++;
+                    handlePattern();
+                }
+            });
         }
     };
 
