@@ -58,7 +58,7 @@ export default class App extends Component {
                                 </div>
                             )}
                         />
-                        <Route
+                        <PrivateRoute
                             path="/booking"
                             exact
                             render={() => (

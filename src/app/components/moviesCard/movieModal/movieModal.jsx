@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Modal } from 'react-bootstrap';
+import { Modal, Alert } from 'react-bootstrap';
 import '../moviesCard.scss';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
@@ -65,13 +65,19 @@ function MovieModal({
                                 {description}
                             </p>
                             <p key={id}>
-                                <Link
-                                    to={`/booking?q=movieID${id}`}
-                                    className="col-sm-12">
-                                    <Button className="btn btn-primary">
-                                        Book me
-                                    </Button>
-                                </Link>
+                                {window.sessionStorage.getItem('userID') ? (
+                                    <Link
+                                        to={`/booking?q=movieID${id}`}
+                                        className="col-sm-12">
+                                        <Button className="btn btn-primary">
+                                            Book me
+                                        </Button>
+                                    </Link>
+                                ) : (
+                                    <Alert variant={'info'}>
+                                        Please sign in to book this movie
+                                    </Alert>
+                                )}
                             </p>
                         </div>
                     </div>
