@@ -26,7 +26,9 @@ function RetryPattern() {
                     onClick={handlePattern}>
                     Click!
                 </button>
-                <h2 style={{ margin: '0 auto' }}>🤯🤯🤯🤯🤯🤯</h2>
+                <h2 style={{ margin: '0 auto' }}>
+                    <span role="img">&#9731;&#9731;&#9731;&#9731;</span>
+                </h2>
                 <small>
                     <code>
                         {'<secret text=" '}open the console ! {' " />'}👩‍💻👨‍💻

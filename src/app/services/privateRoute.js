@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 const PrivateRoute = ({ adminRoute, render: Component, ...options }) => {
     const adminLogic = () => {
         return window.sessionStorage.getItem('token') &&
-            window.sessionStorage.getItem('roleID') == 2 ? (
+            parseInt(window.sessionStorage.getItem('roleID')) === 2 ? (
             <Route {...options} render={props => <Component {...props} />} />
         ) : (
             <Route

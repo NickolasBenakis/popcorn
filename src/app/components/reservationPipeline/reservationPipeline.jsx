@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import './reservationPipeline.scss';
 import fetchReservationHistory from '../../../api/reservations/fetchReservationHistory';
 import CRUDTable, { Fields, Field } from 'react-crud-table';

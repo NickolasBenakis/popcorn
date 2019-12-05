@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import './reportsTable.scss';
 import { Spinner, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
@@ -9,20 +9,12 @@ import { convertDateToInputDateForm } from '../../../utils/dateUtils';
 function ReportsTable() {
     const [data, setData] = useState([]);
     const [showResults, setShowResults] = useState(false);
-    const [startDate, setStartDate] = useState(new Date(2019,4,1));
+    const [startDate, setStartDate] = useState(new Date(2019, 4, 1));
     const [endDate, setEndDate] = useState(new Date());
     const [isLoading, setIsLoading] = useState(false);
     const [showInvalidAlert, setShowInvalidAlert] = useState(false);
     const [showNoResultsAlert, setShowNoResultsAlert] = useState(false);
 
-    // useEffect(() => {
-    //     fetchApi();
-    // }, [operation]);
-
-    // async function fetchApi() {
-    //     let res = await fetchAllReservations();
-    //     setData(res);
-    // }
     const styles = {
         container: { margin: 'auto 20px', width: '100%' }
     };
@@ -44,9 +36,16 @@ function ReportsTable() {
                 if (res) {
                     setIsLoading(false);
                 }
-                if (res.reportModels.length && res.reportModels2.length && res.reportModels3.length) {
-                    const finalData = res.reportModels.concat(res.reportModels2, res.reportModels3)
-                    console.log(finalData)
+                if (
+                    res.reportModels.length &&
+                    res.reportModels2.length &&
+                    res.reportModels3.length
+                ) {
+                    const finalData = res.reportModels.concat(
+                        res.reportModels2,
+                        res.reportModels3
+                    );
+                    console.log(finalData);
                     setData(finalData);
                     setShowResults(true);
                 } else {

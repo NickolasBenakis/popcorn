@@ -5,8 +5,7 @@ import './theaterCard.scss';
 import '../moviesCard/moviesCard.scss';
 import {
     calculateWeekdays,
-    convertToStandardTime,
-    convertDate
+    convertToStandardTime
 } from '../../utils/dateUtils';
 import ScheduleListCreator from './ScheduleListCreator';
 

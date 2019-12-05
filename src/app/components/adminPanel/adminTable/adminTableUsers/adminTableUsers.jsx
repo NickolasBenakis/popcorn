@@ -79,10 +79,10 @@ function AdminTableUsers() {
     const styles = {
         container: { margin: 'auto 20px', width: 'fit-content' }
     };
-    const DescriptionRenderer = ({ field }) => (
-        <textarea maxLength={100} {...field} />
-    );
-    const renderNumberField = ({ field }) => <input type="number" {...field} />;
+    // const DescriptionRenderer = ({ field }) => (
+    //     <textarea maxLength={100} {...field} />
+    // );
+    // const renderNumberField = ({ field }) => <input type="number" {...field} />;
     const dateRender = ({ field }) => <input type="date" {...field} />;
     const handleRoleChangeOption = e => {
         options.roleSelected = getOptionSelectedDataKey(e.target);

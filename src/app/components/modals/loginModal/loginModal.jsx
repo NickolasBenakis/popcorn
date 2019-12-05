@@ -1,4 +1,4 @@
-import React, { Component, Ref } from 'react';
+import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 //import FacebookLogin from 'react-facebook-login';

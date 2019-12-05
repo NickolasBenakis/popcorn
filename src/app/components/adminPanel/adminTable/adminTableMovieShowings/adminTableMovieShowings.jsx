@@ -110,9 +110,9 @@ function AdminTableMovieShowings() {
     const styles = {
         container: { margin: 'auto 20px', width: 'fit-content' }
     };
-    const disabledField = ({ field }) => <input {...field} disabled />;
-    const dateRender = ({ field }) => <input type="date" {...field} />;
-    const timeRender = ({ field }) => <input type="time" {...field} />;
+    const disabledField = ({ field }) => <input {...(field || '')} disabled />;
+    const dateRender = ({ field }) => <input type="date" {...(field || '')} />;
+    const timeRender = ({ field }) => <input type="time" {...(field || '')} />;
     const makeMovieOptions = model => {
         const arr = model.map(el => (
             <option key={el.movieId} datakey={el.movieId} value={el.title}>
@@ -135,6 +135,7 @@ function AdminTableMovieShowings() {
     const selectMovieRender = () => {
         return (
             <select className="preselect" onChange={handleMovieChangeOption}>
+                {/* <option>Select movie</option> */}
                 {movies.map(el => el)}
             </select>
         );
@@ -144,6 +145,7 @@ function AdminTableMovieShowings() {
             <select
                 className="preselect"
                 onChange={handleAuditoriumsChangeOption}>
+                {/* <option>Select theater</option> */}
                 {auditoriums.map(el => el)}
             </select>
         );
@@ -172,6 +174,8 @@ function AdminTableMovieShowings() {
                             <Field
                                 name="movieShowingId"
                                 label="id"
+                                hideInCreateForm
+                                hideInUpdateForm
                                 sortable={false}
                                 render={disabledField}
                             />

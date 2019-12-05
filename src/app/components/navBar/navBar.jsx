@@ -6,7 +6,7 @@ import RegisterModal from '../modals/registerModal/registerModal';
 import getUserById from '../../../api/user/getUserById';
 import { Modal } from 'react-bootstrap';
 import NavbarLink from './navBarLink/navBarLink';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class navBar extends Component {
     state = {
@@ -27,8 +27,8 @@ class navBar extends Component {
         // handle refresh && address change in navigation url
         if (window.performance) {
             if (
-                performance.navigation.type == 1 ||
-                performance.navigation.type == 0
+                parseInt(performance.navigation.type) === 1 ||
+                parseInt(performance.navigation.type) === 0
             ) {
                 if (id) {
                     getUserById(id).then(res =>
