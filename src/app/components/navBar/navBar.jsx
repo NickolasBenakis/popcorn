@@ -4,6 +4,7 @@ import './navBar.scss';
 import LoginModal from '../modals/loginModal/loginModal';
 import RegisterModal from '../modals/registerModal/registerModal';
 import getUserById from '../../../api/user/getUserById';
+import thirdPartyLogin from '../../../api/login/thirdPartyLogin';
 import { Modal } from 'react-bootstrap';
 import NavbarLink from './navBarLink/navBarLink';
 import { Link } from 'react-router-dom';
@@ -94,8 +95,10 @@ class navBar extends Component {
         }));
     };
 
-    googleResponse = res => {
+    googleResponse = async res => {
         console.log(res);
+        let finalRes = await thirdPartyLogin(res.accessToken);
+        console.log(finalRes);
         if (res && !res.error) {
             window.sessionStorage.setItem('userID', res.googleId);
             window.sessionStorage.setItem('token', res.tokenId);
