@@ -57,7 +57,7 @@ function AdminTableMovies() {
         container: { margin: 'auto 20px', width: 'fit-content' }
     };
     const DescriptionRenderer = ({ field }) => (
-        <textarea maxLength={100} {...field} />
+        <textarea maxLength={700} {...field} />
     );
     const renderNumberField = ({ field }) => <input type="number" {...field} />;
     const dateRender = ({ field }) => <input type="date" {...field} />;

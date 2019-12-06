@@ -21,11 +21,11 @@
 
     li {
         cursor: pointer;
-        border: 1px solid black;
         text-align: left;
         padding: 15px;
         background-color: whitesmoke;
-        color: black;
+        color: rgba(50, 50, 50, 1);
+        transition: all 0.5s;
 
         &:hover {
             border: 1px solid royalblue;

@@ -1,4 +1,4 @@
-import React, { Component, Ref } from 'react';
+import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import GoogleLogin from 'react-google-login';
 //import FacebookLogin from 'react-facebook-login';
@@ -102,13 +102,6 @@ class LoginModal extends Component {
                         onFailure={res => this.props.getGoogleResponse(res)}
                         cookiePolicy={'single_host_origin'}
                     />
-                    {/* <FacebookLogin
-                        cssClass="fb-button"
-                        appId={facebookApiID}
-                        fields="name,email,picture"
-                        onClick={res => this.props.getFbResponse(res)}
-                        callback={res => this.props.getFbResponse(res)}
-                    /> */}
                 </Form.Group>
                 <hr />
                 <Form.Group controlId="formBasicEmail">

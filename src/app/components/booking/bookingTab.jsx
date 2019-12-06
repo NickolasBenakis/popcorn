@@ -11,6 +11,8 @@ class BookingTab extends Component {
     state = {
         movieShow: null,
         auditorium: null,
+        selectedAuditorium: null,
+        selectedMovieShow: null,
         showSeats: false,
         dateTime: '',
         bookingDateTime: '',
@@ -54,8 +56,8 @@ class BookingTab extends Component {
                 },
                 MovieShowing: {
                     movieShowingId:
-                        this.state.movieShow &&
-                        this.state.movieShow.movieShowingId
+                        this.state.selectedMovieShow &&
+                        this.state.selectedMovieShow.movieShowingId
                 },
                 SeatsReserved: this.state.seatsSelected,
                 BookingDateTime: convertToDateTimeLocale(),
@@ -78,10 +80,16 @@ class BookingTab extends Component {
                         parseInt(window.location.href.split('?q=movieID')[1])
                 );
             });
+            console.log(movieShowings);
+            let theaters = filteredMovieShow.map(el => el.auditorium);
+            let movieShows = filteredMovieShow.map(el => el);
+            console.log(movieShows);
             this.setState({
-                movieShow: filteredMovieShow[0],
+                //movieShow: filteredMovieShow[0],
+                movieShow: movieShows,
                 auditorium:
-                    filteredMovieShow[0] && filteredMovieShow[0].auditorium
+                    //filteredMovieShow[0] && filteredMovieShow[0].auditorium
+                    theaters
             });
         } catch (error) {
             throw new Error(error);
@@ -113,6 +121,13 @@ class BookingTab extends Component {
     handleResultModalClose = () => {
         this.setState({ showResultModal: false });
     };
+    handleShowing = (auditorium, movieShow) => {
+        console.log('auditorium selected', auditorium, movieShow);
+        this.setState({
+            selectedAuditorium: auditorium,
+            selectedMovieShow: movieShow
+        });
+    };
 
     render() {
         return (
@@ -124,8 +139,8 @@ class BookingTab extends Component {
                         model={{
                             seatsSelected: this.state.seatsSelected,
                             dateTime: this.state.dateTime,
-                            auditorium: this.state.auditorium,
-                            movieShow: this.state.movieShow
+                            auditorium: this.state.selectedAuditorium,
+                            movieShow: this.state.selectedMovieShow
                         }}
                         handleSubmit={this.handleSubmit}
                     />
@@ -145,10 +160,11 @@ class BookingTab extends Component {
                                 <h2 className="step-heading">Choose theater</h2>
                                 <div className="flex-center">
                                     <TheatersList
-                                        auditoriums={[this.state.auditorium]}
+                                        auditoriums={this.state.auditorium}
                                         movieShow={this.state.movieShow}
                                         toggleSeats={this.toggleSeats}
                                         handleTime={this.handleTime}
+                                        handleShowing={this.handleShowing}
                                     />
                                 </div>
                             </div>
@@ -156,13 +172,15 @@ class BookingTab extends Component {
                                 <div className="div2 col-xs-12 col-sm-12 col-md-6">
                                     <Seats
                                         movieShowingId={
-                                            this.state.movieShow &&
-                                            this.state.movieShow.movieShowingId
+                                            this.state.selectedMovieShow &&
+                                            this.state.selectedMovieShow
+                                                .movieShowingId
                                         }
                                         dateTime={this.state.dateTime}
                                         auditoriumId={
-                                            this.state.auditorium &&
-                                            this.state.auditorium.auditoriumId
+                                            this.state.selectedAuditorium &&
+                                            this.state.selectedAuditorium
+                                                .auditoriumId
                                         }
                                         getSeatsReservedData={
                                             this.getSeatsReservedData

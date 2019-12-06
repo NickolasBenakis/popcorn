@@ -16,7 +16,10 @@ function TheaterCard({
     movieShowDateRange,
     movieScreeningTime,
     toggleSeats,
-    handleTime
+    handleTime,
+    handleShowing,
+    auditorium,
+    movieShow
 }) {
     const cardElement = useRef(null);
     const [flipped, setFlipped] = useState(false);
@@ -35,6 +38,8 @@ function TheaterCard({
         }
         setFlipped(!flipped);
     }
+
+    const selectShowing = () => handleShowing(auditorium, movieShow);
 
     useEffect(() => {
         setDays(
@@ -113,10 +118,21 @@ function TheaterCard({
                     />
                     <Card.Body>
                         <Card.Title className="text-center card-title">
-                            {name}
+                            Theater : <strong>{name}</strong>
+                            {movieShowingID && days.length ? (
+                                <div className="date-range-tag">
+                                    <strong>{days[0]}</strong>
+                                    <strong>{days[days.length - 1]}</strong>
+                                </div>
+                            ) : null}
                         </Card.Title>
                         {typeof movieShowingID === 'number' ? (
-                            <Button variant="primary" onClick={flipTheCard}>
+                            <Button
+                                variant="primary"
+                                onClick={() => {
+                                    flipTheCard();
+                                    selectShowing();
+                                }}>
                                 Schedule
                             </Button>
                         ) : null}

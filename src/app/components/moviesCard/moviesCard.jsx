@@ -27,7 +27,7 @@ class MoviesCard extends Component {
 
         return (
             <Fragment>
-                <Card className="CardContainer">
+                <Card className="CardContainer" onClick={this.handleShow}>
                     <Card.Img
                         className="card-img"
                         variant="top"
