@@ -1,5 +1,7 @@
+import { API_URL } from '../../app/Constants';
+
 export default reservationId => {
-    const url = `http://localhost:5000/popCornCinemaApi/ReservationCqrs/GetReservationHistoryById/${reservationId}`;
+    const url = `${API_URL}/popCornCinemaApi/ReservationCqrs/GetReservationHistoryById/${reservationId}`;
     return fetch(url, {
         method: 'GET'
     })

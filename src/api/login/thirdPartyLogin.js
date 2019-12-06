@@ -1,5 +1,7 @@
+import { API_URL } from '../../app/Constants';
+
 export default accessToken => {
-    const url = `http://localhost:5000/popCornCinemaApi/Session/ThirdPartyLogIn`;
+    const url = `${API_URL}/popCornCinemaApi/Session/ThirdPartyLogIn`;
     return fetch(url, {
         method: 'POST',
         headers: {
