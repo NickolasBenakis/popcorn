@@ -96,19 +96,19 @@ class navBar extends Component {
     };
 
     googleResponse = async res => {
-        console.log(res);
-        let finalRes = await thirdPartyLogin(res.accessToken);
-        console.log(finalRes);
-        if (res && !res.error) {
-            window.sessionStorage.setItem('userID', res.googleId);
-            window.sessionStorage.setItem('token', res.tokenId);
+        let model = await thirdPartyLogin(res.accessToken);
+        if (model && !model.error) {
+            this.setState({ loginResponse: model });
+            window.sessionStorage.setItem('userID', model.userId);
+            window.sessionStorage.setItem('token', model.token);
+            window.sessionStorage.setItem(
+                'roleID',
+                model.role && model.role.roleId
+            );
             this.googleLogIn();
         } else if (res.error) {
             console.log(res.error);
         }
-    };
-    fbResponse = res => {
-        console.log(res);
     };
 
     title = () => {
