@@ -1,0 +1,13 @@
+sudo: false
+notifications:
+  email: false
+branches:
+  only:
+    - master
+language: node_js
+node_js:
+  - "10"
+install:
+  - npm install --save-dev npm@3
+script:
+  - npm run build
