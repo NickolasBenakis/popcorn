@@ -32,7 +32,6 @@ const ReservationInfo = ({ reservation }) => {
         if (res) {
             setStatus(true);
         }
-        console.log(res);
     };
 
     return (

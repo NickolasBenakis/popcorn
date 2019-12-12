@@ -26,7 +26,6 @@ const ResultModal = ({ showModal, handleModalClose, model }) => {
                 body: JSON.stringify(payload)
             }
         ).then(res => res.json());
-        console.log(res);
         if (res) {
             setEmailStatus(true);
             setEmailRes(res);

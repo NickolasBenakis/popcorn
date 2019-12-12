@@ -72,7 +72,7 @@ class LoginModal extends Component {
                 this.closeModal();
             }
         } catch (error) {
-            console.log('Ton ipiamen crashare to backend tou onasi', error);
+            console.log('Fire Onasis', error);
         }
     };
     handleSubmit = event => {

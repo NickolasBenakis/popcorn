@@ -43,7 +43,6 @@ class navBar extends Component {
     handleLoginResponse = model => {
         if (model) {
             this.setState({ loginResponse: model });
-            console.log(model);
             window.sessionStorage.setItem('userID', model.userId);
             window.sessionStorage.setItem('token', model.token);
             window.sessionStorage.setItem(

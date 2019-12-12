@@ -80,10 +80,8 @@ class BookingTab extends Component {
                         parseInt(window.location.href.split('?q=movieID')[1])
                 );
             });
-            console.log(movieShowings);
             let theaters = filteredMovieShow.map(el => el.auditorium);
             let movieShows = filteredMovieShow.map(el => el);
-            console.log(movieShows);
             this.setState({
                 //movieShow: filteredMovieShow[0],
                 movieShow: movieShows,
@@ -122,7 +120,6 @@ class BookingTab extends Component {
         this.setState({ showResultModal: false });
     };
     handleShowing = (auditorium, movieShow) => {
-        console.log('auditorium selected', auditorium, movieShow);
         this.setState({
             selectedAuditorium: auditorium,
             selectedMovieShow: movieShow

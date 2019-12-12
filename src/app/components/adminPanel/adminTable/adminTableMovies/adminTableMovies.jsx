@@ -120,19 +120,7 @@ function AdminTableMovies() {
                         submitText="Create"
                         validate={values => {
                             const errors = {};
-                            // if (!values.title) {
-                            //     errors.title = "Please, provide movie's title";
-                            // }
-                            // if (!values.description) {
-                            //     errors.description =
-                            //         "Please, provide movie's description";
-                            //}
-                            // if (values.durationMin) {
-                            //     console.log(values.durationMin);
-                            //     values.durationMin = parseInt(values.durationMin);
-                            //     // errors.durationMin =
-                            //     //     "Please, provide movie's duration";
-                            // }
+
                             return errors;
                         }}
                     />

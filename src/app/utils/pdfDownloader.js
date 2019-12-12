@@ -8,12 +8,6 @@ export default async id => {
         .catch(error => console.log(error));
 };
 
-// const isOkStatus = (status, data) => {
-//     if (status === 200) {
-//         return data.blob();
-//     }
-// };
-
 const pdfGenerator = data => {
     const objectUrl = URL.createObjectURL(data);
     //window.open(objectUrl);

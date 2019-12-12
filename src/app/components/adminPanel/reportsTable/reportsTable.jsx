@@ -45,7 +45,6 @@ function ReportsTable() {
                         res.reportModels2,
                         res.reportModels3
                     );
-                    console.log(finalData);
                     setData(finalData);
                     setShowResults(true);
                 } else {
