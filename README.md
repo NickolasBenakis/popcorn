@@ -17,6 +17,13 @@ This is a semester project for my MSc web development course.🎓🎓
 * popcorn is an ⚛️ SPA application for booking tickets 🎫 & seats 🪑. 
 * There is also a sub-system for create, update, delete users, movies, seats, auditoriums, movie showings.
 * Users have many roles like : Admin, super-user, user
+* Frontend is served in Surge [https://popcorn.surge.sh](https://popcorn.surge.sh)
+* Back-end repo [https://github.com/panosonasis/popCornCinemaApi](https://github.com/panosonasis/popCornCinemaApi)
+* Back-end is served in Azure [https://popcorncinemaapi20191121032120.azurewebsites.net](https://popcorncinemaapi20191121032120.azurewebsites.net)
+* SQL Database is served in a digital-ocean droplet 💧.
+
+*** 💕💕Many thanks to my fellow contributors and colleagues 
+[https://github.com/panosonasis], [https://github.com/manKraut] for their amazing collaboration on the backend implementation. 
 
 ## Install
 To install, `cd` to project root and run:
