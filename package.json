@@ -9,7 +9,7 @@
 		"react-bootstrap": "^1.0.0-beta.9",
 		"react-dom": "^16.8.5",
 		"react-ionicons": "^3.0.1",
-		"react-scripts": "2.1.8",
+		"react-scripts": "5.0.1",
 		"react-seat-picker": "^1.2.0",
 		"surge": "^0.21.3"
 	},
